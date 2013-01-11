@@ -91,5 +91,16 @@ namespace BusinessLayer
             return events;
         }
 
+        /// <summary>
+        /// Permets de vérifier le couple login, mot de passe.
+        /// </summary>
+        /// <param name="text">Le login de l'utilisateur.</param>
+        /// <param name="password">Le mot de passe de l'utilisateur.</param>
+        /// <returns>true si la connexion est possible, false sinon.</returns>
+        public static Boolean CheckConnectionUser(String text, String password)
+        {
+            return text.Equals(password);
+        }
+
     }
 }
