@@ -1,5 +1,0 @@
-C:\Users\Gaëtan\Documents\GitHub\Csharp\EntitiesLayer\bin\Debug\EntitiesLayer.dll
-C:\Users\Gaëtan\Documents\GitHub\Csharp\EntitiesLayer\bin\Debug\EntitiesLayer.pdb
-C:\Users\Gaëtan\Documents\GitHub\Csharp\EntitiesLayer\obj\Debug\EntitiesLayer.csprojResolveAssemblyReference.cache
-C:\Users\Gaëtan\Documents\GitHub\Csharp\EntitiesLayer\obj\Debug\EntitiesLayer.dll
-C:\Users\Gaëtan\Documents\GitHub\Csharp\EntitiesLayer\obj\Debug\EntitiesLayer.pdb
