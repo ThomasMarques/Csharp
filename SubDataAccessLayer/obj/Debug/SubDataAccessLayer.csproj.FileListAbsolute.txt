@@ -1,0 +1,7 @@
+C:\Users\Gaëtan\Documents\GitHub\Csharp\SubDataAccessLayer\bin\Debug\SubDataAccessLayer.dll
+C:\Users\Gaëtan\Documents\GitHub\Csharp\SubDataAccessLayer\bin\Debug\SubDataAccessLayer.pdb
+C:\Users\Gaëtan\Documents\GitHub\Csharp\SubDataAccessLayer\bin\Debug\EntitiesLayer.dll
+C:\Users\Gaëtan\Documents\GitHub\Csharp\SubDataAccessLayer\bin\Debug\EntitiesLayer.pdb
+C:\Users\Gaëtan\Documents\GitHub\Csharp\SubDataAccessLayer\obj\Debug\SubDataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Gaëtan\Documents\GitHub\Csharp\SubDataAccessLayer\obj\Debug\SubDataAccessLayer.dll
+C:\Users\Gaëtan\Documents\GitHub\Csharp\SubDataAccessLayer\obj\Debug\SubDataAccessLayer.pdb

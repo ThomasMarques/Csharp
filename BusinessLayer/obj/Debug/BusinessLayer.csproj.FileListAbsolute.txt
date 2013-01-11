@@ -1,0 +1,9 @@
+C:\Users\Gaëtan\Documents\GitHub\Csharp\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\Gaëtan\Documents\GitHub\Csharp\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\Gaëtan\Documents\GitHub\Csharp\BusinessLayer\bin\Debug\EntitiesLayer.dll
+C:\Users\Gaëtan\Documents\GitHub\Csharp\BusinessLayer\bin\Debug\SubDataAccessLayer.dll
+C:\Users\Gaëtan\Documents\GitHub\Csharp\BusinessLayer\bin\Debug\EntitiesLayer.pdb
+C:\Users\Gaëtan\Documents\GitHub\Csharp\BusinessLayer\bin\Debug\SubDataAccessLayer.pdb
+C:\Users\Gaëtan\Documents\GitHub\Csharp\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Gaëtan\Documents\GitHub\Csharp\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\Gaëtan\Documents\GitHub\Csharp\BusinessLayer\obj\Debug\BusinessLayer.pdb
