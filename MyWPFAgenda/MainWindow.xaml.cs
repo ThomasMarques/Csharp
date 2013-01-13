@@ -24,5 +24,20 @@ namespace MyWPFAgenda
         {
             InitializeComponent();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            new EventByDate().Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            new Artistes().Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            new EventsByLieu().Show();
+        }
     }
 }

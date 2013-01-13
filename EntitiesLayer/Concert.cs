@@ -77,8 +77,7 @@ namespace EntitiesLayer
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder(base.ToString());
-            sb.Append(" Disposition Particuliere: ").Append(_dispoParticuliere).Append(" Duree en minutes: ").Append(_dureeEnMinute);
-            sb.Append(" Nombre de loges: ").Append(_nbLoges);
+            sb.Append(" - ").Append(_dureeEnMinute).Append("minutes");
             return sb.ToString();
         }
 

@@ -32,6 +32,18 @@ namespace MyWPFAgenda
                 new MainWindow().Show();
                 this.Close();
             }
+            else
+            {
+                if (txtLogin.Text.Length > 0)
+                {
+                    labelError.Content = "Couple login, password incorrecte.";
+                }
+                else
+                {
+                    labelError.Content = "Le login ne peut pas être vide...";
+                }
+                    labelError.Visibility = System.Windows.Visibility.Visible;
+            }
         }
 
         private void TextBox_Login_changed(object sender, TextChangedEventArgs e)

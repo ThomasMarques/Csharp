@@ -42,7 +42,9 @@ namespace SubDataAccessLayer
 
             IList<Evenement> events = new List<Evenement>();
 
-            events.Add(new Exposition(artistes, "La ligues des justiciers", 0, 8.50f, "The avengers",50));
+            events.Add(new Exposition(artistes, "La ligues des justiciers", 0, 8.50f, "The avengers", 50));
+            events.Add(new Exposition(artistes, "Le retour des supers héros", 0, 8.50f, "Le retour des supers héros", 50));
+            events.Add(new Exposition(artistes, "La suite du film \"Le retour des supers héros\"", 0, 8.50f, "Le re-retour des supers héros", 50));
 
             artistes = new List<Artiste>();
             artistes.Add(new Artiste(4, new DateTime(1982, 3, 12), "Abar", "Ben"));
@@ -82,8 +84,16 @@ namespace SubDataAccessLayer
             artistes.Add(new Artiste(2, new DateTime(1920, 2, 2), "Wayne", "Bruce"));
             artistes.Add(new Artiste(3, new DateTime(1945, 6, 14), "Parker", "Peter"));
 
-            pe.Add(new PlanningElement(new DateTime(2012,12,21,0,0,0),new DateTime(2012,12,21,23,59,59),0,
-                new Exposition(artistes, "La ligues des justiciers", 0, 8.50f, "The avengers",50),
+            pe.Add(new PlanningElement(new DateTime(2012, 12, 21, 0, 0, 0), new DateTime(2012, 12, 21, 23, 59, 59), 0,
+                new Exposition(artistes, "La ligues des justiciers", 0, 8.50f, "The avengers", 50),
+                new Lieu(0, "Liberty Island", "53000", "Statue de liberté", 50, "USA", 22f, "06 06 06 06 06", "New York city"), 0));
+
+            pe.Add(new PlanningElement(new DateTime(2013, 1, 21, 0, 0, 0), new DateTime(2013, 1, 21, 23, 59, 59), 0,
+                new Exposition(artistes, "Le retour des supers héros", 0, 8.50f, "Le retour des supers héros", 50),
+                new Lieu(0, "Liberty Island", "53000", "Statue de liberté", 50, "USA", 22f, "06 06 06 06 06", "New York city"), 0));
+
+            pe.Add(new PlanningElement(new DateTime(2013, 2, 21, 0, 0, 0), new DateTime(2013, 2, 21, 23, 59, 59), 0,
+                new Exposition(artistes, "La suite du film \"Le retour des supers héros\"", 0, 8.50f, "Le re-retour des supers héros", 50),
                 new Lieu(0, "Liberty Island", "53000", "Statue de liberté", 50, "USA", 22f, "06 06 06 06 06", "New York city"), 0));
 
             artistes = new List<Artiste>();

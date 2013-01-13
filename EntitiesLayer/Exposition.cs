@@ -50,7 +50,7 @@ namespace EntitiesLayer
         public override string ToString()
         {
             StringBuilder sb=new StringBuilder(base.ToString());
-            sb.Append(" Nombre oeuvre exposee: ").Append(_nombreOeuvreExposees);
+            sb.Append(" - ").Append(_nombreOeuvreExposees).Append("oeuvre(s) exposee(s)");
             return sb.ToString();
         }
 

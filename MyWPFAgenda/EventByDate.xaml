@@ -1,0 +1,20 @@
+﻿<Window Name="window"
+        x:Class="MyWPFAgenda.EventByDate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Evenements" Height="120" Width="550" MinWidth="550" MinHeight="120" MaxWidth="550" MaxHeight="120" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70px" >
+            </RowDefinition>
+            <RowDefinition Height="2px" >
+            </RowDefinition>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Background="DarkOrange" Grid.ColumnSpan="2" >
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Evenements par date" VerticalAlignment="Center" Foreground="White" FontSize="36" FontFamily="Calibri" FontWeight="Bold"/>
+        </Grid>
+        <Grid Background="Black" Grid.Row="1" Grid.ColumnSpan="2" />
+        <StackPanel Name="stackPanel" HorizontalAlignment="Left" Grid.Row="2" Width="542" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>
