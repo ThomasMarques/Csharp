@@ -20,14 +20,48 @@ namespace MyWPFAgenda
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        PreferenceUtilisateur pf;
+
+        public MainWindow(string login)
         {
             InitializeComponent();
+            pf = new PreferenceUtilisateur(login);
+            if (pf.Load(login))
+            {
+                this.Top = pf.PosX;
+                this.Left = pf.PosY;
+                this.Height = pf.HeightMainWindow;
+                this.Width = pf.WidthMainWindow;
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            new EventByDate().Show();
+        }
 
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            new Artistes().Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            new EventsByLieu().Show();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            new Lieux().Show();
+        }
+
+        private void Window_Closed_1(object sender, EventArgs e)
+        {
+            pf.PosX = this.Top;
+            pf.PosY = this.Left;
+            pf.WidthMainWindow = this.Width;
+            pf.HeightMainWindow = this.Height;
+            pf.Save();
         }
     }
 }

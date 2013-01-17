@@ -21,7 +21,7 @@ namespace MyWPFAgenda
 
         void App_DispatcherUnhandledException(Object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            //ici gestion d'erreurs
+            MessageBox.Show("Une erreur est survenue lors de l'execution de votre Smart Agenda. Veuillez contacter Vador pour plus de renseignements. Cordialement, Anakin.");
         }
     }
 }

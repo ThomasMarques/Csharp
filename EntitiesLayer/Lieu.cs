@@ -149,9 +149,9 @@ namespace EntitiesLayer
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("Guid : ").Append(_guid).Append(" Adresse: ").Append(_adresse);
-            sb.Append(" Ville : ").Append(_ville).Append(" Nom : ").Append(_nom);
-            sb.Append(" Telephone : ").Append(_telephone).Append(" Nb Places: ").Append(_nombrePlacesTotal);
+            sb.Append(_nom).Append(", ").Append(_adresse);
+            sb.Append(", ").Append(_codePostal).Append(" ").Append(_ville);
+
             return sb.ToString();
         }
 
@@ -168,6 +168,15 @@ namespace EntitiesLayer
                 ret = ((Lieu)obj).Guid.Equals(this.Guid);
 
             return ret;
+        }
+
+        /// <summary>
+        /// Retourne le HashCode de l'objet.
+        /// </summary>
+        /// <returns>Le HashCode de l'objet</returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
 
     }

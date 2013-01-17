@@ -88,9 +88,9 @@ namespace EntitiesLayer
         /// <returns>Une chaine de charactère contenant les différents attributs de l'objet.</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder("Guid : ");
-            sb.Append(_giud).Append(" Nom : ").Append(_nom).Append(" ").Append(_prenom);
-            sb.Append(" née le  ").Append(_dateDeNaissance.ToString());
+            StringBuilder sb = new StringBuilder();
+            sb.Append(_prenom).Append(" ").Append(_nom);
+            sb.Append(" née le  ").Append(_dateDeNaissance.ToString("dd / MM / yyyy"));
             return sb.ToString();
         }
 

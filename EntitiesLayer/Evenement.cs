@@ -97,14 +97,9 @@ namespace EntitiesLayer
         /// <returns>La string représentant l'evenement.</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder("Artistes :");
-            foreach(Artiste a in _artistes)
-            {
-                sb.Append(a.ToString()).Append("\n");
-            }
-            sb.Append("Titre : ").Append(_titre);
-            sb.Append("\nDescription : ").Append(_description);
-            sb.Append("\ntarif : ").Append(_tarif);
+            StringBuilder sb = new StringBuilder();
+            sb.Append(_titre);
+            sb.Append(" - ").Append(_description);
 
             return sb.ToString();
         }

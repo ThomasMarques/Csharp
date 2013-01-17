@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitiesLayer", "EntitiesLa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWPFAgenda", "MyWPFAgenda\MyWPFAgenda.csproj", "{0A473308-5B96-4D73-943D-9526949A28FE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{13180C44-9057-4631-B81F-69A8D2E59A22}"
+	ProjectSection(SolutionItems) = preProject
+		Files\sasa.xml = Files\sasa.xml
+		Files\toto.xml = Files\toto.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
