@@ -101,5 +101,15 @@ namespace BusinessLayer
         {
             return (login.Length > 0)?login.Equals(password):false;
         }
+
+
+        /// <summary>
+        /// Récupère les planning Elements
+        /// </summary>
+        /// <returns></returns>
+        public IList<PlanningElement> getPlanningElements()
+        {
+            return _dal.getPlanningElement();
+        }
     }
 }

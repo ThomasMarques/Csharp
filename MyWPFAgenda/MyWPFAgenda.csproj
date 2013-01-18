@@ -57,6 +57,7 @@
     <Compile Include="GestionEvents.xaml.cs">
       <DependentUpon>GestionEvents.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlannigElementViewModel.cs" />
     <Compile Include="PlanningElementView.xaml.cs">
       <DependentUpon>PlanningElementView.xaml</DependentUpon>
     </Compile>
