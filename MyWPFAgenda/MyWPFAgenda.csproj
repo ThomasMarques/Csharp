@@ -54,10 +54,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-
-
     <Compile Include="GestionEvents.xaml.cs">
       <DependentUpon>GestionEvents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningElementView.xaml.cs">
+      <DependentUpon>PlanningElementView.xaml</DependentUpon>
     </Compile>
     <Compile Include="XMLAgenda.cs" />
     <Page Include="Artistes.xaml">

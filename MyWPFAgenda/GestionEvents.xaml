@@ -41,7 +41,6 @@
 
         </Grid>
         <Grid Background="Black" Grid.Column="1" />
-        <local:PlanningElementView Grid.Column="2"/>
-
+        <local:PlanningElementView Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
