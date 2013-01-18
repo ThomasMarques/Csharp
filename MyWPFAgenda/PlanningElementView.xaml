@@ -26,7 +26,6 @@
             <ComboBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="203"/>
             <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="23" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="203"/>
             <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="203"/>
-            <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="67" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="203"/>
             <TextBlock HorizontalAlignment="Right" Grid.Row="3" TextWrapping="Wrap" Text="Date :" VerticalAlignment="Center"/>
             <TextBlock HorizontalAlignment="Right" Grid.Row="4" TextWrapping="Wrap" Text="Prix :" VerticalAlignment="Center" RenderTransformOrigin="0.517,0.514"/>
             <TextBlock HorizontalAlignment="Right" Grid.Row="5" TextWrapping="Wrap" Text="Description :" VerticalAlignment="Center" RenderTransformOrigin="0.11,0.34"/>
@@ -34,6 +33,7 @@
             <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="57" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="203"/>
             <TextBlock HorizontalAlignment="Right" Grid.Row="6" TextWrapping="Wrap" Text="Places réservées :" VerticalAlignment="Center"/>
             <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="23" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Center" Width="203"/>
+            <ListBox Grid.Column="1" HorizontalAlignment="Center" Height="57" VerticalAlignment="Center" Width="203" Grid.Row="1"/>
 
         </Grid>
     </Grid>
