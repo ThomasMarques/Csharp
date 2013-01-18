@@ -9,10 +9,11 @@
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Grid Background="DarkBlue">
-                <TextBlock Text="Mon Smart Agenda" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="White" FontFamily="Calibri" FontWeight="Bold"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="White" FontFamily="Calibri" FontWeight="Bold" Margin="228,42,228,40"><Run Text="Mon Smart Agenda"/><Run Language="fr-fr" Text=" Avancé"/></TextBlock>
             </Grid>
             <Grid Grid.Row="1" Background="#FFBAB5D6">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
@@ -25,6 +26,7 @@
                 <Button Content="Artistes" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="40" FontSize="20" FontFamily="Calibri" Click="Button_Click_2"/>
                 <Button Content="Lieux" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="200" Height="40" FontSize="20" Click="Button_Click_4"/>
                 <Button Content="Evènement par lieu" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="200" Height="40" FontSize="20" Click="Button_Click_3"/>
+                <Button Content="Gestion Evenements" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="20" Height="40" Width="300" Click="Button_Click_5" />
 
 
             </Grid>
