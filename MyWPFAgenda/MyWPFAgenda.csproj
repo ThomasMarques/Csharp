@@ -60,9 +60,12 @@
     <Compile Include="GestionEvents.xaml.cs">
       <DependentUpon>GestionEvents.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlannigElementViewModel.cs" />
     <Compile Include="PlanningElementView.xaml.cs">
       <DependentUpon>PlanningElementView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="ViewModelBase.cs" />
     <Compile Include="XMLAgenda.cs" />
     <Page Include="Artistes.xaml">
       <SubType>Designer</SubType>

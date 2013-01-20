@@ -111,5 +111,15 @@ namespace BusinessLayer
 
             return connected;
         }
+
+
+        /// <summary>
+        /// Récupère les planning Elements
+        /// </summary>
+        /// <returns></returns>
+        public IList<PlanningElement> getPlanningElements()
+        {
+            return _dal.getPlanningElement();
+        }
     }
 }
