@@ -42,7 +42,9 @@ namespace MyWPFAgenda
                 {
                     labelError.Content = "Le login ne peut pas être vide...";
                 }
-                    labelError.Visibility = System.Windows.Visibility.Visible;
+                labelError.Visibility = System.Windows.Visibility.Visible;
+                txtLogin.Clear();
+                txtPassword.Clear();
             }
         }
 

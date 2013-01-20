@@ -99,7 +99,17 @@ namespace BusinessLayer
         /// <returns>true si la connexion est possible, false sinon.</returns>
         public static Boolean CheckConnectionUser(String login, String password)
         {
-            return (login.Length > 0)?login.Equals(password):false;
+            bool connected = false;
+
+            Utilisateur user = DalManager.getUtilisateurByLogin(login);
+
+            if (user != null)
+            {
+                if (password.Equals(user.Password))
+                    connected = true;
+            }
+
+            return connected;
         }
     }
 }

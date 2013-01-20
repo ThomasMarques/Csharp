@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using BusinessLayer;
 
 namespace MyWPFAgenda
 {
@@ -22,18 +21,7 @@ namespace MyWPFAgenda
     {
         public GestionEvents()
         {
-            InitializeComponent();
-
-            BusinessManager bm = new BusinessManager();
-
-            IList<String> events = bm.getEvenementsSortByDate();
-
-            foreach (String s in events)
-            {
-                TextBlock tb = new TextBlock();
-                tb.Text = s;
-                stackPanel.Items.Add(tb);
-            }      
+            InitializeComponent();  
         }
     }
 }
