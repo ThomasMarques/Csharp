@@ -9,7 +9,7 @@
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Grid Background="DarkBlue">
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="White" FontFamily="Calibri" FontWeight="Bold" Margin="228,42,228,40"><Run Text="Mon Smart Agenda"/><Run Language="fr-fr" Text=" Avancé"/></TextBlock>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="White" FontFamily="Calibri" FontWeight="Bold" Text="Mon Smart Agenda Avancé" ></TextBlock>
             </Grid>
             <Grid Grid.Row="1" Background="#FFBAB5D6">
                 <Grid.RowDefinitions>

@@ -27,14 +27,24 @@ namespace MyWPFAgenda
 
             BusinessManager bm = new BusinessManager();
 
-            IList<String> events = bm.getEvenementsSortByDate();
+            IList<String> list = bm.getEvenementsSortByDate();
 
-            foreach (String s in events)
+            foreach(String str in list)
             {
                 TextBlock tb = new TextBlock();
-                tb.Text = s;
+                tb.Text = str;
                 stackPanel.Items.Add(tb);
-            }    
+            }
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Pas encore fait...");
+        }
+
+        private void removeButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("A faire aussi...");
         }
     }
 }

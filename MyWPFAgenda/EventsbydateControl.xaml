@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="470" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70px" />
@@ -23,8 +23,8 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Content="Ajouter" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,5" FontSize="20" MinWidth="114" MinHeight="39"/>
-            <Button Content="Supprimer" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Padding="10,5" />
+            <Button Content="Ajouter" Name="addButton"  HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,5" FontSize="20" MinWidth="114" MinHeight="39" Click="addButton_Click"/>
+            <Button Content="Supprimer" Name="removeButton" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Padding="10,5" Click="removeButton_Click" />
         </Grid>
         <ListView Grid.Row="2" Grid.RowSpan="1" HorizontalContentAlignment="Center" x:Name="stackPanel">
             <ListView.View>

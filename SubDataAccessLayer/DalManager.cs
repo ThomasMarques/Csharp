@@ -65,21 +65,21 @@ namespace SubDataAccessLayer
             _lieux.Add(new Lieu(2, "3 rue du capitole", "75005", "Boucherie", 200, "France", 12.5f, "06 06 06 06 06", "Paris"));
 
             // Création des PlanningElements
-            IList<PlanningElement> pe = new List<PlanningElement>();
+            _pe = new List<PlanningElement>();
 
-            pe.Add(new PlanningElement(new DateTime(2012, 12, 21, 0, 0, 0), new DateTime(2012, 12, 21, 23, 59, 59), 0,
+            _pe.Add(new PlanningElement(new DateTime(2012, 12, 21, 0, 0, 0), new DateTime(2012, 12, 21, 23, 59, 59), 0,
                 _events.ElementAt(0),_lieux.ElementAt(0),0));
 
-            pe.Add(new PlanningElement(new DateTime(2013, 1, 21, 0, 0, 0), new DateTime(2013, 1, 21, 23, 59, 59), 0,
+            _pe.Add(new PlanningElement(new DateTime(2013, 1, 21, 0, 0, 0), new DateTime(2013, 1, 21, 23, 59, 59), 0,
                 _events.ElementAt(1), _lieux.ElementAt(0), 0));
 
-            pe.Add(new PlanningElement(new DateTime(2013, 2, 21, 0, 0, 0), new DateTime(2013, 2, 21, 23, 59, 59), 0,
+            _pe.Add(new PlanningElement(new DateTime(2013, 2, 21, 0, 0, 0), new DateTime(2013, 2, 21, 23, 59, 59), 0,
                 _events.ElementAt(2), _lieux.ElementAt(0), 0));
 
-            pe.Add(new PlanningElement(new DateTime(2013, 1, 15, 21, 0, 0), new DateTime(2013, 1, 15, 23, 30, 0), 1,
+            _pe.Add(new PlanningElement(new DateTime(2013, 1, 15, 21, 0, 0), new DateTime(2013, 1, 15, 23, 30, 0), 1,
                 _events.ElementAt(3), _lieux.ElementAt(1), 0));
 
-            pe.Add(new PlanningElement(new DateTime(2013, 2, 3, 21, 0, 0), new DateTime(2013, 2, 3, 23, 30, 0), 2,
+            _pe.Add(new PlanningElement(new DateTime(2013, 2, 3, 21, 0, 0), new DateTime(2013, 2, 3, 23, 30, 0), 2,
                 _events.ElementAt(4), _lieux.ElementAt(2), 0));
         }
 

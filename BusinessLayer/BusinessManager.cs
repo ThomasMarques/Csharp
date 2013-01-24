@@ -36,9 +36,9 @@ namespace BusinessLayer
         /// Permet de retourner la liste des evenements prevus classés par date.
         /// </summary>
         /// <returns>La liste des evenements prevus classés par date.</returns>
-        public IList<string> getEvenementsSortByDate()
+        public IList<String> getEvenementsSortByDate()
         {
-            IList<string> events = (from p in _dal.getPlanningElement() 
+            IList<String> events = (from p in _dal.getPlanningElement() 
                                     orderby p.DateDebut
                                     select p.MonEvement.ToString())
                                     .ToList();
@@ -50,9 +50,9 @@ namespace BusinessLayer
         /// Permets de récupérer la liste des artistes triés par date.
         /// </summary>
         /// <returns>La liste des artistes triés par date.</returns>
-        public IList<string> getArtistesSortByName()
+        public IList<String> getArtistesSortByName()
         {
-            IList<string> artistes = (from a in _dal.getArtistes()
+            IList<String> artistes = (from a in _dal.getArtistes()
                                       orderby a.Nom
                                       select a.ToString())
                                     .ToList();
@@ -64,9 +64,9 @@ namespace BusinessLayer
         /// Permet de récupérer la liste des lieux associés à un evenement.
         /// </summary>
         /// <returns>La liste des lieux associés à un evenement.</returns>
-        public IList<string> getLieuxWithEvents()
+        public IList<String> getLieuxWithEvents()
         {
-            IList<string> lieux = (from p in _dal.getPlanningElement()
+            IList<String> lieux = (from p in _dal.getPlanningElement()
                                    orderby p.DateDebut
                                    select p.MonLieu.ToString())
                                     .Distinct().ToList();
@@ -80,9 +80,9 @@ namespace BusinessLayer
         /// </summary>
         /// <param name="inLieu">Le lieu associé aux evenements.</param>
         /// <returns>La liste des evenements associés à un lieu triés par date.</returns>
-        public IList<string> getEvenementsSortByDate(Lieu inLieu)
+        public IList<String> getEvenementsSortByDate(Lieu inLieu)
         {
-            IList<string> events = (from p in _dal.getPlanningElement()
+            IList<String> events = (from p in _dal.getPlanningElement()
                                     orderby p.DateDebut
                                     where p.MonLieu.Equals(inLieu)
                                     select p.MonEvement.ToString())

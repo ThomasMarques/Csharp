@@ -32,7 +32,7 @@ namespace MyWPFAgenda
         void PlanningElementView_Loaded(object sender, RoutedEventArgs e)
         {
             BusinessManager bm = new BusinessManager();
-            PlanningElement p = bm.getPlanningElements()[0];
+            PlanningElement p = bm.getPlanningElements().ElementAt(0);
             PlannigElementViewModel pe = new PlannigElementViewModel(p);
             this.DataContext = pe;
         }
