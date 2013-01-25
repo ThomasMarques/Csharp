@@ -8,6 +8,7 @@ namespace SubDataAccessLayer
 {
     public class DalManager
     {
+
         /// <summary>
         /// Liste des artistes présent dans la base de données.
         /// </summary>
@@ -28,8 +29,28 @@ namespace SubDataAccessLayer
         /// </summary>
         IList<PlanningElement> _pe;
 
+        /// <summary>
+        /// Object static contruit la première fois et retourné par la méthode getInstance (Singleton).
+        /// </summary>
+        private static volatile DalManager _instance;
 
-        public DalManager()
+        /// <summary>
+        /// Retourne une instance de la classe et la crée si nécessaire (Singleton).
+        /// </summary>
+        /// <returns>Retourne une instance de la classe</returns>
+        public static DalManager getInstance()
+        {
+            if(_instance == null)
+            {
+                _instance = new DalManager();
+            }
+            return _instance;
+        }
+
+        /// <summary>
+        /// Constructeur privé afin d'éviter la création de plusieurs objets (Singleton).
+        /// </summary>
+        private DalManager()
         {
             // Création artistes
             _artistes = new List<Artiste>();

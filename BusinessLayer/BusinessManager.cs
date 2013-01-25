@@ -20,7 +20,7 @@ namespace BusinessLayer
         /// </summary>
         public BusinessManager()
         {
-            _dal = new DalManager();
+            _dal = ;
         }
 
         /// <summary>
