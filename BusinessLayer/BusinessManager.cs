@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DataAccessLayer;
 using EntitiesLayer;
-using SubDataAccessLayer;
+using System.Security.Cryptography;
 
 namespace BusinessLayer
 {
@@ -12,7 +13,7 @@ namespace BusinessLayer
         /// <summary>
         /// Data Access Layer permettant la communication avec la couche persistance.
         /// </summary>
-        private DalManager _dal;
+        private IDAL _dal;
 
         /// <summary>
         /// Constructeur de la classe.
@@ -20,7 +21,7 @@ namespace BusinessLayer
         /// </summary>
         public BusinessManager()
         {
-            _dal = ;
+            _dal = DALManager.GetInstance(DALProvider.SQLSERVER).DataAccessLayer;
         }
 
         /// <summary>
@@ -29,7 +30,7 @@ namespace BusinessLayer
         /// <returns>Les lieux stocké dans la DAL.</returns>
         public IList<Lieu> getLieux()
         {
-            return _dal.getLieux();
+            return _dal.GetAllLieux();
         }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace BusinessLayer
         /// <returns>La liste des evenements prevus classés par date.</returns>
         public IList<String> getEvenementsSortByDate()
         {
-            IList<String> events = (from p in _dal.getPlanningElement() 
+            IList<String> events = (from p in _dal.GetAllPlanningElement() 
                                     orderby p.DateDebut
                                     select p.MonEvement.ToString())
                                     .ToList();
@@ -52,7 +53,7 @@ namespace BusinessLayer
         /// <returns>La liste des artistes triés par date.</returns>
         public IList<String> getArtistesSortByName()
         {
-            IList<String> artistes = (from a in _dal.getArtistes()
+            IList<String> artistes = (from a in _dal.GetAllArtistes()
                                       orderby a.Nom
                                       select a.ToString())
                                     .ToList();
@@ -66,7 +67,7 @@ namespace BusinessLayer
         /// <returns>La liste des lieux associés à un evenement.</returns>
         public IList<String> getLieuxWithEvents()
         {
-            IList<String> lieux = (from p in _dal.getPlanningElement()
+            IList<String> lieux = (from p in _dal.GetAllPlanningElement()
                                    orderby p.DateDebut
                                    select p.MonLieu.ToString())
                                     .Distinct().ToList();
@@ -82,7 +83,7 @@ namespace BusinessLayer
         /// <returns>La liste des evenements associés à un lieu triés par date.</returns>
         public IList<String> getEvenementsSortByDate(Lieu inLieu)
         {
-            IList<String> events = (from p in _dal.getPlanningElement()
+            IList<String> events = (from p in _dal.GetAllPlanningElement()
                                     orderby p.DateDebut
                                     where p.MonLieu.Equals(inLieu)
                                     select p.MonEvement.ToString())
@@ -101,7 +102,11 @@ namespace BusinessLayer
         {
             bool connected = false;
 
-            Utilisateur user = DalManager.getUtilisateurByLogin(login);
+            DALSQLServer.mdp = CalculateSHA1(password, Encoding.UTF8);
+
+            Utilisateur user = DALManager.GetInstance(DALProvider.SQLSERVER).DataAccessLayer.GetUtilisateurByLogin(login);
+
+            password = CalculateSHA1(password, Encoding.UTF8);
 
             if (user != null)
             {
@@ -112,6 +117,19 @@ namespace BusinessLayer
             return connected;
         }
 
+        /// <summary>
+        /// Permet de calculer la string hashée en SHA-1.
+        /// </summary>
+        /// <param name="text">La string à encoder</param>
+        /// <param name="enc"></param>
+        /// <returns></returns>
+        public static string CalculateSHA1(string text, Encoding enc)
+        {
+            byte[] buffer = enc.GetBytes(text);
+            SHA1CryptoServiceProvider cryptoTransformSHA1 = new SHA1CryptoServiceProvider();
+            return BitConverter.ToString(cryptoTransformSHA1.ComputeHash(buffer)).Replace("-", "");
+        }
+
 
         /// <summary>
         /// Récupère les planning Elements
@@ -119,7 +137,7 @@ namespace BusinessLayer
         /// <returns></returns>
         public IList<PlanningElement> getPlanningElements()
         {
-            return _dal.getPlanningElement();
+            return _dal.GetAllPlanningElement();
         }
     }
 }

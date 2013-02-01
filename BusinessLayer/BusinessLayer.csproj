@@ -53,10 +53,6 @@
       <Project>{3B78051F-5F28-46D3-8C3B-F4A306DEE736}</Project>
       <Name>EntitiesLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SubDataAccessLayer\SubDataAccessLayer.csproj">
-      <Project>{FCCA42F9-77BB-40ED-9E7D-934D179E0758}</Project>
-      <Name>SubDataAccessLayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

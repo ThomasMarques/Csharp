@@ -22,7 +22,7 @@ namespace DataAccessLayer
         {
             if (provider == DALProvider.SQLSERVER)
             {
-                _dal = new DALSQLServer("Data Source=(LocalDB)/v11.0;AttachDbFilename=D:/Projet/Csharp/DataAccessLayer/EventsAgenda.mdf;Integrated Security=True");
+                _dal = new DALSQLServer("Data Source=(LocalDB)\\v11.0;AttachDbFilename=D:\\Projet\\Csharp\\DataAccessLayer\\EventsAgenda.mdf;Integrated Security=True");
             }
         }
 
@@ -42,44 +42,65 @@ namespace DataAccessLayer
         /// Retourne la liste des artistes.
         /// </summary>
         /// <returns>La liste des Artistes.</returns>
-        public IList<Artiste> GetAllArtistes();
+        public IList<Artiste> GetAllArtistes()
+        {
+            return null;
+        }
 
         /// <summary>
         /// Retourne la liste des evenement.
         /// </summary>
         /// <returns>La liste des evenement.</returns>
-        public IList<Evenement> GetAllEvenements();
+        public IList<Evenement> GetAllEvenements()
+        {
+            return null;
+        }
 
         /// <summary>
         /// Retourne la liste des evenement par lieu.
         /// </summary>
         /// <returns>La liste des evenement.</returns>
-        public IList<Evenement> GetEvenementsByLieu();
+        public IList<Evenement> GetEvenementsByLieu()
+        {
+            return null;
+        }
 
         /// <summary>
         /// Retourne la liste des lieux.
         /// </summary>
         /// <returns>La liste des lieux.</returns>
-        public IList<Lieu> GetAllLieux();
+        public IList<Lieu> GetAllLieux()
+        {
+            return null;
+        }
 
         /// <summary>
         /// Retourne la liste des planningElement. 
         /// </summary>
         /// <returns>La liste des planningElement.</returns>
-        public IList<PlanningElement> GetAllPlanningElement();
+        public IList<PlanningElement> GetAllPlanningElement()
+        {
+            return null;
+        }
 
         /// <summary>
         /// Retourne l'utilisateur correspondant au login passé en paramètre.
         /// </summary>
         /// <param name="login">Login de l'utilisateur recherché.</param>
         /// <returns>L'utilisateur recherché.</returns>
-        public Utilisateur GetUtilisateurByLogin(String login);
+        public Utilisateur GetUtilisateurByLogin(String login)
+        {
+            return null;
+        }
+
 
 
         /// <summary>
         /// Permet de mettre à jour la base.
         /// </summary>
-        public void Update();
+        public void Update()
+        {
+        }
 
 
 
