@@ -5,22 +5,17 @@ using System.Text;
 
 namespace EntitiesLayer
 {
-    public class Artiste
+    public class Artiste : IEquatable<Artiste>
     {
-        /// <summary>
-        /// Nombre d'artiste crée.
-        /// </summary>
-        private static int _nbArtiste = 0;
-
         /// <summary>
         /// Date de naissance de l'artiste.
         /// </summary>
-        private DateTime _dateDeNaissance;
+        private DateTime? _dateDeNaissance;
 
         /// <summary>
         /// seealso _dateDeNaissance
         /// </summary>
-        public DateTime DateDeNaissance
+        public DateTime? DateDeNaissance
         {
             get { return _dateDeNaissance; }
             set { _dateDeNaissance = value; }
@@ -29,12 +24,12 @@ namespace EntitiesLayer
         /// <summary>
         /// Identifiant unique de l'artiste.
         /// </summary>
-        private int _giud;
+        private System.Guid _giud;
 
         /// <summary>
         /// seealso _guid
         /// </summary>
-        public int Giud
+        public System.Guid Giud
         {
             get { return _giud; }
         }
@@ -73,13 +68,23 @@ namespace EntitiesLayer
         /// <param name="dateDeNaissance">Date de naissance de l'artiste.</param>
         /// <param name="nom">Nom de l'artiste.</param>
         /// <param name="prenom">Prenom de l'artiste.</param>
-        public Artiste(int guid, DateTime dateDeNaissance, string nom, string prenom)
+        public Artiste(System.Guid guid, DateTime? dateDeNaissance, string nom, string prenom)
         {
-            ++_nbArtiste;
             _giud = guid;
             DateDeNaissance = dateDeNaissance;
             Nom = nom;
             Prenom = prenom;
+        }
+
+        /// <summary>
+        /// Constructeur sans argument de la classe Artiste.
+        /// </summary>
+        public Artiste()
+        {
+            _giud = System.Guid.NewGuid();
+            _nom = "Mon Nom";
+            _prenom = "Mon Prenom";
+            _dateDeNaissance = new DateTime(2999, 12, 12);
         }
 
         /// <summary>
@@ -90,7 +95,8 @@ namespace EntitiesLayer
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(_prenom).Append(" ").Append(_nom);
-            sb.Append(" née le  ").Append(_dateDeNaissance.ToString("dd / MM / yyyy"));
+            if(_dateDeNaissance != null)
+                sb.Append(" née le  ").Append(((DateTime)_dateDeNaissance).ToString("dd / MM / yyyy"));
             return sb.ToString();
         }
 
@@ -103,6 +109,16 @@ namespace EntitiesLayer
         public static int compareName(Artiste a1, Artiste a2)
         {
             return a1.Nom.CompareTo(a2.Nom);
+        }
+
+        public bool Equals(Artiste other)
+        {
+            bool ret = false;
+            if (other != null)
+            {
+                ret = (_giud == other._giud);
+            }
+            return ret;
         }
     
     }

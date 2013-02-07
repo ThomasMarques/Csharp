@@ -37,22 +37,22 @@ namespace MyWPFAgenda
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            new EventByDate().Show();
+            new EventByDate().ShowDialog();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            new Artistes().Show();
+            new Artistes().ShowDialog();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            new EventsByLieu().Show();
+            new EventsByLieu().ShowDialog();
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            new Lieux().Show();
+            new Lieux().ShowDialog();
         }
 
         private void Window_Closed_1(object sender, EventArgs e)
@@ -66,7 +66,7 @@ namespace MyWPFAgenda
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            new GestionEvents().Show();
+            new GestionEventsView().ShowDialog();
         }
     }
 }

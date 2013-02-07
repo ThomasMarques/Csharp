@@ -5,13 +5,8 @@ using System.Text;
 
 namespace EntitiesLayer
 {
-    public abstract class Evenement
+    public abstract class Evenement : IEquatable<Evenement>
     {
-        /// <summary>
-        /// Nombre d'évenment crée.
-        /// </summary>
-        private int _nbEvent = 0;
-
         /// <summary>
         /// Artistes participant à l'evenement.
         /// </summary>
@@ -37,9 +32,9 @@ namespace EntitiesLayer
         /// <summary>
         /// Guid de l'evenement.
         /// </summary>
-        protected int _guid;
+        protected System.Guid _guid;
 
-        public int Guid
+        public System.Guid Guid
         {
             get { return _guid; }
         }
@@ -81,14 +76,58 @@ namespace EntitiesLayer
         /// <param name="guid">guid de l'evenement.</param>
         /// <param name="tarif">tarif</param>
         /// <param name="titre">titre</param>
-        public Evenement(IList<Artiste> artistes, string desc, int guid, float tarif, string titre)
+        public Evenement(IList<Artiste> artistes, string desc, System.Guid guid, float tarif, string titre)
         {
-            ++_nbEvent;
             _artistes = artistes;
             _description = desc;
             _guid = guid;
             _tarif = tarif;
             _titre = titre;
+        }
+
+        /// <summary>
+        /// Constructeur de la classe.
+        /// </summary>
+        /// <param name="desc">description de l'evenement.</param>
+        /// <param name="guid">guid de l'evenement.</param>
+        /// <param name="tarif">tarif</param>
+        /// <param name="titre">titre</param>
+        public Evenement(string desc, System.Guid guid, float tarif, string titre)
+        {
+            _description = desc;
+            _guid = guid;
+            _tarif = tarif;
+            _titre = titre;
+        }
+
+        /// <summary>
+        /// Constructeur par copie
+        /// </summary>
+        /// <param name="e">L'Evenement à copier</param>
+        public Evenement(Evenement e)
+        {
+            _guid = System.Guid.NewGuid();
+            _artistes = e.Artistes;
+            _description = e.Description;
+            _tarif = e.Tarif;
+            _titre = e.Titre;
+        }
+
+        /// <summary>
+        /// Constructeur par défaut
+        /// </summary>
+        public Evenement()
+        {
+            _guid = System.Guid.NewGuid();
+            _artistes = new List<Artiste>();
+            _artistes.Add(new Artiste());
+            _description = "Description par défaut";
+            _titre = "Titre par défaut";
+        }
+
+        public bool Equals(Evenement obj)
+        {
+            return obj.Guid.Equals(this.Guid);
         }
 
         /// <summary>

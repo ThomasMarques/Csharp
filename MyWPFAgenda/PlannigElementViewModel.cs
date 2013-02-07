@@ -8,7 +8,7 @@ using EntitiesLayer;
 
 namespace MyWPFAgenda
 {
-    class PlannigElementViewModel : ViewModelBase
+    public class PlannigElementViewModel : ViewModelBase
     {
         private PlanningElement _planningEvent;
 
@@ -19,7 +19,11 @@ namespace MyWPFAgenda
 
         public DateTime DateDebut
         {
-            get { return _planningEvent.DateDebut; }
+            get {
+                if (_planningEvent != null)
+                    return _planningEvent.DateDebut;
+                return new DateTime();
+                }
             set 
             {
                 if (_planningEvent.DateDebut == value) return;
@@ -28,9 +32,13 @@ namespace MyWPFAgenda
             }
         }
 
-        public DateTime DateFin
+        public DateTime? DateFin
         {
-            get { return _planningEvent.DateFin; }
+            get { 
+                if (_planningEvent != null)
+                    return _planningEvent.DateFin;
+                return null;
+                }
             set 
             {
                 if (_planningEvent.DateFin == value) return;
@@ -39,9 +47,13 @@ namespace MyWPFAgenda
             }
         }
 
-        public int Guid
+        public System.Guid Guid
         {
-            get { return _planningEvent.Guid; }
+            get {
+                if (_planningEvent != null)
+                    return _planningEvent.Guid;
+                return Guid.Empty;
+                }
             set 
             {
                 if (_planningEvent.Guid == value) return;
@@ -52,7 +64,12 @@ namespace MyWPFAgenda
 
         public Evenement MonEvement
         {
-            get { return _planningEvent.MonEvement; }
+            get
+            {
+                if (_planningEvent != null)
+                    return _planningEvent.MonEvement;
+                return null; 
+            }
             set
             {
                 if (_planningEvent.MonEvement == value) return;
@@ -63,7 +80,11 @@ namespace MyWPFAgenda
 
         public Lieu MonLieu
         {
-            get { return _planningEvent.MonLieu; }
+            get {
+                if(_planningEvent != null)
+                    return _planningEvent.MonLieu;
+                return null;
+            }
             set 
             {
                 if (_planningEvent.MonLieu == value) return;
@@ -72,9 +93,18 @@ namespace MyWPFAgenda
             }
         }
 
+        public IList<Lieu> LieuxPossible
+        {
+            get {return new BusinessLayer.BusinessManager().getLieux();}
+        }
+
         public int NbPlacesReservees
         {
-            get { return _planningEvent.NbPlacesReservees; }
+            get { 
+                if (_planningEvent != null)
+                    return _planningEvent.NbPlacesReservees;
+                return 0;
+                }
             set
             {
                 if (_planningEvent.NbPlacesReservees == value) return;

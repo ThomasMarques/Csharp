@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("MyWPFAgenda")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("isima")]
 [assembly: AssemblyProduct("MyWPFAgenda")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCopyright("Copyright © isima 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

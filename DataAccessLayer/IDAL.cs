@@ -29,12 +29,6 @@ namespace DataAccessLayer
         IList<Evenement> GetAllEvenements();
 
         /// <summary>
-        /// Retourne la liste des evenement par lieu.
-        /// </summary>
-        /// <returns>La liste des evenement.</returns>
-        IList<Evenement> GetEvenementsByLieu();
-
-        /// <summary>
         /// Retourne la liste des lieux.
         /// </summary>
         /// <returns>La liste des lieux.</returns>
@@ -57,7 +51,6 @@ namespace DataAccessLayer
         /// <summary>
         /// Permet de mettre à jour la base.
         /// </summary>
-        void Update();
-
+        void Update(IList<PlanningElement> list);
     }
 }

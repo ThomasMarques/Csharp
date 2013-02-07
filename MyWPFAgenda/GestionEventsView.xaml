@@ -1,0 +1,47 @@
+﻿<Window 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MyWPFAgenda" x:Name="window"
+        x:Class="MyWPFAgenda.GestionEventsView"
+        Title="Evenements" Height="500" Width="700" MinWidth="700" MinHeight="500" MaxWidth="700" MaxHeight="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300px"/>
+            <ColumnDefinition Width="2px" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Name="col1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <local:EventsbydateControl x:Name="EventControl" />
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="1" Content="Ajouter" Name="addButton" Command="{Binding Path=AjouterCommand}"  HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,5" FontSize="20" MinWidth="114" MinHeight="39" />
+                <Button Grid.Row="1" Content="Supprimer" Name="removeButton" Command="{Binding Path=SupprimerCommand}" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Padding="10,5"/>
+            </Grid>
+            
+        </Grid>
+        
+        <Grid Background="Black" Grid.Column="1" />
+        
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="1px" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <local:PlanningElementView x:Name="EventGestion"  Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Button Content="+" Height="30" HorizontalAlignment="Left" Margin="351,0,0,258" Name="buttonPlus" VerticalAlignment="Bottom" Width="18" IsEnabled="False" Click="buttonPlus_Click" />
+            <Button Content="-" Height="30" HorizontalAlignment="Left" Margin="351,135,0,0" Name="buttonMoins" VerticalAlignment="Top" Width="18" IsEnabled="False" Click="buttonMoins_Click" />
+            <Grid Background="Gray" Grid.Row="1" />
+            <Button Content="Enregistrer les changements" Name="saveButton"  HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,5" FontSize="20" MinWidth="114" MinHeight="39" Grid.Row="2" Click="saveButton_Click" />
+        </Grid>
+    </Grid>
+</Window>

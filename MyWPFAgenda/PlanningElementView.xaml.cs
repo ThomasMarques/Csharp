@@ -22,20 +22,16 @@ namespace MyWPFAgenda
     /// </summary>
     public partial class PlanningElementView : UserControl
     {
+        PlanningElement _planning;
+
+        public PlanningElement Planning
+        {
+            set { _planning = value; this.DataContext =new PlannigElementViewModel(_planning); }
+        }
+
         public PlanningElementView()
         {
             InitializeComponent();
-            Loaded += PlanningElementView_Loaded;
         }
-
-
-        void PlanningElementView_Loaded(object sender, RoutedEventArgs e)
-        {
-            BusinessManager bm = new BusinessManager();
-            PlanningElement p = bm.getPlanningElements().ElementAt(0);
-            PlannigElementViewModel pe = new PlannigElementViewModel(p);
-            this.DataContext = pe;
-        }
-
     }
 }

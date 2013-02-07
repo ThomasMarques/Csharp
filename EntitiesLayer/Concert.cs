@@ -59,15 +59,21 @@ namespace EntitiesLayer
         /// <param name="guid">guid de l'evenement.</param>
         /// <param name="tarif">tarif</param>
         /// <param name="titre">titre</param>
-        /// <param name="dispo">dispositon particulière</param>
-        /// <param name="duree">duree du concert en minute</param>
-        /// <param name="nbLoges">nombre de loges</param>
-        public Concert(IList<Artiste> artistes, string desc, int guid, float tarif, string titre,bool dispo,int duree,int nbLoges)
+        public Concert(IList<Artiste> artistes, string desc, System.Guid guid, float tarif, string titre)
             : base(artistes, desc, guid, tarif, titre)
         {
-            _dispoParticuliere = dispo;
-            _dureeEnMinute = duree;
-            _nbLoges = nbLoges;
+        }
+
+        /// <summary>
+        /// Constructeur Concert
+        /// </summary>
+        /// <param name="desc">description de l'evenement.</param>
+        /// <param name="guid">guid de l'evenement.</param>
+        /// <param name="tarif">tarif</param>
+        /// <param name="titre">titre</param>
+        public Concert(string desc, System.Guid guid, float tarif, string titre)
+            : base(desc, guid, tarif, titre)
+        {
         }
 
         /// <summary>
@@ -77,7 +83,7 @@ namespace EntitiesLayer
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder(base.ToString());
-            sb.Append(" - ").Append(_dureeEnMinute).Append("minutes");
+            sb.Append(" - Type : Concert");
             return sb.ToString();
         }
 

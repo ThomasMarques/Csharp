@@ -62,6 +62,17 @@ namespace BusinessLayer
         }
 
         /// <summary>
+        /// Permet de récupérer la liste de tous les Artistes
+        /// </summary>
+        /// <returns>La liste des artistes</returns>
+        public IList<Artiste> getArtistesTypeSortByName()
+        {
+            IList<Artiste> artistes = _dal.GetAllArtistes().OrderBy(a => a.Nom).ToList();
+
+            return artistes;
+        }
+
+        /// <summary>
         /// Permet de récupérer la liste des lieux associés à un evenement.
         /// </summary>
         /// <returns>La liste des lieux associés à un evenement.</returns>
@@ -102,11 +113,11 @@ namespace BusinessLayer
         {
             bool connected = false;
 
-            DALSQLServer.mdp = CalculateSHA1(password, Encoding.UTF8);
+            DALSQLServer.mdp = CalculateSHA1(password);
 
             Utilisateur user = DALManager.GetInstance(DALProvider.SQLSERVER).DataAccessLayer.GetUtilisateurByLogin(login);
 
-            password = CalculateSHA1(password, Encoding.UTF8);
+            password = CalculateSHA1(password);
 
             if (user != null)
             {
@@ -123,11 +134,11 @@ namespace BusinessLayer
         /// <param name="text">La string à encoder</param>
         /// <param name="enc"></param>
         /// <returns></returns>
-        public static string CalculateSHA1(string text, Encoding enc)
+        public static string CalculateSHA1(string text)
         {
-            byte[] buffer = enc.GetBytes(text);
+            byte[] buffer = Encoding.UTF8.GetBytes(text);
             SHA1CryptoServiceProvider cryptoTransformSHA1 = new SHA1CryptoServiceProvider();
-            return BitConverter.ToString(cryptoTransformSHA1.ComputeHash(buffer)).Replace("-", "");
+            return cryptoTransformSHA1.ComputeHash(buffer).ToString();
         }
 
 
@@ -138,6 +149,11 @@ namespace BusinessLayer
         public IList<PlanningElement> getPlanningElements()
         {
             return _dal.GetAllPlanningElement();
+        }
+
+        public void Update(IList<PlanningElement> list)
+        {
+            _dal.Update(list);
         }
     }
 }

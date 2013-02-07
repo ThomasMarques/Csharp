@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EntitiesLayer
 {
-    public class PlanningElement
+    public class PlanningElement : IEquatable<PlanningElement>
     {
         /// <summary>
         /// Date de début de l'element.
@@ -21,9 +21,9 @@ namespace EntitiesLayer
         /// <summary>
         /// Date de fin de l'element.
         /// </summary>
-        private DateTime _dateFin;
+        private DateTime? _dateFin;
 
-        public DateTime DateFin
+        public DateTime? DateFin
         {
             get { return _dateFin; }
             set { _dateFin = value; }
@@ -32,9 +32,9 @@ namespace EntitiesLayer
         /// <summary>
         /// Guid de l'element.
         /// </summary>
-        private int _guid;
+        private System.Guid _guid;
 
-        public int Guid
+        public System.Guid Guid
         {
             get { return _guid; }
             set { _guid = value; }
@@ -82,7 +82,7 @@ namespace EntitiesLayer
         /// <param name="evenement">Evenment</param>
         /// <param name="lieu">Lieu de l'evenement</param>
         /// <param name="nbPlacesRes">Nombre de places réservées.</param>
-        public PlanningElement(DateTime dateDebut, DateTime dateFin, int guid, Evenement evenement, Lieu lieu, int nbPlacesRes)
+        public PlanningElement(DateTime dateDebut, DateTime? dateFin, System.Guid guid, Evenement evenement, Lieu lieu, int nbPlacesRes)
         {
             _dateDebut = dateDebut;
             _dateFin = dateFin;
@@ -90,6 +90,19 @@ namespace EntitiesLayer
             _monEvement = evenement;
             _monLieu = lieu;
             _nbPlacesReservees = nbPlacesRes;
+        }
+
+        /// <summary>
+        /// Constructeur sans argument de la classe Planning element.
+        /// </summary>
+        public PlanningElement()
+        {
+            _guid = System.Guid.NewGuid();
+            _dateDebut = new DateTime(2999, 01, 01);
+            _dateFin = null;
+            _monEvement = new Exposition();
+            _monLieu = new Lieu();
+            _nbPlacesReservees = 0;
         }
 
         /// <summary>
@@ -101,6 +114,31 @@ namespace EntitiesLayer
         public static int CompareDate(PlanningElement pe1, PlanningElement pe2)
         {
             return pe1.DateDebut.CompareTo(pe2.DateDebut);
+        }
+
+        public bool Equals(PlanningElement obj)
+        {
+            bool ret = false;
+            if (obj != null)
+            {
+                ret = this._dateDebut.Equals(obj._dateDebut)
+                    && this._monEvement.Equals(obj.MonEvement)
+                    && this.MonLieu.Equals(obj.MonLieu);
+            }
+
+            return ret;
+        }
+
+        public bool Equals(Object obj)
+        {
+            bool ret = false;
+            if (obj != null)
+            {
+                if(obj.GetType() == this.GetType())
+                    ret = Equals((PlanningElement) obj);
+            }
+
+            return ret;
         }
     }
 

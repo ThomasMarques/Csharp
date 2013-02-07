@@ -7,9 +7,6 @@ namespace EntitiesLayer
 {
     public class Lieu
     {
-
-        private static int _nbLieu = 0;
-
         /// <summary>
         /// L'adresse du lieu
         /// </summary>
@@ -36,12 +33,12 @@ namespace EntitiesLayer
         /// <summary>
         /// Identifiant unique du lieu.
         /// </summary>
-        private int _guid;
+        private System.Guid _guid;
 
         /// <summary>
         /// seealso _guid
         /// </summary>
-        public int Guid
+        public System.Guid Guid
         {
             get { return _guid; }
         }
@@ -84,9 +81,9 @@ namespace EntitiesLayer
         /// <summary>
         /// Le pourcentange de commission
         /// </summary>
-        private float _pourcentageCommission;
+        private Decimal? _pourcentageCommission;
 
-        public float PourcentageCommission
+        public Decimal? PourcentageCommission
         {
             get { return _pourcentageCommission; }
             set { _pourcentageCommission = value; }
@@ -127,18 +124,43 @@ namespace EntitiesLayer
         /// <param name="prctCom">pourcentage de commission</param>
         /// <param name="tel">numéro de téléphone</param>
         /// <param name="ville">Ville</param>
-        public Lieu(int guid, string adresse, string codePostal, string nom, int nbPlacesTotal, string pays, float prctCom, string tel, string ville)
+        public Lieu(System.Guid guid, string adresse, string nom, int nbPlacesTotal, Decimal? prctCom)
         {
-            ++_nbLieu;
             _guid = guid;
             _adresse = adresse;
-            _codePostal = codePostal;
             _nom = nom;
             _nombrePlacesTotal = nbPlacesTotal;
-            _pays = pays;
             _pourcentageCommission = prctCom;
-            _telephone = tel;
-            _ville = ville;
+        }
+
+        public Lieu()
+        {
+            _guid =System.Guid.NewGuid();
+            _adresse = "Adresse par défaut";
+            _codePostal = "00000";
+            _nom = "Nom Lieu";
+            _nombrePlacesTotal = 0;
+            _pourcentageCommission = 0;
+            _telephone = "0000000000";
+            _ville = "Ma Ville";
+        }
+
+
+        /// <summary>
+        /// Constructeur par copie
+        /// </summary>
+        /// <param name="lieu">Le lieu sur lequel se baser</param>
+        public Lieu(Lieu lieu)
+        {
+            _guid = System.Guid.NewGuid();
+            _adresse = lieu.Adresse;
+            _codePostal = lieu.CodePostal;
+            _nom = lieu.Nom;
+            _nombrePlacesTotal = lieu.NombrePlacesTotal;
+            _pays = lieu.Pays;
+            _pourcentageCommission = lieu.PourcentageCommission;
+            _telephone = lieu.Telephone;
+            _ville = lieu.Ville;
         }
 
         /// <summary>
@@ -149,8 +171,9 @@ namespace EntitiesLayer
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(_nom).Append(", ").Append(_adresse);
-            sb.Append(", ").Append(_codePostal).Append(" ").Append(_ville);
+            sb.Append(_nom);
+            if(_adresse != null)
+                sb.Append(", ").Append(_adresse);
 
             return sb.ToString();
         }

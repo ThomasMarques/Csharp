@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BusinessLayer;
+using MyWPFAgenda.ViewModel;
 
 namespace MyWPFAgenda
 {
@@ -21,30 +22,22 @@ namespace MyWPFAgenda
     /// </summary>
     public partial class EventsbydateControl : UserControl
     {
+
         public EventsbydateControl()
         {
             InitializeComponent();
+        }
 
-            BusinessManager bm = new BusinessManager();
 
-            IList<String> list = bm.getEvenementsSortByDate();
-
-            foreach(String str in list)
+        public void Update(IList<EntitiesLayer.PlanningElement> list)
+        {
+            stackPanel.Items.Clear();
+            foreach(EntitiesLayer.PlanningElement pe in list)
             {
                 TextBlock tb = new TextBlock();
-                tb.Text = str;
+                tb.Text = pe.MonEvement.ToString();
                 stackPanel.Items.Add(tb);
             }
-        }
-
-        private void addButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Pas encore fait...");
-        }
-
-        private void removeButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("A faire aussi...");
         }
     }
 }

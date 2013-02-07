@@ -9,7 +9,7 @@
         <Grid HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="320">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -23,7 +23,7 @@
             <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="Nom Evènement :" VerticalAlignment="Center"/>
             <TextBlock HorizontalAlignment="Right" Grid.Row="1" TextWrapping="Wrap" Text="Artistes :" VerticalAlignment="Center"/>
             <TextBlock HorizontalAlignment="Right" Grid.Row="2" TextWrapping="Wrap" Text="Salle :" VerticalAlignment="Center"/>
-            <ComboBox Name="MonLieu" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="203"/>
+            <ComboBox Name="Lieu" ItemsSource="{Binding LieuxPossible}" SelectedItem="{Binding MonLieu}" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="203"/>
             <TextBox  Name="DateDebut" Text="{Binding DateDebut}" Grid.Column="1" HorizontalAlignment="Center" Height="23" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="203"/>
             <TextBox  Name="MonEvenement" Text="{Binding MonEvement.Titre}" Grid.Column="1" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="203"/>
             <TextBlock HorizontalAlignment="Right" Grid.Row="3" TextWrapping="Wrap" Text="Date :" VerticalAlignment="Center"/>
@@ -33,7 +33,7 @@
             <TextBox Name="Description" Text="{Binding MonEvement.Description}" Grid.Column="1" HorizontalAlignment="Center" Height="57" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="203"/>
             <TextBlock HorizontalAlignment="Right" Grid.Row="6" TextWrapping="Wrap" Text="Places réservées :" VerticalAlignment="Center"/>
             <TextBox Name="NbPlacesReservees" Text="{Binding NbPlacesReservees}" Grid.Column="1" HorizontalAlignment="Center" Height="23" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Center" Width="203"/>
-            <ListBox Name="Artistes" Grid.Column="1" HorizontalAlignment="Center" Height="57" VerticalAlignment="Center" Width="203" Grid.Row="1"/>
+            <ListBox Name="Artistes" ItemsSource="{Binding MonEvement.Artistes}" Grid.Column="1" HorizontalAlignment="Center" Height="94" VerticalAlignment="Center" Width="203" Grid.Row="1" Margin="5,9,5,6" HorizontalContentAlignment="Left" />
 
         </Grid>
     </Grid>

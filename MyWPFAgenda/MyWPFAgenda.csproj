@@ -1,21 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0A473308-5B96-4D73-943D-9526949A28FE}</ProjectGuid>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E340846A-6A6D-4760-BC05-06F6327117C0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MyWPFAgenda</RootNamespace>
     <AssemblyName>MyWPFAgenda</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,10 +25,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -54,46 +55,44 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="EventsbydateControl.xaml.cs">
-      <DependentUpon>EventsbydateControl.xaml</DependentUpon>
+    <Compile Include="AddArtist.xaml.cs">
+      <DependentUpon>AddArtist.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GestionEvents.xaml.cs">
-      <DependentUpon>GestionEvents.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PlannigElementViewModel.cs" />
-    <Compile Include="PlanningElementView.xaml.cs">
-      <DependentUpon>PlanningElementView.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="GestionEventsViewModel.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="XMLAgenda.cs" />
-    <Page Include="Artistes.xaml">
+    <Page Include="AddArtist.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Artistes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Connexion.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="EventByDate.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="EventsbydateControl.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="EventsByLieu.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="GestionEvents.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="GestionEventsView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Lieux.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -103,31 +102,25 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Artistes.xaml.cs">
-      <DependentUpon>Artistes.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Connexion.xaml.cs">
-      <DependentUpon>Connexion.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EventByDate.xaml.cs">
-      <DependentUpon>EventByDate.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EventsByLieu.xaml.cs">
-      <DependentUpon>EventsByLieu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Lieux.xaml.cs">
-      <DependentUpon>Lieux.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Artistes.xaml.cs" />
+    <Compile Include="Connexion.xaml.cs" />
+    <Compile Include="EventByDate.xaml.cs" />
+    <Compile Include="EventsbydateControl.xaml.cs" />
+    <Compile Include="EventsByLieu.xaml.cs" />
+    <Compile Include="GestionEventsView.xaml.cs" />
+    <Compile Include="Lieux.xaml.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PlanningElementView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlannigElementViewModel.cs" />
+    <Compile Include="PlanningElementView.xaml.cs" />
     <Compile Include="PreferenceUtilisateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -153,15 +146,12 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
-      <Project>{657e0d7c-62e8-4aae-a06c-a7465787a316}</Project>
+      <Project>{657E0D7C-62E8-4AAE-A06C-A7465787A316}</Project>
       <Name>BusinessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\EntitiesLayer\EntitiesLayer.csproj">
-      <Project>{3b78051f-5f28-46d3-8c3b-f4a306dee736}</Project>
+      <Project>{3B78051F-5F28-46D3-8C3B-F4A306DEE736}</Project>
       <Name>EntitiesLayer</Name>
     </ProjectReference>
   </ItemGroup>

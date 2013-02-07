@@ -22,7 +22,8 @@ namespace DataAccessLayer
         {
             if (provider == DALProvider.SQLSERVER)
             {
-                _dal = new DALSQLServer("Data Source=(LocalDB)\\v11.0;AttachDbFilename=D:\\Projet\\Csharp\\DataAccessLayer\\EventsAgenda.mdf;Integrated Security=True");
+               // _dal = new DALSQLServer("Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\Thomas\\Desktop\\mix\\DataAccessLayer\\EventsAgenda.mdf;Integrated Security=True");
+                _dal = new DALSQLServer("Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\Gaetan\\Documents\\ISIMA\\ZZ2\\Semestre2\\Web Service\\LAST\\DataAccessLayer\\EventsAgenda.mdf;Integrated Security=True");
             }
         }
 
@@ -52,15 +53,6 @@ namespace DataAccessLayer
         /// </summary>
         /// <returns>La liste des evenement.</returns>
         public IList<Evenement> GetAllEvenements()
-        {
-            return null;
-        }
-
-        /// <summary>
-        /// Retourne la liste des evenement par lieu.
-        /// </summary>
-        /// <returns>La liste des evenement.</returns>
-        public IList<Evenement> GetEvenementsByLieu()
         {
             return null;
         }
@@ -98,7 +90,7 @@ namespace DataAccessLayer
         /// <summary>
         /// Permet de mettre à jour la base.
         /// </summary>
-        public void Update()
+        public void Update(IList<PlanningElement> list)
         {
         }
 

@@ -26,11 +26,40 @@ namespace EntitiesLayer
         /// <param name="guid">guid de l'evenement.</param>
         /// <param name="tarif">tarif</param>
         /// <param name="titre">titre</param>
-        /// <param name="nbOeuvre">le nombre d'oeuvres exposées</param>
-        public Exposition(IList<Artiste> artistes, string desc, int guid, float tarif, string titre, int nbOeuvre)
-            : base(artistes,desc, guid, tarif,titre)
+        public Exposition(IList<Artiste> artistes, string desc, System.Guid guid, float tarif, string titre)
+            : base(artistes, desc, guid, tarif, titre)
         {
-            _nombreOeuvreExposees = nbOeuvre;
+        }
+
+        /// <summary>
+        /// Constructeur sans argurment de la classe Exposition
+        /// </summary>
+        public Exposition()
+            : base()
+        {
+            _nombreOeuvreExposees = 0;
+        }
+
+        /// <summary>
+        /// Constructeur par copie de Exposition
+        /// </summary>
+        /// <param name="exp"></param>
+        public Exposition(Exposition exp)
+            : base(exp as Evenement)
+        {
+            _nombreOeuvreExposees = exp.NombreOeuvreExposees;
+        }
+
+        /// <summary>
+        /// Constructeur Exposition
+        /// </summary>
+        /// <param name="desc">description de l'evenement.</param>
+        /// <param name="guid">guid de l'evenement.</param>
+        /// <param name="tarif">tarif</param>
+        /// <param name="titre">titre</param>
+        public Exposition(string desc, System.Guid guid, float tarif, string titre)
+            : base(desc, guid, tarif, titre)
+        {
         }
 
         /// <summary>
@@ -50,7 +79,7 @@ namespace EntitiesLayer
         public override string ToString()
         {
             StringBuilder sb=new StringBuilder(base.ToString());
-            sb.Append(" - ").Append(_nombreOeuvreExposees).Append("oeuvre(s) exposee(s)");
+            sb.Append(" - Type : Expo");
             return sb.ToString();
         }
 
