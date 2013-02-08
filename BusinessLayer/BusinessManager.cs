@@ -111,6 +111,7 @@ namespace BusinessLayer
         /// <returns>true si la connexion est possible, false sinon.</returns>
         public static Boolean CheckConnectionUser(String login, String password)
         {
+            return true;
             bool connected = false;
 
             DALSQLServer.mdp = CalculateSHA1(password);
