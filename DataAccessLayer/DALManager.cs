@@ -93,6 +93,9 @@ namespace DataAccessLayer
         }
 
 
+        public IList<Utilisateur> GetAllUsers()
+        {
+        }
 
     }
 }

@@ -511,6 +511,25 @@ namespace DataAccessLayer
             return ret;
         }
 
+        public IList<Utilisateur> GetAllUsers()
+        {
+            SqlDataReader myReader = null;
+            SqlCommand myCommand = new SqlCommand("select * from Users",
+                                                     _connection);
+            IList<Utilisateur> users = new List<Utilisateur>();
+
+            myReader = myCommand.ExecuteReader();
+            while (myReader.Read())
+            {
+                users.Add(new Utilisateur(myReader["Nom"].ToString(),
+                myReader["Prenom"].ToString(),
+                myReader["login"].ToString(),
+                myReader["password"].ToString()));
+            }
+            myReader.Close();
+
+            return users;
+        }
 
     }
 }

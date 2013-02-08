@@ -139,7 +139,7 @@ namespace BusinessLayer
         {
             byte[] buffer = Encoding.UTF8.GetBytes(text);
             SHA1CryptoServiceProvider cryptoTransformSHA1 = new SHA1CryptoServiceProvider();
-            return cryptoTransformSHA1.ComputeHash(buffer).ToString();
+            return Encoding.UTF8.GetString(cryptoTransformSHA1.ComputeHash(buffer));
         }
 
 
@@ -152,9 +152,28 @@ namespace BusinessLayer
             return _dal.GetAllPlanningElement();
         }
 
+        /// <summary>
+        /// Récupère les Evenements.
+        /// </summary>
+        /// <returns></returns>
+        public IList<Evenement> getEvenements()
+        {
+            return _dal.GetAllEvenements();
+        }
+
+        /// <summary>
+        /// Récupère les Utilisateurs.
+        /// </summary>
+        /// <returns></returns>
+        public IList<Utilisateur> GetUsers()
+        {
+            return _dal.GetAllUsers();
+        }
+
         public void Update(IList<PlanningElement> list)
         {
             _dal.Update(list);
         }
+
     }
 }

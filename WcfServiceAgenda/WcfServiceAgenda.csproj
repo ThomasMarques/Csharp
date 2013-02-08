@@ -64,6 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\ArtistWS.cs" />
+    <Compile Include="Business\EvenementWS.cs" />
+    <Compile Include="Business\LieuWS.cs" />
+    <Compile Include="Business\PlanningElementWS.cs" />
+    <Compile Include="Business\UtilisateurWS.cs" />
     <Compile Include="ServiceAgenda.svc.cs">
       <DependentUpon>ServiceAgenda.svc</DependentUpon>
     </Compile>
@@ -80,6 +84,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{657e0d7c-62e8-4aae-a06c-a7465787a316}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntitiesLayer\EntitiesLayer.csproj">
+      <Project>{3b78051f-5f28-46d3-8c3b-f4a306dee736}</Project>
+      <Name>EntitiesLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Runtime.Serialization;
+using EntitiesLayer;
 
 namespace WcfServiceAgenda.Business
 {
@@ -80,6 +81,16 @@ namespace WcfServiceAgenda.Business
             DateDeNaissance = dateDeNaissance;
             Nom = nom;
             Prenom = prenom;
+        }
+
+        public static Artiste Convert(ArtistWS artiste)
+        {
+            return new Artiste(artiste.Giud, artiste.DateDeNaissance, artiste.Nom, artiste.Prenom);
+        }
+
+        public static ArtistWS Convert(Artiste artiste)
+        {
+            return new ArtistWS(artiste.Giud, artiste.DateDeNaissance, artiste.Nom, artiste.Prenom);
         }
     }
 }

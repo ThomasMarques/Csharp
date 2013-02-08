@@ -52,5 +52,7 @@ namespace DataAccessLayer
         /// Permet de mettre à jour la base.
         /// </summary>
         void Update(IList<PlanningElement> list);
+
+        IList<Utilisateur> GetAllUsers();
     }
 }

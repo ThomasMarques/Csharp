@@ -5,6 +5,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using WcfServiceAgenda.Business;
+using BusinessLayer;
 
 namespace WcfServiceAgenda
 {
@@ -20,6 +22,20 @@ namespace WcfServiceAgenda
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: ajoutez vos opérations de service ici
+        [OperationContract]
+        IList<ArtistWS> GetAllArtistes();
+
+        [OperationContract]
+        IList<EvenementWS> GetAllEvents();
+
+        [OperationContract]
+        IList<LieuWS> GetAllLieux();
+
+        [OperationContract]
+        IList<PlanningElementWS> GetAllPlanningElements();
+
+        [OperationContract]
+        IList<UtilisateurWS> GetAllUsers();
     }
 
 

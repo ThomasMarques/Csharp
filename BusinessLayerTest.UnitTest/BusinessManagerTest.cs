@@ -16,7 +16,7 @@ namespace BusinessLayerTest.UnitTest
         public void Test_SHA1()
         {
             String text = "ma chaine à hasher en SHA 1.";
-            String encode = new SHA1CryptoServiceProvider().ComputeHash(Encoding.UTF8.GetBytes(text)).ToString();
+            String encode = Encoding.UTF8.GetString(new SHA1CryptoServiceProvider().ComputeHash(Encoding.UTF8.GetBytes(text)));
 
             Assert.AreEqual(encode,BusinessManager.CalculateSHA1(text));
         }
