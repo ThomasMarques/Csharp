@@ -41,6 +41,7 @@ namespace WcfServiceAgenda.Business
         public System.Guid Guid
         {
             get { return _guid; }
+            set { _guid = value; }
         }
 
         /// <summary>

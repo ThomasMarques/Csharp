@@ -98,5 +98,9 @@ namespace DataAccessLayer
             return null;
         }
 
+        public void CreateUser(string login, string passwd, string nom, string prenom)
+        {
+
+        }
     }
 }

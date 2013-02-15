@@ -54,5 +54,7 @@ namespace DataAccessLayer
         void Update(IList<PlanningElement> list);
 
         IList<Utilisateur> GetAllUsers();
+
+        void CreateUser(string login, string passwd, string nom, string prenom);
     }
 }

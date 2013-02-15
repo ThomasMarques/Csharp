@@ -10,7 +10,7 @@ using EntitiesLayer;
 
 namespace WcfServiceAgenda
 {
-    public class Service1 : IServiceAgenda
+    public class ServiceAgenda : IServiceAgenda
     {
         public string GetData(int value)
         {
@@ -31,68 +31,117 @@ namespace WcfServiceAgenda
         }
 
 
-        public IList<Business.ArtistWS> GetAllArtistes()
+        public IList<Business.ArtistWS> GetAllArtistes(String login, String passwd)
         {
-            IList<Artiste> artistes = new BusinessManager().getArtistesTypeSortByName();
-            IList<Business.ArtistWS> ret = new List<Business.ArtistWS>();
-
-            foreach(Artiste a in artistes)
+            IList<Business.ArtistWS> ret = null;
+            if (CheckUser(login, passwd))
             {
-                ret.Add(Business.ArtistWS.Convert(a));
+                IList<Artiste> artistes = new BusinessManager().getArtistesTypeSortByName();
+                ret = new List<Business.ArtistWS>();
+
+                foreach (Artiste a in artistes)
+                {
+                    ret.Add(Business.ArtistWS.Convert(a));
+                }
             }
 
             return ret;
         }
 
-        public IList<Business.EvenementWS> GetAllEvents()
+        public IList<Business.EvenementWS> GetAllEvents(String login, String passwd)
         {
-            IList<Evenement> events = new BusinessManager().getEvenements();
-            IList<Business.EvenementWS> ret = new List<Business.EvenementWS>();
-
-            foreach (Evenement e in events)
+            IList<Business.EvenementWS> ret = null;
+            if (CheckUser(login, passwd))
             {
-                ret.Add(Business.EvenementWS.Convert(e));
+                IList<Evenement> events = new BusinessManager().getEvenements();
+                ret = new List<Business.EvenementWS>();
+
+                foreach (Evenement e in events)
+                {
+                    ret.Add(Business.EvenementWS.Convert(e));
+                }
             }
 
             return ret;
         }
 
-        public IList<Business.LieuWS> GetAllLieux()
+        public IList<Business.LieuWS> GetAllLieux(String login, String passwd)
         {
-            IList<Lieu> lieux = new BusinessManager().getLieux();
-            IList<Business.LieuWS> ret = new List<Business.LieuWS>();
-
-            foreach (Lieu l in lieux)
+            IList<Business.LieuWS> ret = null;
+            if (CheckUser(login, passwd))
             {
-                ret.Add(Business.LieuWS.Convert(l));
+                IList<Lieu> lieux = new BusinessManager().getLieux();
+                ret = new List<Business.LieuWS>();
+
+                foreach (Lieu l in lieux)
+                {
+                    ret.Add(Business.LieuWS.Convert(l));
+                }
             }
 
             return ret;
         }
 
-        public IList<Business.PlanningElementWS> GetAllPlanningElements()
-        {
-            IList<PlanningElement> pe = new BusinessManager().getPlanningElements();
-            IList<Business.PlanningElementWS> ret = new List<Business.PlanningElementWS>();
-
-            foreach (PlanningElement p in pe)
+        public IList<Business.PlanningElementWS> GetAllPlanningElements(String login, String passwd)
+        { 
+            IList<Business.PlanningElementWS> ret = null;
+            
+            if(CheckUser(login,passwd))
             {
-                ret.Add(Business.PlanningElementWS.Convert(p));
+                IList<PlanningElement> pe = new BusinessManager().getPlanningElements();
+                ret = new List<Business.PlanningElementWS>();
+
+                foreach (PlanningElement p in pe)
+                {
+                    ret.Add(Business.PlanningElementWS.Convert(p));
+                }
             }
 
             return ret;
         }
 
-        public IList<Business.UtilisateurWS> GetAllUsers()
+        public IList<Business.UtilisateurWS> GetAllUsers(String login, String passwd)
         {
-            IList<Utilisateur> users = new BusinessManager().GetUsers();
-            IList<Business.UtilisateurWS> ret = new List<Business.UtilisateurWS>();
+            IList<Business.UtilisateurWS> ret = null;
 
-            foreach (Utilisateur u in users)
+            if(CheckUser(login,passwd))
             {
-                ret.Add(Business.UtilisateurWS.Convert(u));
+                IList<Utilisateur> users = new BusinessManager().GetUsers();
+                ret = new List<Business.UtilisateurWS>();
+
+                foreach (Utilisateur u in users)
+                {
+                    ret.Add(Business.UtilisateurWS.Convert(u));
+                }
+            }
+            return ret;
+        }
+
+
+        private Boolean CheckUser(String login, String passwd)
+        {
+            Boolean ret = false;
+
+            Utilisateur user = new BusinessManager().GetUserByLogin(login);
+
+            if (user != null)
+            {
+                ret = passwd.Equals(user.Password);
             }
 
+            return ret;
+        }
+
+
+        public Boolean CreateUser(String yourLogin, String yourPass, String login, String passwd, String nom, String prenom)
+        {
+            Boolean ret = false;
+            if(CheckUser(yourLogin,yourPass))
+            {
+                Utilisateur user = new Utilisateur(login,passwd,nom,prenom);
+
+                new BusinessManager().CreateUser(login, passwd, nom, prenom);
+            }
             return ret;
         }
     }

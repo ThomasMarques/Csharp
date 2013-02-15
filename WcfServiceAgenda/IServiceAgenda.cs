@@ -23,19 +23,22 @@ namespace WcfServiceAgenda
 
         // TODO: ajoutez vos opérations de service ici
         [OperationContract]
-        IList<ArtistWS> GetAllArtistes();
+        IList<ArtistWS> GetAllArtistes(String login, String passwd);
 
         [OperationContract]
-        IList<EvenementWS> GetAllEvents();
+        IList<EvenementWS> GetAllEvents(String login, String passwd);
 
         [OperationContract]
-        IList<LieuWS> GetAllLieux();
+        IList<LieuWS> GetAllLieux(String login, String passwd);
 
         [OperationContract]
-        IList<PlanningElementWS> GetAllPlanningElements();
+        IList<PlanningElementWS> GetAllPlanningElements(String login, String passwd);
 
         [OperationContract]
-        IList<UtilisateurWS> GetAllUsers();
+        IList<UtilisateurWS> GetAllUsers(String login, String passwd);
+
+        [OperationContract]
+        Boolean CreateUser(String yourLogin, String yourPass, String login, String passwd, String nom, String prenom);
     }
 
 
