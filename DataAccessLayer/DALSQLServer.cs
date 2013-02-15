@@ -39,7 +39,7 @@ namespace DataAccessLayer
         /// </summary>
         private IList<PlanningElement> _pelmt = null;
 
-        public static String mdp;
+        //public static String mdp;
 
         /// <summary>
         /// Conctructeur de la classe DALSQLServer.
@@ -52,12 +52,11 @@ namespace DataAccessLayer
             {
                 _connection = new SqlConnection(_connectionString);
                 _connection.Open(); 
-                SqlCommand command = new SqlCommand("DELETE FROM Users where login='invite'; INSERT INTO Users VALUES('invite','" + mdp + "','Invi','té');", _connection);
-                command.ExecuteNonQuery();
+                //SqlCommand command = new SqlCommand("DELETE FROM Users where login='invite'; INSERT INTO Users VALUES('invite','" + mdp + "','Invi','té');", _connection);
+                //command.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e.ToString());
             }
         }
 
@@ -529,6 +528,13 @@ namespace DataAccessLayer
             myReader.Close();
 
             return users;
+        }
+
+        public void CreateUser(string login, string passwd, string nom, string prenom)
+        {
+            SqlCommand command = new SqlCommand("INSERT INTO Users VALUES('"+login+"','" + passwd + "','"+nom+"','"+prenom+"');",
+                _connection);
+            command.ExecuteNonQuery();
         }
 
     }

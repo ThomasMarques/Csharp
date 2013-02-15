@@ -114,7 +114,7 @@ namespace BusinessLayer
             return true;
             bool connected = false;
 
-            DALSQLServer.mdp = CalculateSHA1(password);
+            //DALSQLServer.mdp = CalculateSHA1(password);
 
             Utilisateur user = DALManager.GetInstance(DALProvider.SQLSERVER).DataAccessLayer.GetUtilisateurByLogin(login);
 
@@ -127,6 +127,16 @@ namespace BusinessLayer
             }
 
             return connected;
+        }
+
+        /// <summary>
+        /// Permets de vérifier le couple login, mot de passe.
+        /// </summary>
+        /// <param name="login">Le login de l'utilisateur.</param>
+        /// <returns>L'utilisateur si le login existe, null sinon.</returns>
+        public Utilisateur GetUserByLogin(String login)
+        {
+            return DALManager.GetInstance(DALProvider.SQLSERVER).DataAccessLayer.GetUtilisateurByLogin(login);
         }
 
         /// <summary>
@@ -175,5 +185,10 @@ namespace BusinessLayer
             _dal.Update(list);
         }
 
+
+        public void CreateUser(string login, string passwd, string nom, string prenom)
+        {
+            _dal.CreateUser(login, passwd, nom, prenom);
+        }
     }
 }

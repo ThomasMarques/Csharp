@@ -11,21 +11,6 @@ namespace WcfServiceAgenda.Business
     public class ArtistWS
     {
         /// <summary>
-        /// Date de naissance de l'artiste.
-        /// </summary>
-        private DateTime? _dateDeNaissance;
-
-        /// <summary>
-        /// seealso _dateDeNaissance
-        /// </summary>
-        [DataMember]
-        public DateTime? DateDeNaissance
-        {
-            get { return _dateDeNaissance; }
-            set { _dateDeNaissance = value; }
-        }
-
-        /// <summary>
         /// Identifiant unique de l'artiste.
         /// </summary>
         private System.Guid _giud;
@@ -37,6 +22,7 @@ namespace WcfServiceAgenda.Business
         public System.Guid Giud
         {
             get { return _giud; }
+            set { _giud = value; }
         }
 
         /// <summary>
@@ -75,22 +61,21 @@ namespace WcfServiceAgenda.Business
         /// <param name="dateDeNaissance">Date de naissance de l'artiste.</param>
         /// <param name="nom">Nom de l'artiste.</param>
         /// <param name="prenom">Prenom de l'artiste.</param>
-        public ArtistWS(System.Guid guid, DateTime? dateDeNaissance, string nom, string prenom)
+        public ArtistWS(System.Guid guid, string nom, string prenom)
         {
             _giud = guid;
-            DateDeNaissance = dateDeNaissance;
             Nom = nom;
             Prenom = prenom;
         }
 
         public static Artiste Convert(ArtistWS artiste)
         {
-            return new Artiste(artiste.Giud, artiste.DateDeNaissance, artiste.Nom, artiste.Prenom);
+            return new Artiste(artiste.Giud, null, artiste.Nom, artiste.Prenom);
         }
 
         public static ArtistWS Convert(Artiste artiste)
         {
-            return new ArtistWS(artiste.Giud, artiste.DateDeNaissance, artiste.Nom, artiste.Prenom);
+            return new ArtistWS(artiste.Giud, artiste.Nom, artiste.Prenom);
         }
     }
 }
