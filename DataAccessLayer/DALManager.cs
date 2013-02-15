@@ -22,7 +22,7 @@ namespace DataAccessLayer
         {
             if (provider == DALProvider.SQLSERVER)
             {
-                _dal = new DALSQLServer("Data Source=(LocalDB)\\v11.0;AttachDbFilename=D:\\Projet\\Csharp\\DataAccessLayer\\EventsAgenda.mdf;Integrated Security=True");
+                _dal = new DALSQLServer(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\eyheramo\Desktop\Csharp\DataAccessLayer\EventsAgenda.mdf;Integrated Security=True");
             }
         }
         /// <summary>
@@ -95,6 +95,7 @@ namespace DataAccessLayer
 
         public IList<Utilisateur> GetAllUsers()
         {
+            return null;
         }
 
     }
