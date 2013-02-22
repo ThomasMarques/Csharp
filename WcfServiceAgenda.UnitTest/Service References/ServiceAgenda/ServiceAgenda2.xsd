@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1318/ServiceAgenda.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfArtistWS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArtistWS" nillable="true" type="tns:ArtistWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArtistWS" nillable="true" type="tns:ArrayOfArtistWS" />
+  <xs:complexType name="ArtistWS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateDeNaissance" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Giud" type="ser:guid" />
+      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Prenom" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArtistWS" nillable="true" type="tns:ArtistWS" />
+  <xs:complexType name="ArrayOfEvenementWS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EvenementWS" nillable="true" type="tns:EvenementWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEvenementWS" nillable="true" type="tns:ArrayOfEvenementWS" />
+  <xs:complexType name="EvenementWS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Artistes" nillable="true" type="tns:ArrayOfArtistWS" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guid" type="ser:guid" />
+      <xs:element minOccurs="0" name="Tarif" type="xs:float" />
+      <xs:element minOccurs="0" name="Titre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EvenementWS" nillable="true" type="tns:EvenementWS" />
+  <xs:complexType name="ArrayOfLieuWS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LieuWS" nillable="true" type="tns:LieuWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLieuWS" nillable="true" type="tns:ArrayOfLieuWS" />
+  <xs:complexType name="LieuWS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adresse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guid" type="ser:guid" />
+      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombrePlacesTotal" type="xs:int" />
+      <xs:element minOccurs="0" name="_pourcentageCommission" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LieuWS" nillable="true" type="tns:LieuWS" />
+  <xs:complexType name="ArrayOfPlanningElementWS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PlanningElementWS" nillable="true" type="tns:PlanningElementWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlanningElementWS" nillable="true" type="tns:ArrayOfPlanningElementWS" />
+  <xs:complexType name="PlanningElementWS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateDebut" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateFin" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Guid" type="ser:guid" />
+      <xs:element minOccurs="0" name="MonEvement" nillable="true" type="tns:EvenementWS" />
+      <xs:element minOccurs="0" name="MonLieu" nillable="true" type="tns:LieuWS" />
+      <xs:element minOccurs="0" name="NbPlacesReservees" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PlanningElementWS" nillable="true" type="tns:PlanningElementWS" />
+  <xs:complexType name="ArrayOfUtilisateurWS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UtilisateurWS" nillable="true" type="tns:UtilisateurWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUtilisateurWS" nillable="true" type="tns:ArrayOfUtilisateurWS" />
+  <xs:complexType name="UtilisateurWS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Prenom" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UtilisateurWS" nillable="true" type="tns:UtilisateurWS" />
+</xs:schema>
