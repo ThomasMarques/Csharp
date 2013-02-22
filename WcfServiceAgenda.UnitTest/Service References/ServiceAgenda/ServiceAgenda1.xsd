@@ -32,7 +32,10 @@
   </xs:element>
   <xs:element name="GetAllArtistes">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllArtistesResponse">
@@ -44,7 +47,10 @@
   </xs:element>
   <xs:element name="GetAllEvents">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllEventsResponse">
@@ -56,7 +62,10 @@
   </xs:element>
   <xs:element name="GetAllLieux">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllLieuxResponse">
@@ -68,7 +77,10 @@
   </xs:element>
   <xs:element name="GetAllPlanningElements">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllPlanningElementsResponse">
@@ -80,13 +92,35 @@
   </xs:element>
   <xs:element name="GetAllUsers">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllUsersResponse">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllUsersResult" nillable="true" type="q7:ArrayOfUtilisateurWS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="yourLogin" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="yourPass" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="prenom" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateUserResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

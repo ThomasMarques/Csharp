@@ -9,7 +9,6 @@
   <xs:element name="ArrayOfArtistWS" nillable="true" type="tns:ArrayOfArtistWS" />
   <xs:complexType name="ArtistWS">
     <xs:sequence>
-      <xs:element minOccurs="0" name="DateDeNaissance" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Giud" type="ser:guid" />
       <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Prenom" nillable="true" type="xs:string" />

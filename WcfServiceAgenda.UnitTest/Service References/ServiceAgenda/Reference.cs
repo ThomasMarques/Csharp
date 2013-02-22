@@ -84,9 +84,6 @@ namespace WcfServiceAgenda.UnitTest.ServiceAgenda {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> DateDeNaissanceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Guid GiudField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -102,19 +99,6 @@ namespace WcfServiceAgenda.UnitTest.ServiceAgenda {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> DateDeNaissance {
-            get {
-                return this.DateDeNaissanceField;
-            }
-            set {
-                if ((this.DateDeNaissanceField.Equals(value) != true)) {
-                    this.DateDeNaissanceField = value;
-                    this.RaisePropertyChanged("DateDeNaissance");
-                }
             }
         }
         
@@ -604,34 +588,40 @@ namespace WcfServiceAgenda.UnitTest.ServiceAgenda {
         System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.CompositeType> GetDataUsingDataContractAsync(WcfServiceAgenda.UnitTest.ServiceAgenda.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllArtistes", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllArtistesResponse")]
-        WcfServiceAgenda.UnitTest.ServiceAgenda.ArtistWS[] GetAllArtistes();
+        WcfServiceAgenda.UnitTest.ServiceAgenda.ArtistWS[] GetAllArtistes(string login, string passwd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllArtistes", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllArtistesResponse")]
-        System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.ArtistWS[]> GetAllArtistesAsync();
+        System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.ArtistWS[]> GetAllArtistesAsync(string login, string passwd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllEvents", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllEventsResponse")]
-        WcfServiceAgenda.UnitTest.ServiceAgenda.EvenementWS[] GetAllEvents();
+        WcfServiceAgenda.UnitTest.ServiceAgenda.EvenementWS[] GetAllEvents(string login, string passwd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllEvents", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllEventsResponse")]
-        System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.EvenementWS[]> GetAllEventsAsync();
+        System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.EvenementWS[]> GetAllEventsAsync(string login, string passwd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllLieux", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllLieuxResponse")]
-        WcfServiceAgenda.UnitTest.ServiceAgenda.LieuWS[] GetAllLieux();
+        WcfServiceAgenda.UnitTest.ServiceAgenda.LieuWS[] GetAllLieux(string login, string passwd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllLieux", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllLieuxResponse")]
-        System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.LieuWS[]> GetAllLieuxAsync();
+        System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.LieuWS[]> GetAllLieuxAsync(string login, string passwd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElements", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllPlanningElementsResponse")]
-        WcfServiceAgenda.UnitTest.ServiceAgenda.PlanningElementWS[] GetAllPlanningElements();
+        WcfServiceAgenda.UnitTest.ServiceAgenda.PlanningElementWS[] GetAllPlanningElements(string login, string passwd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElements", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllPlanningElementsResponse")]
-        System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.PlanningElementWS[]> GetAllPlanningElementsAsync();
+        System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.PlanningElementWS[]> GetAllPlanningElementsAsync(string login, string passwd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllUsers", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllUsersResponse")]
-        WcfServiceAgenda.UnitTest.ServiceAgenda.UtilisateurWS[] GetAllUsers();
+        WcfServiceAgenda.UnitTest.ServiceAgenda.UtilisateurWS[] GetAllUsers(string login, string passwd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllUsers", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllUsersResponse")]
-        System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.UtilisateurWS[]> GetAllUsersAsync();
+        System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.UtilisateurWS[]> GetAllUsersAsync(string login, string passwd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/CreateUser", ReplyAction="http://tempuri.org/IServiceAgenda/CreateUserResponse")]
+        bool CreateUser(string yourLogin, string yourPass, string login, string passwd, string nom, string prenom);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/CreateUser", ReplyAction="http://tempuri.org/IServiceAgenda/CreateUserResponse")]
+        System.Threading.Tasks.Task<bool> CreateUserAsync(string yourLogin, string yourPass, string login, string passwd, string nom, string prenom);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -677,44 +667,52 @@ namespace WcfServiceAgenda.UnitTest.ServiceAgenda {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public WcfServiceAgenda.UnitTest.ServiceAgenda.ArtistWS[] GetAllArtistes() {
-            return base.Channel.GetAllArtistes();
+        public WcfServiceAgenda.UnitTest.ServiceAgenda.ArtistWS[] GetAllArtistes(string login, string passwd) {
+            return base.Channel.GetAllArtistes(login, passwd);
         }
         
-        public System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.ArtistWS[]> GetAllArtistesAsync() {
-            return base.Channel.GetAllArtistesAsync();
+        public System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.ArtistWS[]> GetAllArtistesAsync(string login, string passwd) {
+            return base.Channel.GetAllArtistesAsync(login, passwd);
         }
         
-        public WcfServiceAgenda.UnitTest.ServiceAgenda.EvenementWS[] GetAllEvents() {
-            return base.Channel.GetAllEvents();
+        public WcfServiceAgenda.UnitTest.ServiceAgenda.EvenementWS[] GetAllEvents(string login, string passwd) {
+            return base.Channel.GetAllEvents(login, passwd);
         }
         
-        public System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.EvenementWS[]> GetAllEventsAsync() {
-            return base.Channel.GetAllEventsAsync();
+        public System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.EvenementWS[]> GetAllEventsAsync(string login, string passwd) {
+            return base.Channel.GetAllEventsAsync(login, passwd);
         }
         
-        public WcfServiceAgenda.UnitTest.ServiceAgenda.LieuWS[] GetAllLieux() {
-            return base.Channel.GetAllLieux();
+        public WcfServiceAgenda.UnitTest.ServiceAgenda.LieuWS[] GetAllLieux(string login, string passwd) {
+            return base.Channel.GetAllLieux(login, passwd);
         }
         
-        public System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.LieuWS[]> GetAllLieuxAsync() {
-            return base.Channel.GetAllLieuxAsync();
+        public System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.LieuWS[]> GetAllLieuxAsync(string login, string passwd) {
+            return base.Channel.GetAllLieuxAsync(login, passwd);
         }
         
-        public WcfServiceAgenda.UnitTest.ServiceAgenda.PlanningElementWS[] GetAllPlanningElements() {
-            return base.Channel.GetAllPlanningElements();
+        public WcfServiceAgenda.UnitTest.ServiceAgenda.PlanningElementWS[] GetAllPlanningElements(string login, string passwd) {
+            return base.Channel.GetAllPlanningElements(login, passwd);
         }
         
-        public System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.PlanningElementWS[]> GetAllPlanningElementsAsync() {
-            return base.Channel.GetAllPlanningElementsAsync();
+        public System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.PlanningElementWS[]> GetAllPlanningElementsAsync(string login, string passwd) {
+            return base.Channel.GetAllPlanningElementsAsync(login, passwd);
         }
         
-        public WcfServiceAgenda.UnitTest.ServiceAgenda.UtilisateurWS[] GetAllUsers() {
-            return base.Channel.GetAllUsers();
+        public WcfServiceAgenda.UnitTest.ServiceAgenda.UtilisateurWS[] GetAllUsers(string login, string passwd) {
+            return base.Channel.GetAllUsers(login, passwd);
         }
         
-        public System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.UtilisateurWS[]> GetAllUsersAsync() {
-            return base.Channel.GetAllUsersAsync();
+        public System.Threading.Tasks.Task<WcfServiceAgenda.UnitTest.ServiceAgenda.UtilisateurWS[]> GetAllUsersAsync(string login, string passwd) {
+            return base.Channel.GetAllUsersAsync(login, passwd);
+        }
+        
+        public bool CreateUser(string yourLogin, string yourPass, string login, string passwd, string nom, string prenom) {
+            return base.Channel.CreateUser(yourLogin, yourPass, login, passwd, nom, prenom);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CreateUserAsync(string yourLogin, string yourPass, string login, string passwd, string nom, string prenom) {
+            return base.Channel.CreateUserAsync(yourLogin, yourPass, login, passwd, nom, prenom);
         }
     }
 }
