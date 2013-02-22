@@ -4,18 +4,29 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    <link rel="stylesheet" href="Style.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+        <div id="header">
+            <div id="logo">
+                <img src="images/logo.gif" alt="Notre Logo" />
+            </div>
+        </div>
+        <div id="left">
+            <h2>Menu</h2>
+            <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSourceMenu">
+            </asp:Menu>
+            <asp:SiteMapDataSource ID="SiteMapDataSourceMenu" runat="server" ShowStartingNode="False" />
+        </div>
+        <div id="right">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
     </form>
 </body>
 </html>
