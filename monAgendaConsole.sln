@@ -22,6 +22,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceAgenda.UnitTest",
 		{9D3946CD-7848-4C25-8224-8F649393C210} = {9D3946CD-7848-4C25-8224-8F649393C210}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiteAgenda", "WebSiteAgenda\WebSiteAgenda.csproj", "{183A2A4E-413F-4033-BA56-5F0D0B2FAF74}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9D3946CD-7848-4C25-8224-8F649393C210} = {9D3946CD-7848-4C25-8224-8F649393C210}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -122,6 +127,16 @@ Global
 		{08D09E20-987B-4653-A8B0-CEBD8E6D27E2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{08D09E20-987B-4653-A8B0-CEBD8E6D27E2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{08D09E20-987B-4653-A8B0-CEBD8E6D27E2}.Release|x86.ActiveCfg = Release|Any CPU
+		{183A2A4E-413F-4033-BA56-5F0D0B2FAF74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{183A2A4E-413F-4033-BA56-5F0D0B2FAF74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{183A2A4E-413F-4033-BA56-5F0D0B2FAF74}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{183A2A4E-413F-4033-BA56-5F0D0B2FAF74}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{183A2A4E-413F-4033-BA56-5F0D0B2FAF74}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{183A2A4E-413F-4033-BA56-5F0D0B2FAF74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{183A2A4E-413F-4033-BA56-5F0D0B2FAF74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{183A2A4E-413F-4033-BA56-5F0D0B2FAF74}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{183A2A4E-413F-4033-BA56-5F0D0B2FAF74}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{183A2A4E-413F-4033-BA56-5F0D0B2FAF74}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
