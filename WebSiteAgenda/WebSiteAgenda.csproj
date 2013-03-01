@@ -134,6 +134,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ServiceAgendaTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\WcfServiceAgenda\ServiceAgenda.xsd">

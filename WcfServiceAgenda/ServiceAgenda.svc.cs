@@ -7,6 +7,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using BusinessLayer;
 using EntitiesLayer;
+using WcfServiceAgenda.Business;
 
 namespace WcfServiceAgenda
 {
@@ -143,6 +144,44 @@ namespace WcfServiceAgenda
                 new BusinessManager().CreateUser(login, passwd, nom, prenom);
             }
             return ret;
+        }
+
+        public IList<Business.PlanningElementWS> GetPlanningElementByLieu(string login, string passwd, Lieu lieu)
+        {
+            IList<Business.PlanningElementWS> plannings = (from p in new BusinessManager().getPlanningElements()
+                                                           where lieu.Equals(p.MonLieu)
+                                                           select Business.PlanningElementWS.Convert(p)).ToList();
+
+            return plannings;
+        }
+
+        public IList<Business.PlanningElementWS> GetPlanningElement(string login, string passwd, Evenement ev)
+        {
+            IList<Business.PlanningElementWS> plannings = (from p in new BusinessManager().getPlanningElements()
+                                                           where ev.Equals(p.MonEvement)
+                                                           select Business.PlanningElementWS.Convert(p)).ToList();
+
+            return plannings;
+        }
+
+        public int GetNbPlacesAvailable(String login, String passwd, EntitiesLayer.PlanningElement pe)
+        {
+            return new BusinessManager().GetNbPlacesAvailable(pe);
+        }
+
+        public Boolean AnnulationReservation(System.Guid guidResa)
+        {
+            return new BusinessManager().AnnulationReservation(guidResa);
+        }
+
+        public WcfServiceAgenda.Business.ReservationWS GetReservation(System.Guid guidResa)
+        {
+            return ReservationWS.Convert(new BusinessManager().GetReservation(guidResa));
+        }
+
+        public bool ReserverPlaces(EntitiesLayer.PlanningElement planning, int nbPlaces)
+        {
+            return new BusinessManager().ReserverPlaces(planning, nbPlaces);
         }
     }
 }

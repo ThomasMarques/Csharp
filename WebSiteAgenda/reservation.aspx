@@ -9,5 +9,7 @@
         {
             Response.Redirect("error.aspx?message=Identifiants%20non%20précisés", false);
         }
+        
+        
     %>
 </asp:Content>
