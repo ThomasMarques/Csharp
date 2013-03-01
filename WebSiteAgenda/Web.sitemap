@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="index.aspx" title="Accueil"  description="Page d'accueil">
+        <siteMapNode url="recherche.aspx" title="Recherche"  description="Page permettant de rechercher un artiste et ses préstations" />
+        <siteMapNode url="reservation.aspx" title="Réservation"  description="Page permettant de réserver des places." />
+    </siteMapNode>
+</siteMap>

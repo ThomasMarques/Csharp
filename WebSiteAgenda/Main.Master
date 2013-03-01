@@ -4,18 +4,38 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    <link rel="stylesheet" href="Style.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+        <div id="header">
+            <div id="logo">
+                <img src="images/logo.png" alt="Notre Logo" />
+            </div>
+        </div>
+        <div id="content" >
+            <div id="left">
+                <div id="menu">
+                    <h2>Menu</h2>
+                    <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSourceMenu">
+                    </asp:Menu>
+                    <asp:SiteMapDataSource ID="SiteMapDataSourceMenu" runat="server" ShowStartingNode="False" />
+                </div>
+            </div>
+            <div id="right">
+                <div id="pageContent" >
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            autheurs : Gaëtan Eyheramono & Thomas Marques - Développé et optimisé pour Google Chrome et Mozilla Firefox
+        </div>
     </form>
 </body>
 </html>
