@@ -5,9 +5,9 @@
     <%
         String idEvent = Request.QueryString["idEvent"];
         String idLieu = Request.QueryString["idLieu"];
-        if(idEvent == null || idLieu == null)
+        /*if(idEvent == null || idLieu == null)
         {
             Response.Redirect("error.aspx?message=Identifiants%20non%20précisés", false);
-        }
+        } */
     %>
 </asp:Content>

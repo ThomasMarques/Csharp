@@ -90,13 +90,13 @@ namespace WcfServiceAgenda.Business
         /// <param name="guid">guid de l'evenement.</param>
         /// <param name="tarif">tarif</param>
         /// <param name="titre">titre</param>
-        public EvenementWS(string desc, System.Guid guid, float tarif, string titre)
+        /*public EvenementWS(string desc, System.Guid guid, float tarif, string titre)
         {
             _description = desc;
             _guid = guid;
             _tarif = tarif;
             _titre = titre;
-        }
+        */
 
         public static Evenement Convert(EvenementWS ev)
         {
@@ -105,7 +105,10 @@ namespace WcfServiceAgenda.Business
 
         public static EvenementWS Convert(Evenement ev)
         {
-            return new EvenementWS(ev.Description, ev.Guid, ev.Tarif, ev.Titre);
+            IList<ArtistWS> art= new List<ArtistWS>();
+            foreach(Artiste a in ev.Artistes)
+                art.Add(ArtistWS.Convert(a));
+            return new EvenementWS(art,ev.Description, ev.Guid, ev.Tarif, ev.Titre);
         }
     }
 }

@@ -100,6 +100,24 @@ namespace WcfServiceAgenda
             return ret;
         }
 
+        public IList<Business.PlanningElementWS> GetAllPlanningElementsByEvent(String login, String passwd, System.Guid guidEvent)
+        {
+            IList<Business.PlanningElementWS> ret = null;
+
+            if (CheckUser(login, passwd))
+            {
+                IList<PlanningElement> pe = new BusinessManager().getPlanningElements().Where(a => a.MonEvement.Guid == guidEvent).ToList();
+                ret = new List<Business.PlanningElementWS>();
+
+                foreach (PlanningElement p in pe)
+                {
+                    ret.Add(Business.PlanningElementWS.Convert(p));
+                }
+            }
+
+            return ret;
+        }
+
         public IList<Business.UtilisateurWS> GetAllUsers(String login, String passwd)
         {
             IList<Business.UtilisateurWS> ret = null;
@@ -114,6 +132,24 @@ namespace WcfServiceAgenda
                     ret.Add(Business.UtilisateurWS.Convert(u));
                 }
             }
+            return ret;
+        }
+
+        public IList<Business.EvenementWS> GetAllEventsByArtiste(String login, String passwd, System.Guid guidArtiste)
+        {
+            IList<Business.EvenementWS> ret = null;
+
+            if (CheckUser(login, passwd))
+            {
+                IList<Evenement> pe = new BusinessManager().getEvenements().Where(e => e.Artistes.Select(a => a.Giud).Contains(guidArtiste)).ToList();
+                ret = new List<Business.EvenementWS>();
+
+                foreach (Evenement p in pe)
+                {
+                    ret.Add(Business.EvenementWS.Convert(p));
+                }
+            }
+
             return ret;
         }
 
