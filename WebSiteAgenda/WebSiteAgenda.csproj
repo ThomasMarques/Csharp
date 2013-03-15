@@ -61,6 +61,7 @@
   <ItemGroup>
     <Content Include="error.aspx" />
     <Content Include="index.aspx" />
+    <Content Include="recherche.aspx" />
     <Content Include="reservation.aspx" />
     <Content Include="Service References\WcfServiceAgenda\ServiceAgenda.disco" />
     <Content Include="Service References\WcfServiceAgenda\configuration91.svcinfo" />
@@ -71,7 +72,7 @@
     </Content>
     <Content Include="Style.css" />
     <Content Include="Web.config" />
-    <Content Include="Service References\WcfServiceAgenda\ServiceAgenda.wsdl" />
+    <None Include="Service References\WcfServiceAgenda\ServiceAgenda.wsdl" />
     <Content Include="Main.Master" />
     <None Include="Service References\WcfServiceAgenda\ServiceAgenda2.xsd">
       <SubType>Designer</SubType>
@@ -128,6 +129,13 @@
     </Compile>
     <Compile Include="reservation.aspx.designer.cs">
       <DependentUpon>reservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="recherche.aspx.cs">
+      <DependentUpon>recherche.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="recherche.aspx.designer.cs">
+      <DependentUpon>recherche.aspx</DependentUpon>
     </Compile>
     <Compile Include="Service References\WcfServiceAgenda\Reference.cs">
       <AutoGen>True</AutoGen>
