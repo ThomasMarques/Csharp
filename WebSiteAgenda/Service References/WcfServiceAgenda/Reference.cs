@@ -1055,6 +1055,12 @@ namespace WebSiteAgenda.WcfServiceAgenda {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllEvents", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllEventsResponse")]
         System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.EvenementWS[]> GetAllEventsAsync(string login, string passwd);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllEventsByArtiste", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllEventsByArtisteResponse")]
+        WebSiteAgenda.WcfServiceAgenda.EvenementWS[] GetAllEventsByArtiste(string login, string passwd, System.Guid guidArtiste);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllEventsByArtiste", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllEventsByArtisteResponse")]
+        System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.EvenementWS[]> GetAllEventsByArtisteAsync(string login, string passwd, System.Guid guidArtiste);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllLieux", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllLieuxResponse")]
         WebSiteAgenda.WcfServiceAgenda.LieuWS[] GetAllLieux(string login, string passwd);
         
@@ -1066,6 +1072,12 @@ namespace WebSiteAgenda.WcfServiceAgenda {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElements", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllPlanningElementsResponse")]
         System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[]> GetAllPlanningElementsAsync(string login, string passwd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElementsByEvent", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllPlanningElementsByEventResponse")]
+        WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[] GetAllPlanningElementsByEvent(string login, string passwd, System.Guid guidEvent);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElementsByEvent", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllPlanningElementsByEventResponse")]
+        System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[]> GetAllPlanningElementsByEventAsync(string login, string passwd, System.Guid guidEvent);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllUsers", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllUsersResponse")]
         WebSiteAgenda.WcfServiceAgenda.UtilisateurWS[] GetAllUsers(string login, string passwd);
@@ -1159,6 +1171,14 @@ namespace WebSiteAgenda.WcfServiceAgenda {
             return base.Channel.GetAllEventsAsync(login, passwd);
         }
         
+        public WebSiteAgenda.WcfServiceAgenda.EvenementWS[] GetAllEventsByArtiste(string login, string passwd, System.Guid guidArtiste) {
+            return base.Channel.GetAllEventsByArtiste(login, passwd, guidArtiste);
+        }
+        
+        public System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.EvenementWS[]> GetAllEventsByArtisteAsync(string login, string passwd, System.Guid guidArtiste) {
+            return base.Channel.GetAllEventsByArtisteAsync(login, passwd, guidArtiste);
+        }
+        
         public WebSiteAgenda.WcfServiceAgenda.LieuWS[] GetAllLieux(string login, string passwd) {
             return base.Channel.GetAllLieux(login, passwd);
         }
@@ -1173,6 +1193,14 @@ namespace WebSiteAgenda.WcfServiceAgenda {
         
         public System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[]> GetAllPlanningElementsAsync(string login, string passwd) {
             return base.Channel.GetAllPlanningElementsAsync(login, passwd);
+        }
+        
+        public WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[] GetAllPlanningElementsByEvent(string login, string passwd, System.Guid guidEvent) {
+            return base.Channel.GetAllPlanningElementsByEvent(login, passwd, guidEvent);
+        }
+        
+        public System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[]> GetAllPlanningElementsByEventAsync(string login, string passwd, System.Guid guidEvent) {
+            return base.Channel.GetAllPlanningElementsByEventAsync(login, passwd, guidEvent);
         }
         
         public WebSiteAgenda.WcfServiceAgenda.UtilisateurWS[] GetAllUsers(string login, string passwd) {

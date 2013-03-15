@@ -60,7 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="error.aspx" />
+    <Content Include="gestionRecherche.aspx" />
     <Content Include="index.aspx" />
+    <Content Include="Javascript\jquery-1.9.1.min.js" />
+    <Content Include="Javascript\oXHR.js" />
     <Content Include="recherche.aspx" />
     <Content Include="reservation.aspx" />
     <None Include="Service References\WcfServiceAgenda\ServiceAgenda.disco" />
@@ -72,7 +75,6 @@
     </None>
     <Content Include="Style.css" />
     <Content Include="Web.config" />
-    <None Include="Service References\WcfServiceAgenda\ServiceAgenda.wsdl" />
     <Content Include="Main.Master" />
     <None Include="Service References\WcfServiceAgenda\ServiceAgenda2.xsd">
       <SubType>Designer</SubType>
@@ -104,6 +106,13 @@
     </Compile>
     <Compile Include="error.aspx.designer.cs">
       <DependentUpon>error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="gestionRecherche.aspx.cs">
+      <DependentUpon>gestionRecherche.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gestionRecherche.aspx.designer.cs">
+      <DependentUpon>gestionRecherche.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -141,13 +150,35 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\WcfServiceAgenda\ServiceAgenda.wsdl" />
     <None Include="Service References\WcfServiceAgenda\ServiceAgenda.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\WcfServiceAgenda\ServiceAgenda1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.ReservationWS.datasource">
+    <None Include="Service References\WcfServiceAgenda\ServiceAgenda2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfServiceAgenda\ServiceAgenda3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.ArtistWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.EvenementWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.LieuWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.PlanningElementWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.UtilisateurWS.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
@@ -163,6 +194,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\WcfServiceAgenda\" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

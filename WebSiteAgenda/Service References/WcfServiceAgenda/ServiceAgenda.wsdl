@@ -20,6 +20,12 @@
   <wsdl:message name="IServiceAgenda_GetAllEvents_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEventsResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceAgenda_GetAllEventsByArtiste_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEventsByArtiste" />
+  </wsdl:message>
+  <wsdl:message name="IServiceAgenda_GetAllEventsByArtiste_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEventsByArtisteResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceAgenda_GetAllLieux_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllLieux" />
   </wsdl:message>
@@ -31,6 +37,12 @@
   </wsdl:message>
   <wsdl:message name="IServiceAgenda_GetAllPlanningElements_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllPlanningElementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceAgenda_GetAllPlanningElementsByEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlanningElementsByEvent" />
+  </wsdl:message>
+  <wsdl:message name="IServiceAgenda_GetAllPlanningElementsByEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlanningElementsByEventResponse" />
   </wsdl:message>
   <wsdl:message name="IServiceAgenda_GetAllUsers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllUsers" />
@@ -89,6 +101,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllEvents" message="tns:IServiceAgenda_GetAllEvents_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllEventsResponse" message="tns:IServiceAgenda_GetAllEvents_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAllEventsByArtiste">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllEventsByArtiste" message="tns:IServiceAgenda_GetAllEventsByArtiste_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllEventsByArtisteResponse" message="tns:IServiceAgenda_GetAllEventsByArtiste_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllLieux">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllLieux" message="tns:IServiceAgenda_GetAllLieux_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllLieuxResponse" message="tns:IServiceAgenda_GetAllLieux_OutputMessage" />
@@ -96,6 +112,10 @@
     <wsdl:operation name="GetAllPlanningElements">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElements" message="tns:IServiceAgenda_GetAllPlanningElements_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElementsResponse" message="tns:IServiceAgenda_GetAllPlanningElements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPlanningElementsByEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElementsByEvent" message="tns:IServiceAgenda_GetAllPlanningElementsByEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElementsByEventResponse" message="tns:IServiceAgenda_GetAllPlanningElementsByEvent_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllUsers" message="tns:IServiceAgenda_GetAllUsers_InputMessage" />
@@ -168,8 +188,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAllUsers">
-      <soap:operation soapAction="http://tempuri.org/IServiceAgenda/GetAllUsers" style="document" />
+    <wsdl:operation name="GetAllEventsByArtiste">
+      <soap:operation soapAction="http://tempuri.org/IServiceAgenda/GetAllEventsByArtiste" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLieux">
+      <soap:operation soapAction="http://tempuri.org/IServiceAgenda/GetAllLieux" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -186,8 +215,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetPlanningElementByLieu">
-      <soap:operation soapAction="http://tempuri.org/IServiceAgenda/GetPlanningElementByLieu" style="document" />
+    <wsdl:operation name="GetAllPlanningElementsByEvent">
+      <soap:operation soapAction="http://tempuri.org/IServiceAgenda/GetAllPlanningElementsByEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/IServiceAgenda/GetAllUsers" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

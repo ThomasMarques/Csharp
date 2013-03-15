@@ -11,7 +11,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    
+       
         <div id="header">
             <div id="logo">
                 <img src="images/logo.png" alt="Notre Logo" />
@@ -26,6 +26,7 @@
                         </asp:Menu>
                         <asp:SiteMapDataSource ID="SiteMapDataSourceMenu" runat="server" ShowStartingNode="False" />
                     </form>
+                     </form>
                 </div>
             </div>
             <div id="right">

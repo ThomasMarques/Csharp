@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9ce8109e-41f8-4bb1-8056-ae1965264bf3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d73d1685-995e-4f65-b6ec-bbe5390e7846" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,12 +22,12 @@
     <MetadataSource Address="http://localhost:1318/ServiceAgenda.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ServiceAgenda.xsd" MetadataType="Schema" ID="31e765a0-8c08-416f-a792-f12b8cf8a67b" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?xsd=xsd2" />
-    <MetadataFile FileName="ServiceAgenda1.xsd" MetadataType="Schema" ID="9910230e-6638-43fc-be90-42e9f9784a88" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?xsd=xsd0" />
-    <MetadataFile FileName="ServiceAgenda.disco" MetadataType="Disco" ID="5977604f-cbdd-48fd-a62b-8039ce6f8397" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?disco" />
-    <MetadataFile FileName="ServiceAgenda2.xsd" MetadataType="Schema" ID="d1d5a5ef-d4db-405b-b7a5-6fae7601ed80" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?xsd=xsd3" />
-    <MetadataFile FileName="ServiceAgenda3.xsd" MetadataType="Schema" ID="4c332f5c-6e46-49b1-a583-384dd1dd9778" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?xsd=xsd1" />
-    <MetadataFile FileName="ServiceAgenda.wsdl" MetadataType="Wsdl" ID="acbb9484-3e1b-4340-a104-8cf9a96c2999" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?wsdl" />
+    <MetadataFile FileName="ServiceAgenda.xsd" MetadataType="Schema" ID="4b57cb59-dfbd-4354-9fa6-a0e1d6670704" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceAgenda1.xsd" MetadataType="Schema" ID="ae2329e1-c4ea-4a06-951b-ebbcc738bbfe" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceAgenda.disco" MetadataType="Disco" ID="06e51b90-ce4c-478a-960c-1662874aa6bc" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?disco" />
+    <MetadataFile FileName="ServiceAgenda2.xsd" MetadataType="Schema" ID="f871d30f-9016-4172-92a4-78df64c734a1" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServiceAgenda3.xsd" MetadataType="Schema" ID="dd4d007d-4e9c-4003-979b-6600b193005f" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceAgenda.wsdl" MetadataType="Wsdl" ID="91a0b3af-dbb6-4620-8000-220cc7699fe0" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

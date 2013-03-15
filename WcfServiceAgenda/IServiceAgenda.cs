@@ -22,10 +22,16 @@ namespace WcfServiceAgenda
         IList<EvenementWS> GetAllEvents(String login, String passwd);
 
         [OperationContract]
+        IList<EvenementWS> GetAllEventsByArtiste(String login, String passwd, System.Guid guidArtiste);
+
+        [OperationContract]
         IList<LieuWS> GetAllLieux(String login, String passwd);
 
         [OperationContract]
         IList<PlanningElementWS> GetAllPlanningElements(String login, String passwd);
+
+        [OperationContract]
+        IList<PlanningElementWS> GetAllPlanningElementsByEvent(String login, String passwd, System.Guid guidEvent);
 
         [OperationContract]
         IList<UtilisateurWS> GetAllUsers(String login, String passwd);
