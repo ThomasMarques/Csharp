@@ -67,6 +67,7 @@
     <Compile Include="Business\EvenementWS.cs" />
     <Compile Include="Business\LieuWS.cs" />
     <Compile Include="Business\PlanningElementWS.cs" />
+    <Compile Include="Business\ReservationWS.cs" />
     <Compile Include="Business\UtilisateurWS.cs" />
     <Compile Include="ServiceAgenda.svc.cs">
       <DependentUpon>ServiceAgenda.svc</DependentUpon>

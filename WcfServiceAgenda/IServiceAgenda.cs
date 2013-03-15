@@ -14,13 +14,6 @@ namespace WcfServiceAgenda
     [ServiceContract]
     public interface IServiceAgenda
     {
-
-        [OperationContract]
-        string GetData(int value);
-
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
-
         // TODO: ajoutez vos opérations de service ici
         [OperationContract]
         IList<ArtistWS> GetAllArtistes(String login, String passwd);
@@ -45,6 +38,24 @@ namespace WcfServiceAgenda
 
         [OperationContract]
         Boolean CreateUser(String yourLogin, String yourPass, String login, String passwd, String nom, String prenom);
+
+        [OperationContract]
+        IList<Business.PlanningElementWS> GetPlanningElementByLieu(String login, String passwd, String guidLieu);
+
+        [OperationContract]
+        IList<Business.PlanningElementWS> GetPlanningElementByEvent(string login, string passwd, String guidEv);
+
+        [OperationContract]
+        int GetNbPlacesAvailable(String login, String passwd, EntitiesLayer.PlanningElement pe);
+
+        [OperationContract]
+        Boolean AnnulationReservation(System.Guid guidResa);
+        
+        [OperationContract]
+        ReservationWS GetReservation(System.Guid guidResa);
+        
+        [OperationContract]
+        bool ReserverPlaces(EntitiesLayer.PlanningElement planning, int nbPlaces);
     }
 
 

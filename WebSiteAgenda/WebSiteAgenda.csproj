@@ -76,6 +76,27 @@
     <Content Include="Style.css" />
     <Content Include="Web.config" />
     <Content Include="Main.Master" />
+    <None Include="Service References\WcfServiceAgenda\ServiceAgenda2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfServiceAgenda\ServiceAgenda3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.ArtistWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.EvenementWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.LieuWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.PlanningElementWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.UtilisateurWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>

@@ -190,5 +190,26 @@ namespace BusinessLayer
         {
             _dal.CreateUser(login, passwd, nom, prenom);
         }
+
+
+        public int GetNbPlacesAvailable(PlanningElement planning)
+        {
+            return _dal.GetNbPlacesAvailable(planning);
+        }
+
+        public Boolean AnnulationReservation(System.Guid guidResa)
+        {
+            return _dal.AnnulationReservation(guidResa);
+        }
+
+        public Reservation GetReservation(System.Guid guidResa)
+        {
+            return _dal.GetReservation(guidResa);
+        }
+
+        public bool ReserverPlaces(PlanningElement planning, int nbPlaces)
+        {
+            return _dal.ReserverPlaces(planning,nbPlaces);
+        }
     }
 }

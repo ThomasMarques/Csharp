@@ -56,5 +56,13 @@ namespace DataAccessLayer
         IList<Utilisateur> GetAllUsers();
 
         void CreateUser(string login, string passwd, string nom, string prenom);
+
+        int GetNbPlacesAvailable(PlanningElement planning);
+
+        Boolean AnnulationReservation(System.Guid guidResa);
+
+        Reservation GetReservation(System.Guid guidResa);
+
+        bool ReserverPlaces(PlanningElement planning, int nbPlaces);
     }
 }

@@ -21,10 +21,11 @@
             <div id="left">
                 <div id="menu">
                     <h2>Menu</h2>
-                     <form id="form1" runat="server">
-                    <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSourceMenu">
-                    </asp:Menu>
-                    <asp:SiteMapDataSource ID="SiteMapDataSourceMenu" runat="server" ShowStartingNode="False" />
+                    <form id="form1" runat="server">
+                        <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSourceMenu">
+                        </asp:Menu>
+                        <asp:SiteMapDataSource ID="SiteMapDataSourceMenu" runat="server" ShowStartingNode="False" />
+                    </form>
                      </form>
                 </div>
             </div>
@@ -38,6 +39,5 @@
         <div id="footer">
             autheurs : Gaëtan Eyheramono & Thomas Marques - Développé et optimisé pour Google Chrome et Mozilla Firefox
         </div>
-            
 </body>
 </html>
