@@ -146,19 +146,19 @@ namespace WcfServiceAgenda
             return ret;
         }
 
-        public IList<Business.PlanningElementWS> GetPlanningElementByLieu(string login, string passwd, Lieu lieu)
+        public IList<Business.PlanningElementWS> GetPlanningElementByLieu(string login, string passwd, String guidLieu)
         {
             IList<Business.PlanningElementWS> plannings = (from p in new BusinessManager().getPlanningElements()
-                                                           where lieu.Equals(p.MonLieu)
+                                                           where guidLieu.Equals(p.MonLieu.Guid)
                                                            select Business.PlanningElementWS.Convert(p)).ToList();
 
             return plannings;
         }
 
-        public IList<Business.PlanningElementWS> GetPlanningElement(string login, string passwd, Evenement ev)
+        public IList<Business.PlanningElementWS> GetPlanningElementByEvent(string login, string passwd, String guidEv)
         {
             IList<Business.PlanningElementWS> plannings = (from p in new BusinessManager().getPlanningElements()
-                                                           where ev.Equals(p.MonEvement)
+                                                           where guidEv.Equals(p.MonEvement.Guid)
                                                            select Business.PlanningElementWS.Convert(p)).ToList();
 
             return plannings;

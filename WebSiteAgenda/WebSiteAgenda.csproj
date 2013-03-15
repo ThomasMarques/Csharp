@@ -63,13 +63,13 @@
     <Content Include="index.aspx" />
     <Content Include="recherche.aspx" />
     <Content Include="reservation.aspx" />
-    <Content Include="Service References\WcfServiceAgenda\ServiceAgenda.disco" />
-    <Content Include="Service References\WcfServiceAgenda\configuration91.svcinfo" />
-    <Content Include="Service References\WcfServiceAgenda\configuration.svcinfo" />
-    <Content Include="Service References\WcfServiceAgenda\Reference.svcmap">
+    <None Include="Service References\WcfServiceAgenda\ServiceAgenda.disco" />
+    <None Include="Service References\WcfServiceAgenda\configuration91.svcinfo" />
+    <None Include="Service References\WcfServiceAgenda\configuration.svcinfo" />
+    <None Include="Service References\WcfServiceAgenda\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="Style.css" />
     <Content Include="Web.config" />
     <None Include="Service References\WcfServiceAgenda\ServiceAgenda.wsdl" />
@@ -81,9 +81,6 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.ArtistWS.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.EvenementWS.datasource">
@@ -142,7 +139,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="ServiceAgendaTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\WcfServiceAgenda\ServiceAgenda.xsd">
@@ -151,6 +147,9 @@
     <None Include="Service References\WcfServiceAgenda\ServiceAgenda1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Service References\WcfServiceAgenda\WebSiteAgenda.WcfServiceAgenda.ReservationWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

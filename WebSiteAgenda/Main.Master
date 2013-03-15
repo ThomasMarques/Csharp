@@ -11,7 +11,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    
         <div id="header">
             <div id="logo">
                 <img src="images/logo.png" alt="Notre Logo" />
@@ -21,9 +21,11 @@
             <div id="left">
                 <div id="menu">
                     <h2>Menu</h2>
-                    <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSourceMenu">
-                    </asp:Menu>
-                    <asp:SiteMapDataSource ID="SiteMapDataSourceMenu" runat="server" ShowStartingNode="False" />
+                    <form id="form1" runat="server">
+                        <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSourceMenu">
+                        </asp:Menu>
+                        <asp:SiteMapDataSource ID="SiteMapDataSourceMenu" runat="server" ShowStartingNode="False" />
+                    </form>
                 </div>
             </div>
             <div id="right">
@@ -36,6 +38,5 @@
         <div id="footer">
             autheurs : Gaëtan Eyheramono & Thomas Marques - Développé et optimisé pour Google Chrome et Mozilla Firefox
         </div>
-    </form>
 </body>
 </html>

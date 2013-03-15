@@ -34,10 +34,10 @@ namespace WcfServiceAgenda
         Boolean CreateUser(String yourLogin, String yourPass, String login, String passwd, String nom, String prenom);
 
         [OperationContract]
-        IList<Business.PlanningElementWS> GetPlanningElementByLieu(String login, String passwd, EntitiesLayer.Lieu lieu);
+        IList<Business.PlanningElementWS> GetPlanningElementByLieu(String login, String passwd, String guidLieu);
 
         [OperationContract]
-        IList<Business.PlanningElementWS> GetPlanningElement(String login, String passwd, EntitiesLayer.Evenement ev);
+        IList<Business.PlanningElementWS> GetPlanningElementByEvent(string login, string passwd, String guidEv);
 
         [OperationContract]
         int GetNbPlacesAvailable(String login, String passwd, EntitiesLayer.PlanningElement pe);
