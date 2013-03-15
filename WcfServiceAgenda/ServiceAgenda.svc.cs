@@ -13,23 +13,6 @@ namespace WcfServiceAgenda
 {
     public class ServiceAgenda : IServiceAgenda
     {
-        public string GetData(int value)
-        {
-            return string.Format("You entered: {0}", value);
-        }
-
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
-        }
 
 
         public IList<Business.ArtistWS> GetAllArtistes(String login, String passwd)
