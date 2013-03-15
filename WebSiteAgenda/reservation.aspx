@@ -14,10 +14,13 @@
         string mdp = "12299170891009567410982971131211871132061153230";
 
         WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient service = new WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient();
-        IList<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS> planningLieu = service.GetPlanningElementByLieu(identifiant, mdp, idLieu);
+
+        Guid uid = new Guid(idLieu);
+        IList<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS> planningLieu = service.GetAllPlanningElementByLieu(identifiant, mdp, uid);
         IList<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS> plannings;
-            
-        plannings = planningLieu.Intersect(service.GetPlanningElementByEvent(identifiant, mdp, idEvent)).ToList();
+
+        uid = new Guid(idEvent);
+        plannings = planningLieu.Intersect(service.GetAllPlanningElementsByEvent(identifiant, mdp, uid)).ToList();
 
     %>
 

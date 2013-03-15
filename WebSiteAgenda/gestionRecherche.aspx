@@ -17,7 +17,7 @@
         WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[] planning = service.GetAllPlanningElementsByEvent("toto", "12299170891009567410982971131211871132061153230", System.Guid.Parse(Request.QueryString["event"])).Distinct().ToArray();
         foreach (WebSiteAgenda.WcfServiceAgenda.PlanningElementWS pe in planning)
         {
-            Response.Write("<option value=" + pe.Guid + ">" + pe.MonLieu.Nom + "</option>");
+            Response.Write("<option value=" + pe.MonLieu.Guid + ">" + pe.MonLieu.Nom + "</option>");
         }
     }
     
