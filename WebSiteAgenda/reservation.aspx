@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="reservation.aspx.cs" Inherits="WebSiteAgenda.reservation" %>
+﻿<%@ Page Title="Réservation" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="reservation.aspx.cs" Inherits="WebSiteAgenda.reservation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -7,8 +7,11 @@
         String idLieu = Request.QueryString["idLieu"];
         if(idEvent == null || idLieu == null)
         {
-            Response.Redirect("error.aspx?message=Identifiants%20non%20précisés", false);
+            Response.Redirect("error.aspx?message=Identifiants%20lieu%20et%20event%20non%20précisés", false);
         }
+        else
+        {
+        
         
         string identifiant = "toto";
         string mdp = "12299170891009567410982971131211871132061153230";
@@ -17,13 +20,16 @@
 
         Guid uid = new Guid(idLieu);
         IList<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS> planningLieu = service.GetAllPlanningElementByLieu(identifiant, mdp, uid);
+        IList<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS> planningEvent = service.GetAllPlanningElementsByEvent(identifiant, mdp, uid);
         IList<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS> plannings;
 
         uid = new Guid(idEvent);
-        plannings = planningLieu.Intersect(service.GetAllPlanningElementsByEvent(identifiant, mdp, uid)).ToList();
+        plannings = planningLieu.Intersect(planningEvent).ToList();
 
+        if(plannings.Count > 0)
+        {
     %>
-
+    
     <script type="text/javascript">
         incPlace()
         {
@@ -62,10 +68,10 @@
     </script>
 
     <div id="ResumeArtist">
-        <h3>Listes des Artistes présents :</h3>
-
-        <ul id="listArtists">
         <% 
+            Response.Write("<h3>Listes des Artistes présents :</h3>\n");
+            Response.Write("<ul id=\"listArtists\">\n");
+        
             StringBuilder sb = new StringBuilder();
             
                 
@@ -76,7 +82,7 @@
                 Response.Write("<li>"+ sb.ToString() +"</li>\n");
                 sb.Clear();
             }
-        %>
+    %>
         </ul>
 
         StringBuilder sb = new StringBuilder();
@@ -135,10 +141,18 @@
 
 
     </div>
-    
-     
-    <%   
+
+
+    <%      }
+            else
+            {
+                %>
+                <h3>Aucune date disponible pour cette évènement et ce lieu</h3>
+                <form method="get" action="recherche.aspx" >
+                    <input type="submit" value="&larr; Retour à la recherche" />
+                </form>
+                <%
+            }
         
-        
-    %>
+        } %>
 </asp:Content>
