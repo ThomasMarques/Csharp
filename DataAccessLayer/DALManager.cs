@@ -22,7 +22,7 @@ namespace DataAccessLayer
         {
             if (provider == DALProvider.SQLSERVER)
             {
-                _dal = new DALSQLServer(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\marquest\Desktop\Csharp\DataAccessLayer\EventsAgenda.mdf;Integrated Security=True");
+                _dal = new DALSQLServer(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=D:\Projet\Csharp\DataAccessLayer\EventsAgenda.mdf;Integrated Security=True");
             }
         }
         /// <summary>
@@ -103,17 +103,18 @@ namespace DataAccessLayer
 
         }
 
+
         public int GetNbPlacesAvailable(PlanningElement planning)
         {
             return 0;
         }
 
-        public Boolean AnnulationReservation(System.Guid guidResa)
+        public bool AnnulationReservation(Guid guidResa)
         {
             return false;
         }
 
-        public Reservation GetReservation(System.Guid guidResa)
+        public Reservation GetReservation(Guid guidResa)
         {
             return null;
         }
@@ -122,7 +123,5 @@ namespace DataAccessLayer
         {
             return false;
         }
-
-
     }
 }
