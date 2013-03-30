@@ -4,6 +4,7 @@
     <script type="text/javascript" src="Javascript/jquery-1.9.1.min.js" ></script>
     <script type="text/javascript">
         <!-- 
+
     function request(callback,index) {
         var xhr = getXMLHttpRequest();
      
@@ -28,12 +29,15 @@
         
     }
 
-        function majEvent(sData) {
+    function majEvent(sData) {
+            $('#lieuSection').hide();
             $('#idEvent').html(sData);
+            $('#eventSection').show();
         }
 
         function majLieux(sData) {
             $('#idLieu').html(sData);
+            $('#lieuSection').show();
         }
 
         function reserver() {
