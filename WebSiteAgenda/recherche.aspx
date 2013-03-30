@@ -4,6 +4,7 @@
     <script type="text/javascript" src="Javascript/jquery-1.9.1.min.js" ></script>
     <script type="text/javascript">
         <!-- 
+
     function request(callback,index) {
         var xhr = getXMLHttpRequest();
      
@@ -28,12 +29,15 @@
         
     }
 
-        function majEvent(sData) {
+    function majEvent(sData) {
+            $('#lieuSection').hide();
             $('#idEvent').html(sData);
+            $('#eventSection').show();
         }
 
         function majLieux(sData) {
             $('#idLieu').html(sData);
+            $('#lieuSection').show();
         }
 
         function reserver() {
@@ -47,6 +51,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p class="formEvent">
         <form method="get" action="reservation.aspx">
+        <p id="artisteSection" >
             <label>Liste des artises:</label>
         <select id="artiste" onchange="request(majEvent,0)">
             <%
@@ -58,16 +63,17 @@
                 Response.Write("<option value="+art.Giud+">"+ art.Nom +"<option/>");
             }    
             %>
-        </select><br/>
+        </select></p>
+        <p id="eventSection" style="display:none">
             <label>Liste des evènement:</label>
         <select name="idEvent" id="idEvent" onchange="request(majLieux,1)">
            
-        </select><br />
-
+        </select></p>
+        <p id="lieuSection" style="display:none">
             <label>Liste des lieux:</label>
         <select name="idLieu" id="idLieu">
         </select>
-        <br />
+        </p>
         <input type="submit" value="Réserver" />
         </form>
         

@@ -16,9 +16,9 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,6 +59,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="connexion.aspx" />
     <Content Include="error.aspx" />
     <Content Include="gestionRecherche.aspx" />
     <Content Include="index.aspx" />
@@ -100,6 +101,13 @@
     <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="connexion.aspx.cs">
+      <DependentUpon>connexion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="connexion.aspx.designer.cs">
+      <DependentUpon>connexion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
