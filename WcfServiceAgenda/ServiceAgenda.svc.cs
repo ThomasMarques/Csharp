@@ -13,23 +13,6 @@ namespace WcfServiceAgenda
 {
     public class ServiceAgenda : IServiceAgenda
     {
-        public string GetData(int value)
-        {
-            return string.Format("You entered: {0}", value);
-        }
-
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
-        }
 
 
         public IList<Business.ArtistWS> GetAllArtistes(String login, String passwd)
@@ -182,19 +165,10 @@ namespace WcfServiceAgenda
             return ret;
         }
 
-        public IList<Business.PlanningElementWS> GetPlanningElementByLieu(string login, string passwd, String guidLieu)
+        public IList<Business.PlanningElementWS> GetAllPlanningElementByLieu(String login, String passwd, System.Guid guidLieu)
         {
             IList<Business.PlanningElementWS> plannings = (from p in new BusinessManager().getPlanningElements()
                                                            where guidLieu.Equals(p.MonLieu.Guid)
-                                                           select Business.PlanningElementWS.Convert(p)).ToList();
-
-            return plannings;
-        }
-
-        public IList<Business.PlanningElementWS> GetPlanningElementByEvent(string login, string passwd, String guidEv)
-        {
-            IList<Business.PlanningElementWS> plannings = (from p in new BusinessManager().getPlanningElements()
-                                                           where guidEv.Equals(p.MonEvement.Guid)
                                                            select Business.PlanningElementWS.Convert(p)).ToList();
 
             return plannings;

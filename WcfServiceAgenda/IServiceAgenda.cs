@@ -40,10 +40,7 @@ namespace WcfServiceAgenda
         Boolean CreateUser(String yourLogin, String yourPass, String login, String passwd, String nom, String prenom);
 
         [OperationContract]
-        IList<Business.PlanningElementWS> GetPlanningElementByLieu(String login, String passwd, String guidLieu);
-
-        [OperationContract]
-        IList<Business.PlanningElementWS> GetPlanningElementByEvent(string login, string passwd, String guidEv);
+        IList<Business.PlanningElementWS> GetAllPlanningElementByLieu(String login, String passwd, System.Guid guidLieu);
 
         [OperationContract]
         int GetNbPlacesAvailable(String login, String passwd, EntitiesLayer.PlanningElement pe);
@@ -56,28 +53,5 @@ namespace WcfServiceAgenda
         
         [OperationContract]
         bool ReserverPlaces(EntitiesLayer.PlanningElement planning, int nbPlaces);
-    }
-
-
-    // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
     }
 }

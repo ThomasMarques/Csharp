@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:1318/ServiceAgenda.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" />
-  <xs:import schemaLocation="http://localhost:1318/ServiceAgenda.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer" />
   <xs:import schemaLocation="http://localhost:1318/ServiceAgenda.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:1318/ServiceAgenda.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer" />
   <xs:element name="GetAllArtistes">
     <xs:complexType>
       <xs:sequence>
@@ -33,6 +33,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllEventsByArtiste">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidArtiste" type="q3:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEventsByArtisteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllEventsByArtisteResult" nillable="true" type="q4:ArrayOfEvenementWS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllLieux">
     <xs:complexType>
       <xs:sequence>
@@ -44,7 +60,7 @@
   <xs:element name="GetAllLieuxResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllLieuxResult" nillable="true" type="q3:ArrayOfLieuWS" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllLieuxResult" nillable="true" type="q5:ArrayOfLieuWS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -59,27 +75,27 @@
   <xs:element name="GetAllPlanningElementsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllPlanningElementsResult" nillable="true" type="q4:ArrayOfPlanningElementWS" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllPlanningElementsResult" nillable="true" type="q6:ArrayOfPlanningElementWS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllEventsByArtiste">
+  <xs:element name="GetAllPlanningElementsByEvent">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
-        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidArtiste" type="q5:guid" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidEvent" type="q7:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllEventsByArtisteResponse">
+  <xs:element name="GetAllPlanningElementsByEventResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllEventsByArtisteResult" nillable="true" type="q6:ArrayOfEvenementWS" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllPlanningElementsByEventResult" nillable="true" type="q8:ArrayOfPlanningElementWS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllLieux">
+  <xs:element name="GetAllUsers">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
@@ -90,7 +106,7 @@
   <xs:element name="GetAllUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllLieuxResult" nillable="true" type="q7:ArrayOfLieuWS" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllUsersResult" nillable="true" type="q9:ArrayOfUtilisateurWS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -109,55 +125,23 @@
   <xs:element name="CreateUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllPlanningElementsResult" nillable="true" type="q8:ArrayOfPlanningElementWS" />
+        <xs:element minOccurs="0" name="CreateUserResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllPlanningElementsByEvent">
+  <xs:element name="GetAllPlanningElementByLieu">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
-        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidEvent" type="q9:guid" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidLieu" type="q10:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllPlanningElementsByEventResponse">
+  <xs:element name="GetAllPlanningElementByLieuResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllPlanningElementsByEventResult" nillable="true" type="q10:ArrayOfPlanningElementWS" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllUsers">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="guidLieu" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPlanningElementByLieuResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllUsersResult" nillable="true" type="q11:ArrayOfUtilisateurWS" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPlanningElementByEvent">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="guidEv" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPlanningElementByEventResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetPlanningElementByEventResult" nillable="true" type="q7:ArrayOfPlanningElementWS" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllPlanningElementByLieuResult" nillable="true" type="q11:ArrayOfPlanningElementWS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -166,7 +150,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="pe" nillable="true" type="q8:PlanningElement" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="pe" nillable="true" type="q12:PlanningElement" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -180,7 +164,7 @@
   <xs:element name="AnnulationReservation">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidResa" type="q9:guid" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidResa" type="q13:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -194,21 +178,21 @@
   <xs:element name="GetReservation">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidResa" type="q10:guid" />
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidResa" type="q14:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetReservationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetReservationResult" nillable="true" type="q11:ReservationWS" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetReservationResult" nillable="true" type="q15:ReservationWS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ReserverPlaces">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="planning" nillable="true" type="q12:PlanningElement" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="planning" nillable="true" type="q16:PlanningElement" />
         <xs:element minOccurs="0" name="nbPlaces" type="xs:int" />
       </xs:sequence>
     </xs:complexType>

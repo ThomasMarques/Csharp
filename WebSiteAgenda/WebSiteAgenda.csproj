@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="connexion.aspx" />
+    <Content Include="deconnexion.aspx" />
     <Content Include="error.aspx" />
     <Content Include="gestionRecherche.aspx" />
     <Content Include="index.aspx" />
@@ -108,6 +109,13 @@
     <Compile Include="connexion.aspx.designer.cs">
       <DependentUpon>connexion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="deconnexion.aspx.cs">
+      <DependentUpon>deconnexion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="deconnexion.aspx.designer.cs">
+      <DependentUpon>deconnexion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,6 +159,7 @@
     <Compile Include="recherche.aspx.designer.cs">
       <DependentUpon>recherche.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sanitizer.cs" />
     <Compile Include="Service References\WcfServiceAgenda\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

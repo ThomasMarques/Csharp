@@ -1091,17 +1091,11 @@ namespace WebSiteAgenda.WcfServiceAgenda {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/CreateUser", ReplyAction="http://tempuri.org/IServiceAgenda/CreateUserResponse")]
         System.Threading.Tasks.Task<bool> CreateUserAsync(string yourLogin, string yourPass, string login, string passwd, string nom, string prenom);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetPlanningElementByLieu", ReplyAction="http://tempuri.org/IServiceAgenda/GetPlanningElementByLieuResponse")]
-        WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[] GetPlanningElementByLieu(string login, string passwd, string guidLieu);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElementByLieu", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllPlanningElementByLieuResponse")]
+        WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[] GetAllPlanningElementByLieu(string login, string passwd, System.Guid guidLieu);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetPlanningElementByLieu", ReplyAction="http://tempuri.org/IServiceAgenda/GetPlanningElementByLieuResponse")]
-        System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[]> GetPlanningElementByLieuAsync(string login, string passwd, string guidLieu);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetPlanningElementByEvent", ReplyAction="http://tempuri.org/IServiceAgenda/GetPlanningElementByEventResponse")]
-        WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[] GetPlanningElementByEvent(string login, string passwd, string guidEv);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetPlanningElementByEvent", ReplyAction="http://tempuri.org/IServiceAgenda/GetPlanningElementByEventResponse")]
-        System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[]> GetPlanningElementByEventAsync(string login, string passwd, string guidEv);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElementByLieu", ReplyAction="http://tempuri.org/IServiceAgenda/GetAllPlanningElementByLieuResponse")]
+        System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[]> GetAllPlanningElementByLieuAsync(string login, string passwd, System.Guid guidLieu);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetNbPlacesAvailable", ReplyAction="http://tempuri.org/IServiceAgenda/GetNbPlacesAvailableResponse")]
         int GetNbPlacesAvailable(string login, string passwd, WebSiteAgenda.WcfServiceAgenda.PlanningElement pe);
@@ -1219,20 +1213,12 @@ namespace WebSiteAgenda.WcfServiceAgenda {
             return base.Channel.CreateUserAsync(yourLogin, yourPass, login, passwd, nom, prenom);
         }
         
-        public WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[] GetPlanningElementByLieu(string login, string passwd, string guidLieu) {
-            return base.Channel.GetPlanningElementByLieu(login, passwd, guidLieu);
+        public WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[] GetAllPlanningElementByLieu(string login, string passwd, System.Guid guidLieu) {
+            return base.Channel.GetAllPlanningElementByLieu(login, passwd, guidLieu);
         }
         
-        public System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[]> GetPlanningElementByLieuAsync(string login, string passwd, string guidLieu) {
-            return base.Channel.GetPlanningElementByLieuAsync(login, passwd, guidLieu);
-        }
-        
-        public WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[] GetPlanningElementByEvent(string login, string passwd, string guidEv) {
-            return base.Channel.GetPlanningElementByEvent(login, passwd, guidEv);
-        }
-        
-        public System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[]> GetPlanningElementByEventAsync(string login, string passwd, string guidEv) {
-            return base.Channel.GetPlanningElementByEventAsync(login, passwd, guidEv);
+        public System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[]> GetAllPlanningElementByLieuAsync(string login, string passwd, System.Guid guidLieu) {
+            return base.Channel.GetAllPlanningElementByLieuAsync(login, passwd, guidLieu);
         }
         
         public int GetNbPlacesAvailable(string login, string passwd, WebSiteAgenda.WcfServiceAgenda.PlanningElement pe) {

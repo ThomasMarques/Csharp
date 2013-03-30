@@ -51,31 +51,50 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p class="formEvent">
         <form method="get" action="reservation.aspx">
-        <p id="artisteSection" >
-            <label>Liste des artises:</label>
-        <select id="artiste" onchange="request(majEvent,0)">
-            <%
+            <table id="table-rech">
+                <tr>
+                    <td>
+                        <label>Liste des artises:</label>
+                    </td>
+                    <td>
+                        <select id="artiste" onchange="request(majEvent,0)">
+                    <%
             
-            WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient service = new WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient();
-            WebSiteAgenda.WcfServiceAgenda.ArtistWS[] artistes = service.GetAllArtistes("toto", "12299170891009567410982971131211871132061153230");
-            foreach (WebSiteAgenda.WcfServiceAgenda.ArtistWS art in artistes)
-            {
-                Response.Write("<option value="+art.Giud+">"+ art.Nom +"<option/>");
-            }    
-            %>
-        </select></p>
-        <p id="eventSection" style="display:none">
-            <label>Liste des evènement:</label>
-        <select name="idEvent" id="idEvent" onchange="request(majLieux,1)">
-           
-        </select></p>
-        <p id="lieuSection" style="display:none">
-            <label>Liste des lieux:</label>
-        <select name="idLieu" id="idLieu">
-        </select>
-        </p>
-        <input type="submit" value="Réserver" />
+                    WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient service = new WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient();
+                    WebSiteAgenda.WcfServiceAgenda.ArtistWS[] artistes = service.GetAllArtistes("toto", "12299170891009567410982971131211871132061153230");
+                    foreach (WebSiteAgenda.WcfServiceAgenda.ArtistWS art in artistes)
+                    {
+                        Response.Write("<option value="+art.Giud+">"+ art.Nom +"</option>");
+                    }    
+                    %>
+                </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Liste des evènements:</label>
+                    </td>
+                    <td>
+                        <select name="idEvent" id="idEvent" onchange="request(majLieux,1)">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Liste des lieux:</label>
+                    </td>
+                    <td>
+                        <select name="idLieu" id="idLieu">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Réserver" />
+                    </td>
+                </tr>
+            </table>
         </form>
-        
     </p>
 </asp:Content>

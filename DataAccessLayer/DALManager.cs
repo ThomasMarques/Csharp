@@ -103,17 +103,18 @@ namespace DataAccessLayer
 
         }
 
+
         public int GetNbPlacesAvailable(PlanningElement planning)
         {
             return 0;
         }
 
-        public Boolean AnnulationReservation(System.Guid guidResa)
+        public bool AnnulationReservation(Guid guidResa)
         {
             return false;
         }
 
-        public Reservation GetReservation(System.Guid guidResa)
+        public Reservation GetReservation(Guid guidResa)
         {
             return null;
         }
@@ -122,7 +123,5 @@ namespace DataAccessLayer
         {
             return false;
         }
-
-
     }
 }

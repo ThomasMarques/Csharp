@@ -48,17 +48,17 @@ namespace DataAccessLayer
         public DALSQLServer(String connectionString)
         {
             _connectionString = connectionString;
-            try
-            {
+            //try
+            //{
                 _connection = new SqlConnection(_connectionString);
                 _connection.Open();
                 //SqlCommand command = new SqlCommand("DELETE FROM Users where login='invite'; INSERT INTO Users VALUES('invite','" + mdp + "','Invi','té');", _connection);
                 //command.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                //Console.WriteLine(e.ToString());
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    //Console.WriteLine(e.ToString());
+            //}
         }
 
         /// <summary>
