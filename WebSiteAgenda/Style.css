@@ -26,6 +26,11 @@ h2
     text-align: center;
 }
 
+h3 
+{
+    color: #83981e;
+}
+
 button, input[type=button], input[type=submit] 
 {
     cursor: pointer;
@@ -130,7 +135,26 @@ button:hover, input[type=button]:hover, input[type=submit]:hover
 
 #pageContent 
 {
-    margin: 25px 0 30px 0;
+    margin: 25px 15px 30px 20px;
+}
+
+#formValidation 
+{
+    border-spacing: 0px;
+    border-collapse: collapse;
+    vertical-align: central;
+}
+
+#reservation div
+{
+    background: url("images/degrad.png") left bottom no-repeat;
+    padding-bottom: 20px;
+}
+
+#reservation #choixDate
+{
+    background: none;
+    padding-bottom: 0px;
 }
 
 #table-rech td 

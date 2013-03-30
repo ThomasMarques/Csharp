@@ -102,6 +102,28 @@ namespace WcfServiceAgenda
             return ret;
         }
 
+        public IList<Business.PlanningElementWS> GetAllPlanningElementByLieuAndEvent(String login, String passwd, System.Guid guidLieu, System.Guid guidEv)
+        {
+            IList<Business.PlanningElementWS> ret = null;
+
+            if (CheckUser(login, passwd))
+            {
+                IList<PlanningElement> pe = new BusinessManager().getPlanningElements()
+                    .Where(a => a.MonEvement.Guid == guidEv)
+                    .Where(a => a.MonLieu.Guid == guidLieu)
+                    .ToList();
+
+                ret = new List<Business.PlanningElementWS>();
+
+                foreach (PlanningElement p in pe)
+                {
+                    ret.Add(Business.PlanningElementWS.Convert(p));
+                }
+            }
+
+            return ret;
+        }
+
         public IList<Business.UtilisateurWS> GetAllUsers(String login, String passwd)
         {
             IList<Business.UtilisateurWS> ret = null;

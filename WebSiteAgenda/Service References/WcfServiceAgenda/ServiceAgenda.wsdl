@@ -62,6 +62,12 @@
   <wsdl:message name="IServiceAgenda_GetAllPlanningElementByLieu_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllPlanningElementByLieuResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceAgenda_GetAllPlanningElementByLieuAndEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlanningElementByLieuAndEvent" />
+  </wsdl:message>
+  <wsdl:message name="IServiceAgenda_GetAllPlanningElementByLieuAndEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlanningElementByLieuAndEventResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceAgenda_GetNbPlacesAvailable_InputMessage">
     <wsdl:part name="parameters" element="tns:GetNbPlacesAvailable" />
   </wsdl:message>
@@ -122,6 +128,10 @@
     <wsdl:operation name="GetAllPlanningElementByLieu">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElementByLieu" message="tns:IServiceAgenda_GetAllPlanningElementByLieu_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElementByLieuResponse" message="tns:IServiceAgenda_GetAllPlanningElementByLieu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPlanningElementByLieuAndEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElementByLieuAndEvent" message="tns:IServiceAgenda_GetAllPlanningElementByLieuAndEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceAgenda/GetAllPlanningElementByLieuAndEventResponse" message="tns:IServiceAgenda_GetAllPlanningElementByLieuAndEvent_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetNbPlacesAvailable">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceAgenda/GetNbPlacesAvailable" message="tns:IServiceAgenda_GetNbPlacesAvailable_InputMessage" />
@@ -216,6 +226,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllPlanningElementByLieu">
       <soap:operation soapAction="http://tempuri.org/IServiceAgenda/GetAllPlanningElementByLieu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPlanningElementByLieuAndEvent">
+      <soap:operation soapAction="http://tempuri.org/IServiceAgenda/GetAllPlanningElementByLieuAndEvent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

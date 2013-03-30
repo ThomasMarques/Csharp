@@ -54,6 +54,7 @@
                     </td>
                     <td>
                         <select id="artiste" onchange="request(majEvent,0)">
+                            <option value="null"></option>
                     <%
             
                     WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient service = new WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient();
@@ -72,13 +73,6 @@
                     </td>
                     <td>
                         <select name="idEvent" id="idEvent" onchange="request(majLieux,1)">
-                        <%
-                            WebSiteAgenda.WcfServiceAgenda.EvenementWS[] events = service.GetAllEventsByArtiste("toto", "12299170891009567410982971131211871132061153230",artistes.First().Giud);
-                            foreach (WebSiteAgenda.WcfServiceAgenda.EvenementWS e in events)
-                            {
-                                Response.Write("<option value=" + e.Guid + ">" + e.Titre + "</option>");
-                            }
-                        %>
                         </select>
                     </td>
                 </tr>

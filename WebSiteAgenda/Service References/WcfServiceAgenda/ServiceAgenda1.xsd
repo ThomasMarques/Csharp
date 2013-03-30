@@ -145,12 +145,29 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllPlanningElementByLieuAndEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidLieu" type="q12:guid" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidEv" type="q13:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPlanningElementByLieuAndEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetAllPlanningElementByLieuAndEventResult" nillable="true" type="q14:ArrayOfPlanningElementWS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetNbPlacesAvailable">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="pe" nillable="true" type="q12:PlanningElement" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="pe" nillable="true" type="q15:PlanningElement" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -164,7 +181,7 @@
   <xs:element name="AnnulationReservation">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidResa" type="q13:guid" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidResa" type="q16:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -178,21 +195,21 @@
   <xs:element name="GetReservation">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidResa" type="q14:guid" />
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidResa" type="q17:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetReservationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetReservationResult" nillable="true" type="q15:ReservationWS" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="GetReservationResult" nillable="true" type="q18:ReservationWS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ReserverPlaces">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="planning" nillable="true" type="q16:PlanningElement" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="planning" nillable="true" type="q19:PlanningElement" />
         <xs:element minOccurs="0" name="nbPlaces" type="xs:int" />
       </xs:sequence>
     </xs:complexType>

@@ -74,6 +74,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Style.css" />
+    <Content Include="validation.aspx" />
     <Content Include="Web.config" />
     <Content Include="Main.Master" />
     <None Include="Service References\WcfServiceAgenda\ServiceAgenda2.xsd">
@@ -147,6 +148,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="validation.aspx.cs">
+      <DependentUpon>validation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="validation.aspx.designer.cs">
+      <DependentUpon>validation.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

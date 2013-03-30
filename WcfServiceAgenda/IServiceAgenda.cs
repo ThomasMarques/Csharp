@@ -43,6 +43,9 @@ namespace WcfServiceAgenda
         IList<Business.PlanningElementWS> GetAllPlanningElementByLieu(String login, String passwd, System.Guid guidLieu);
 
         [OperationContract]
+        IList<Business.PlanningElementWS> GetAllPlanningElementByLieuAndEvent(String login, String passwd, System.Guid guidLieu, System.Guid guidEv);
+
+        [OperationContract]
         int GetNbPlacesAvailable(String login, String passwd, EntitiesLayer.PlanningElement pe);
 
         [OperationContract]

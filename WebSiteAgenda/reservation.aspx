@@ -13,25 +13,22 @@
         {
         
         
-        string identifiant = "toto";
-        string mdp = "12299170891009567410982971131211871132061153230";
+            string identifiant = "toto";
+            string mdp = "12299170891009567410982971131211871132061153230";
 
-        WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient service = new WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient();
+            WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient service = new WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient();
 
-        Guid uid = new Guid(idLieu);
-        IList<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS> planningLieu = service.GetAllPlanningElementByLieu(identifiant, mdp, uid);
-        IList<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS> planningEvent = service.GetAllPlanningElementsByEvent(identifiant, mdp, uid);
-        IList<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS> plannings;
+            Guid uidL = new Guid(idLieu);
+            Guid uidEv = new Guid(idEvent);
 
-        uid = new Guid(idEvent);
-        plannings = planningLieu.Intersect(planningEvent).ToList();
+            IList<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS> plannings = service.GetAllPlanningElementByLieuAndEvent(identifiant, mdp, uidL, uidEv);
 
-        if(plannings.Count > 0)
-        {
+            if(plannings.Count > 0)
+            {
     %>
     
     <script type="text/javascript">
-        incPlace()
+        function incPlace()
         {
             var place = document.getElementById("nbPlaces");
             var placeDispos = document.getElementById("nbPlacesDispos");
@@ -42,7 +39,7 @@
             }
         }
 
-        decPlace()
+        function decPlace()
         {
             var place = document.getElementById("nbPlaces");
 
@@ -51,7 +48,7 @@
             }
         }
 
-        verif()
+        function verif()
         {
             var place = document.getElementById("nbPlaces");
             var placeDispos = document.getElementById("nbPlacesDispos");
@@ -66,80 +63,92 @@
         }
 
     </script>
+    <div id="reservation">
 
-    <div id="ResumeArtist">
-        <% 
-            Response.Write("<h3>Listes des Artistes présents :</h3>\n");
-            Response.Write("<ul id=\"listArtists\">\n");
+        <div id="ResumeArtist">
+            <% 
+                Response.Write("<h3>Listes des Artistes présents :</h3>\n");
+                Response.Write("<ul id=\"listArtists\">\n");
         
-            StringBuilder sb = new StringBuilder();
+                StringBuilder sb = new StringBuilder();
             
                 
-            foreach(WebSiteAgenda.WcfServiceAgenda.ArtistWS artiste in plannings.First().MonEvement.Artistes)
-            {
-                sb.Append(artiste.Prenom).Append(" ").Append(artiste.Nom);
+                foreach(WebSiteAgenda.WcfServiceAgenda.ArtistWS artiste in plannings.First().MonEvement.Artistes)
+                {
+                    sb.Append(artiste.Prenom).Append(" ").Append(artiste.Nom);
                     
-                Response.Write("<li>"+ sb.ToString() +"</li>\n");
-                sb.Clear();
-            }
-    %>
-        </ul>
-
-        StringBuilder sb = new StringBuilder();
-        sb.Append(_prenom).Append(" ").Append(_nom);
-        if(_dateDeNaissance != null)
-            sb.Append(" née le  ").Append(((DateTime)_dateDeNaissance).ToString("dd / MM / yyyy"));
-
-    </div>
-    
-    <div id="ResumeEvent" >
-        <h3><% Response.Write(plannings.First().MonEvement.Titre); %></h3>
-
-        Description : <br />
-        <% Response.Write(plannings.First().MonEvement.Description); %>
-    </div>   
-    
-    <div id="ResumeLieu" >
-        <h3><% Response.Write(plannings.First().MonLieu.Nom); %></h3>
-
-        Adresse :  <br />
-        <% Response.Write(plannings.First().MonLieu.Adresse); %> <br />
-        <br />
-        Nombre de places totales : <% Response.Write(plannings.First().MonLieu.NombrePlacesTotal); %>
-    </div>   
-    
-    <div id="choixDate" >
-        <h3>Quand voulez vous assistez au spectable ?</h3>
-
-        Veuillez selectionner un date :  <br />
-        <select name="selectDate" onchange="" >
-            <option value="null" > </option>
-
-            <%
-            foreach (WebSiteAgenda.WcfServiceAgenda.PlanningElementWS p in plannings)
-            {
-                Response.Write("<option>" + p.DateDebut.ToString("dddd, dd MMMM yyyy") + "<option/>");
-            }    
+                    Response.Write("<li>"+ sb.ToString() +"</li>\n");
+                    sb.Clear();
+                }
+                Response.Write("</ul>");
             %>
 
-        </select>
-        <br />
-        <br />
-        <form action="validation.aspx" autocomplete="on" >
+        </div>
+    
+        <div id="ResumeEvent" >
+            <h3><% Response.Write(plannings.First().MonEvement.Titre); %></h3>
 
-            Il ne reste plus que <span id="nbPlacesDispos">10</span> disponibles. 
+            Description : <br />
+            <% 
+                String desc = plannings.First().MonEvement.Description;
+                if (desc == null || desc.Trim().Length == 0)
+                {
+                    desc = "Aucune description disponible";
+                }
+                Response.Write(desc);
+            %>
+        </div>   
+    
+        <div id="ResumeLieu" >
+            <h3><% Response.Write(plannings.First().MonLieu.Nom); %></h3>
 
-            Nombre de places à reserver : <br />
-            <input type="text" id="nbPlaces" size="2" value="1" onchange="verif()" />
-            <button value="+" onclick="incPlace()" />
-            <button value="-" onclick="decPlace()" />
+            Adresse :  <br />
+            <% Response.Write(plannings.First().MonLieu.Adresse); %> <br />
             <br />
+            Nombre de places totales : <% Response.Write(plannings.First().MonLieu.NombrePlacesTotal); %>
+        </div>   
+    
+        <div id="choixDate" >
+            <h3>Quand voulez vous assistez au spectable ?</h3>
 
-            <input type="submit" value="Réserver" />
+            Veuillez selectionner un date :  <br />
+            <select name="selectDate" id="selectDate" onchange="" >
+                <option value="null" > </option>
 
-        </form>
+                <%
+                foreach (WebSiteAgenda.WcfServiceAgenda.PlanningElementWS p in plannings)
+                {
+                    Response.Write("<option>" + p.DateDebut.ToString("dddd, dd MMMM yyyy") + "</option>");
+                }    
+                %>
+
+            </select>
+            <br />
+            <br />
+            <form action="validation.aspx" method="get" id="formValidation" >
+
+                Il ne reste plus que <span id="nbPlacesDispos">10</span> disponibles. 
+
+                Nombre de places à reserver : <br />
+                <table>
+                    <tr>
+                        <td>
+                            <input type="text" name="nbPlaces" id="nbPlaces" size="2" value="1" onchange="verif()" />
+                        </td>
+                        <td>
+                            <a href="#inc" onclick="incPlace()" ><img src="images/plus.png" alt="+" /></a><br />
+                            <a href="#dec" onclick="decPlace()" ><img src="images/moins.png" alt="-" /></a>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+
+                <input type="submit" value="Réserver" />
+
+            </form>
 
 
+        </div>
     </div>
 
 
