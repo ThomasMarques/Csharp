@@ -149,7 +149,7 @@ namespace BusinessLayer
         {
             byte[] buffer = Encoding.UTF8.GetBytes(text);
             SHA1CryptoServiceProvider cryptoTransformSHA1 = new SHA1CryptoServiceProvider();
-            return Encoding.UTF8.GetString(cryptoTransformSHA1.ComputeHash(buffer));
+            return BitConverter.ToString(cryptoTransformSHA1.ComputeHash(buffer)).Replace("-", "").ToLower();
         }
 
 

@@ -55,7 +55,7 @@
                     <%
             
                     WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient service = new WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient();
-                    WebSiteAgenda.WcfServiceAgenda.ArtistWS[] artistes = service.GetAllArtistes("toto", "12299170891009567410982971131211871132061153230");
+                    WebSiteAgenda.WcfServiceAgenda.ArtistWS[] artistes = service.GetAllArtistes("toto", "0b9c2625dc21ef05f6ad4ddf47c5f203837aa32c");
                     foreach (WebSiteAgenda.WcfServiceAgenda.ArtistWS art in artistes)
                     {
                         Response.Write("<option value="+art.Giud+">"+ art.Nom +"</option>");

@@ -28,6 +28,14 @@
                     </div>
                 </div>
             </a>
+            <div id="utilisateur">
+                <%
+                    if (Session["Username"] != null)
+                        Response.Write("Bonjour " + Session["UserSurname"] + " " + Session["UserName"]+". <a href='deconnexion.aspx'>Déconnexion</a>");
+                    else
+                        Response.Write("Vous n'êtes pas connecté.");
+                     %>
+            </div>
             <div id="menu">
                 <h2>Menu</h2>
                 <form id="form1" runat="server">
