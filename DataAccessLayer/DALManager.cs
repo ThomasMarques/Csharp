@@ -22,7 +22,8 @@ namespace DataAccessLayer
         {
             if (provider == DALProvider.SQLSERVER)
             {
-                _dal = new DALSQLServer(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=D:\Projet\Csharp\DataAccessLayer\EventsAgenda.mdf;Integrated Security=True");
+                 _dal = new DALSQLServer(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Gaetan\Documents\Git\Csharp\DataAccessLayer\EventsAgenda.mdf;Integrated Security=True");
+                //_dal = new DALSQLServer(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=D:\Projet\Csharp\DataAccessLayer\EventsAgenda.mdf;Integrated Security=True");
             }
         }
         /// <summary>

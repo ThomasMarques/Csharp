@@ -15,12 +15,12 @@
         };
  
         var artiste = encodeURIComponent(document.getElementById("artiste").value);
-        var event = encodeURIComponent(document.getElementById("idEvent").value);
-        var lieux = encodeURIComponent(document.getElementById("idLieu").value);
+        var event = encodeURIComponent($('select[name="idEvent"]').val());
+        var lieux = encodeURIComponent($('select[name="idLieu"]').val());
 
         var query;
         switch (index) {
-            case 0 : query = "artiste=" + artiste;break;
+            case 0: query = "artiste=" + artiste;break;
             case 1 : query = "event=" + event; break;
         }
 
@@ -31,26 +31,20 @@
 
     function majEvent(sData) {
             $('#lieuSection').hide();
-            $('#idEvent').html(sData);
+            $('select[name="idEvent"]').html(sData);
             $('#eventSection').show();
         }
 
-        function majLieux(sData) {
-            $('#idLieu').html(sData);
-            $('#lieuSection').show();
-        }
-
-        function reserver() {
-            var event = encodeURIComponent(document.getElementById("event").value);
-            var lieux = encodeURIComponent(document.getElementById("lieux").value);
-            document.location.href = 'reservation.apsx?idLieu=' + lieux + '&idEvent=' + event;
-        }
+    function majLieux(sData) {
+        $('select[name="idLieu"]').html(sData);
+        $('#lieuSection').show();
+    }
         //-->
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p class="formEvent">
-        <form method="get" action="reservation.aspx">
+        <form method="get" action="reservation.aspx" >
             <table id="table-rech">
                 <tr>
                     <td>
@@ -58,7 +52,6 @@
                     </td>
                     <td>
                         <select id="artiste" onchange="request(majEvent,0)">
-                            <option value="null"></option>
                     <%
             
                     WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient service = new WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient();
@@ -71,21 +64,21 @@
                 </select>
                     </td>
                 </tr>
-                <tr>
+                <tr id="eventSection" style="display:none">
                     <td>
                         <label>Liste des evènements:</label>
                     </td>
                     <td>
-                        <select name="idEvent" id="idEvent" onchange="request(majLieux,1)">
+                        <select name="idEvent" onchange="request(majLieux,1)">
                         </select>
                     </td>
                 </tr>
-                <tr>
+                <tr id="lieuSection" style="display:none">
                     <td>
                         <label>Liste des lieux:</label>
                     </td>
                     <td>
-                        <select name="idLieu" id="idLieu">
+                        <select name="idLieu">
                         </select>
                     </td>
                 </tr>
