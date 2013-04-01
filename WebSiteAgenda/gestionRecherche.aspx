@@ -8,7 +8,7 @@
         Response.Write("<option value=\"null\"></option>");
         if (!Request.QueryString["artiste"].Equals("null"))
         {
-            WebSiteAgenda.WcfServiceAgenda.EvenementWS[] events = service.GetAllEventsByArtiste("toto", "0b9c2625dc21ef05f6ad4ddf47c5f203837aa32c", System.Guid.Parse(Request.QueryString["artiste"]));
+            WebSiteAgenda.WcfServiceAgenda.EvenementWS[] events = service.GetAllEventsByArtiste(Session["UserLogin"].ToString(), Session["UserPass"].ToString(), System.Guid.Parse(Request.QueryString["artiste"]));
             foreach (WebSiteAgenda.WcfServiceAgenda.EvenementWS e in events)
             {
                 Response.Write("<option value=" + e.Guid + ">" + e.Titre + "</option>");
@@ -21,10 +21,10 @@
         Response.Write("<option value=\"null\"></option>");
         if (!Request.QueryString["event"].Equals("null"))
         {
-            WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[] planning = service.GetAllPlanningElementsByEvent("toto", "0b9c2625dc21ef05f6ad4ddf47c5f203837aa32c", System.Guid.Parse(Request.QueryString["event"])).Distinct().ToArray();
-            foreach (WebSiteAgenda.WcfServiceAgenda.PlanningElementWS pe in planning)
+            WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[] planning = service.GetAllPlanningElementsByEvent(Session["UserLogin"].ToString(), Session["UserPass"].ToString(), System.Guid.Parse(Request.QueryString["event"])).Distinct().ToArray();
+            foreach (WebSiteAgenda.WcfServiceAgenda.LieuWS lieu in ((from p in planning select p.MonLieu).ToList().Distinct()))
             {
-                Response.Write("<option value=" + pe.MonLieu.Guid + ">" + pe.MonLieu.Nom + "</option>");
+                Response.Write("<option value=" + lieu.Guid + ">" + lieu.Nom + "</option>");
             }
         }
     }

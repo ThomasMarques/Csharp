@@ -25,7 +25,6 @@
     <MetadataFile FileName="ServiceAgenda.xsd" MetadataType="Schema" ID="4b57cb59-dfbd-4354-9fa6-a0e1d6670704" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?xsd=xsd2" />
     <MetadataFile FileName="ServiceAgenda1.xsd" MetadataType="Schema" ID="ae2329e1-c4ea-4a06-951b-ebbcc738bbfe" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?xsd=xsd0" />
     <MetadataFile FileName="ServiceAgenda.disco" MetadataType="Disco" ID="06e51b90-ce4c-478a-960c-1662874aa6bc" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?disco" />
-    <MetadataFile FileName="ServiceAgenda2.xsd" MetadataType="Schema" ID="f871d30f-9016-4172-92a4-78df64c734a1" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?xsd=xsd3" />
     <MetadataFile FileName="ServiceAgenda3.xsd" MetadataType="Schema" ID="dd4d007d-4e9c-4003-979b-6600b193005f" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?xsd=xsd1" />
     <MetadataFile FileName="ServiceAgenda.wsdl" MetadataType="Wsdl" ID="91a0b3af-dbb6-4620-8000-220cc7699fe0" SourceId="1" SourceUrl="http://localhost:1318/ServiceAgenda.svc?wsdl" />
   </Metadata>

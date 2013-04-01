@@ -10,6 +10,6 @@
 namespace WebSiteAgenda {
     
     
-    public partial class validation {
+    public partial class annulerResa {
     }
 }

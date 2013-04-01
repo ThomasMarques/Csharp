@@ -130,7 +130,7 @@ button:hover, input[type=button]:hover, input[type=submit]:hover
 {
     width: 650px;
     display: block;
-    min-height: 250px;
+    min-height: 300px;
 }
 
 #pageContent 
@@ -201,5 +201,17 @@ button:hover, input[type=button]:hover, input[type=submit]:hover
 #utilisateur 
 {
    text-align:right;
-   font: 12px "Times New Roman", serif;
+   font-size: 14px;
 }
+
+#utilisateur #name
+{
+   color: #83981e;
+}
+
+#utilisateur a, #utilisateur a:hover, #utilisateur a:visited
+{
+    text-decoration: none;
+    color: #666;
+}
+

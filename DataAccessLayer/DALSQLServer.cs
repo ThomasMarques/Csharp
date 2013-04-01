@@ -538,76 +538,119 @@ namespace DataAccessLayer
             command.ExecuteNonQuery();
         }
 
-        public int GetNbPlacesAvailable(PlanningElement planning)
+        public int GetNbPlacesAvailableStored(PlanningElement planning)
         {
-            int ret = 0;
-            SqlCommand command = new SqlCommand("exec GET_AVAIABLE_PLACES(@placeGuid, @eventGuid, @dateGuid)",
-                _connection);
+            int ret;
+            SqlCommand command = new SqlCommand("GET_AVAIABLE_PLACES", _connection);
+            command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.Add(new SqlParameter("@placeGuid", planning.MonLieu.Guid));
             command.Parameters.Add(new SqlParameter("@eventGuid", planning.MonEvement.Guid));
             command.Parameters.Add(new SqlParameter("@dateGuid", planning.DateDebut));
 
+
             SqlDataReader reader = command.ExecuteReader();
 
             if (reader.Read())
             {
-                ret = (int)reader[0];
+                ret = (Int32)reader[0];
             }
-
+            else
+                throw new NullReferenceException();
+            
             reader.Close();
 
             return ret;
         }
 
-        public bool ReserverPlaces(PlanningElement planning, int nbPlaces)
+        public int GetNbPlacesAvailable(PlanningElement planning)
         {
-            Boolean ret = false;
+            float ret;
+            SqlCommand command = new SqlCommand("SELECT NUMBER_PLACES FROM PLACES "
+                                                + "WHERE GUID = @placeGuid", _connection);
+            command.Parameters.Add("@placeGuid", SqlDbType.UniqueIdentifier).Value = planning.MonLieu.Guid;
+
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Read();
+            ret = (float)reader[0];
+            reader.Close();
+
+            command = new SqlCommand("SELECT RESERVED_PLACES FROM EVENT_DATE_PLACE "
+                                    +"WHERE EVENT_GUID = @event "
+                                    +"and DATE_BEGIN = @datedeb "
+                                    + "and PLACE_GUID = @placeGuid", _connection);
+
+            command.Parameters.Add("@event", SqlDbType.UniqueIdentifier).Value = planning.MonEvement.Guid;
+            command.Parameters.Add("@DateDeb", SqlDbType.DateTime).Value = planning.DateDebut;
+            command.Parameters.Add("@placeGuid", SqlDbType.UniqueIdentifier).Value = planning.MonLieu.Guid;
+
+            reader = command.ExecuteReader();
+            reader.Read();
+            ret -= (int)reader[0];
+            reader.Close();
+
+            return (int)ret;
+        }
+
+        public Reservation ReserverPlaces(PlanningElement planning, int nbPlaces)
+        {
+            Reservation resa = null;
 
             if (GetNbPlacesAvailable(planning) >= nbPlaces)
             {
-                SqlCommand command = new SqlCommand("INSERT INTO RESERVATION VALUES(,'" + nbPlaces.ToString() + "','" + planning.MonEvement.Guid.ToString() + "','" + planning.MonEvement.Guid.ToString() + "','" + planning.DateDebut + "');",
+                resa = new Reservation(planning, nbPlaces, Guid.NewGuid());
+
+                SqlCommand command = new SqlCommand("INSERT INTO RESERVATION VALUES('"+resa.Guid.ToString()+"','" + nbPlaces.ToString() + "','" + planning.MonEvement.Guid.ToString() + "','" + planning.MonLieu.Guid.ToString() + "', @dateDeb);",
                 _connection);
+                command.Parameters.Add("@dateDeb", SqlDbType.DateTime).Value = planning.DateDebut;
                 command.ExecuteNonQuery();
 
-                command = new SqlCommand("UPDATE EVENT_DATE_PLACE SET RESERVED_PLACES = RESERVED_PLACES + '" + nbPlaces.ToString() + "' );",
+
+                command = new SqlCommand("UPDATE EVENT_DATE_PLACE SET RESERVED_PLACES = (RESERVED_PLACES + " + nbPlaces.ToString() + ");",
                 _connection);
                 command.ExecuteNonQuery();
-
-                ret = true;
             }
 
-            return ret;
+            return resa;
         }
 
         public Reservation GetReservation(System.Guid guidResa)
         {
             Reservation resa = null;
 
-            SqlCommand command = new SqlCommand("SELECT * INTO Reservation WHERE GUID = '" + guidResa + "';",
+            SqlCommand command = new SqlCommand("SELECT * FROM Reservation WHERE ID = '" + guidResa + "';",
                 _connection);
 
             SqlDataReader reader = command.ExecuteReader();
 
             if (reader.Read())
             {
+                string text = "";
+
                 resa = new Reservation();
 
                 resa.Guid = (System.Guid)reader[0];
                 resa.NbPlaces = (int)reader[1];
+                resa.Planning = null;
 
                 System.Guid ev = (System.Guid)reader[2];
                 System.Guid lieu = (System.Guid)reader[3];
                 DateTime date = (DateTime)reader[4];
 
+                text += ev.ToString() + "\t" + lieu.ToString() + "\t" + date + "\n";
+
                 foreach (PlanningElement pe in GetAllPlanningElement())
                 {
+                    text += pe.MonEvement.Guid.ToString() + "\t" + pe.MonLieu.Guid.ToString() + "\t" + pe.DateDebut + "\n"; 
+                    
                     if (ev.Equals(pe.MonEvement.Guid) && lieu.Equals(pe.MonLieu.Guid) && date.Equals(pe.DateDebut))
                     {
                         resa.Planning = pe;
                         break;
                     }
                 }
+                
+                System.IO.File.WriteAllText(@"C:\Users\Thomas\Downloads\WriteLines.txt", text);
             }
 
             reader.Close();
@@ -619,7 +662,7 @@ namespace DataAccessLayer
         {
             Boolean ret = false;
 
-            SqlCommand command = new SqlCommand("SELECT nbPlaces INTO Reservation WHERE GUID = '" + guidResa + "';",
+            SqlCommand command = new SqlCommand("SELECT nbPlaces FROM Reservation WHERE ID = '" + guidResa + "';",
                 _connection);
 
             SqlDataReader reader = command.ExecuteReader();
@@ -628,12 +671,14 @@ namespace DataAccessLayer
             {
                 int nbPlaces = (int)reader[0];
 
-                command = new SqlCommand("DELETE Reservation WHERE GUID = '" + guidResa + "';",
+                reader.Close();
+
+                command = new SqlCommand("DELETE Reservation WHERE ID = '" + guidResa + "';",
                     _connection);
 
                 command.ExecuteNonQuery();
 
-                command = new SqlCommand("UPDATE EVENT_DATE_PLACE SET RESERVED_PLACES = RESERVED_PLACES - '" + nbPlaces.ToString() + "' );",
+                command = new SqlCommand("UPDATE EVENT_DATE_PLACE SET RESERVED_PLACES = (RESERVED_PLACES - " + nbPlaces.ToString() + " );",
                     _connection);
                 command.ExecuteNonQuery();
 

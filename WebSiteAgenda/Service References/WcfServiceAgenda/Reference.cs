@@ -512,458 +512,6 @@ namespace WebSiteAgenda.WcfServiceAgenda {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PlanningElement", Namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer")]
-    [System.SerializableAttribute()]
-    public partial class PlanningElement : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime DateDebutField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> DateFinField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Guid GuidField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebSiteAgenda.WcfServiceAgenda.Evenement MonEvementField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebSiteAgenda.WcfServiceAgenda.Lieu MonLieuField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int NbPlacesReserveesField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime DateDebut {
-            get {
-                return this.DateDebutField;
-            }
-            set {
-                if ((this.DateDebutField.Equals(value) != true)) {
-                    this.DateDebutField = value;
-                    this.RaisePropertyChanged("DateDebut");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> DateFin {
-            get {
-                return this.DateFinField;
-            }
-            set {
-                if ((this.DateFinField.Equals(value) != true)) {
-                    this.DateFinField = value;
-                    this.RaisePropertyChanged("DateFin");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Guid Guid {
-            get {
-                return this.GuidField;
-            }
-            set {
-                if ((this.GuidField.Equals(value) != true)) {
-                    this.GuidField = value;
-                    this.RaisePropertyChanged("Guid");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebSiteAgenda.WcfServiceAgenda.Evenement MonEvement {
-            get {
-                return this.MonEvementField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MonEvementField, value) != true)) {
-                    this.MonEvementField = value;
-                    this.RaisePropertyChanged("MonEvement");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebSiteAgenda.WcfServiceAgenda.Lieu MonLieu {
-            get {
-                return this.MonLieuField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MonLieuField, value) != true)) {
-                    this.MonLieuField = value;
-                    this.RaisePropertyChanged("MonLieu");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int NbPlacesReservees {
-            get {
-                return this.NbPlacesReserveesField;
-            }
-            set {
-                if ((this.NbPlacesReserveesField.Equals(value) != true)) {
-                    this.NbPlacesReserveesField = value;
-                    this.RaisePropertyChanged("NbPlacesReservees");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Evenement", Namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer")]
-    [System.SerializableAttribute()]
-    public partial class Evenement : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebSiteAgenda.WcfServiceAgenda.Artiste[] ArtistesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float TarifField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TitreField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebSiteAgenda.WcfServiceAgenda.Artiste[] Artistes {
-            get {
-                return this.ArtistesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ArtistesField, value) != true)) {
-                    this.ArtistesField = value;
-                    this.RaisePropertyChanged("Artistes");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public float Tarif {
-            get {
-                return this.TarifField;
-            }
-            set {
-                if ((this.TarifField.Equals(value) != true)) {
-                    this.TarifField = value;
-                    this.RaisePropertyChanged("Tarif");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Titre {
-            get {
-                return this.TitreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TitreField, value) != true)) {
-                    this.TitreField = value;
-                    this.RaisePropertyChanged("Titre");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Lieu", Namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer")]
-    [System.SerializableAttribute()]
-    public partial class Lieu : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AdresseField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodePostalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NomField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int NombrePlacesTotalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PaysField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> PourcentageCommissionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TelephoneField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string VilleField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Adresse {
-            get {
-                return this.AdresseField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AdresseField, value) != true)) {
-                    this.AdresseField = value;
-                    this.RaisePropertyChanged("Adresse");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CodePostal {
-            get {
-                return this.CodePostalField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodePostalField, value) != true)) {
-                    this.CodePostalField = value;
-                    this.RaisePropertyChanged("CodePostal");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nom {
-            get {
-                return this.NomField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NomField, value) != true)) {
-                    this.NomField = value;
-                    this.RaisePropertyChanged("Nom");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int NombrePlacesTotal {
-            get {
-                return this.NombrePlacesTotalField;
-            }
-            set {
-                if ((this.NombrePlacesTotalField.Equals(value) != true)) {
-                    this.NombrePlacesTotalField = value;
-                    this.RaisePropertyChanged("NombrePlacesTotal");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Pays {
-            get {
-                return this.PaysField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PaysField, value) != true)) {
-                    this.PaysField = value;
-                    this.RaisePropertyChanged("Pays");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> PourcentageCommission {
-            get {
-                return this.PourcentageCommissionField;
-            }
-            set {
-                if ((this.PourcentageCommissionField.Equals(value) != true)) {
-                    this.PourcentageCommissionField = value;
-                    this.RaisePropertyChanged("PourcentageCommission");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Telephone {
-            get {
-                return this.TelephoneField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TelephoneField, value) != true)) {
-                    this.TelephoneField = value;
-                    this.RaisePropertyChanged("Telephone");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ville {
-            get {
-                return this.VilleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.VilleField, value) != true)) {
-                    this.VilleField = value;
-                    this.RaisePropertyChanged("Ville");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Artiste", Namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer")]
-    [System.SerializableAttribute()]
-    public partial class Artiste : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> DateDeNaissanceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NomField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PrenomField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> DateDeNaissance {
-            get {
-                return this.DateDeNaissanceField;
-            }
-            set {
-                if ((this.DateDeNaissanceField.Equals(value) != true)) {
-                    this.DateDeNaissanceField = value;
-                    this.RaisePropertyChanged("DateDeNaissance");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nom {
-            get {
-                return this.NomField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NomField, value) != true)) {
-                    this.NomField = value;
-                    this.RaisePropertyChanged("Nom");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Prenom {
-            get {
-                return this.PrenomField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PrenomField, value) != true)) {
-                    this.PrenomField = value;
-                    this.RaisePropertyChanged("Prenom");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReservationWS", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business")]
     [System.SerializableAttribute()]
     public partial class ReservationWS : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1104,28 +652,28 @@ namespace WebSiteAgenda.WcfServiceAgenda {
         System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.PlanningElementWS[]> GetAllPlanningElementByLieuAndEventAsync(string login, string passwd, System.Guid guidLieu, System.Guid guidEv);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetNbPlacesAvailable", ReplyAction="http://tempuri.org/IServiceAgenda/GetNbPlacesAvailableResponse")]
-        int GetNbPlacesAvailable(string login, string passwd, WebSiteAgenda.WcfServiceAgenda.PlanningElement pe);
+        int GetNbPlacesAvailable(string login, string passwd, System.Guid pe);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetNbPlacesAvailable", ReplyAction="http://tempuri.org/IServiceAgenda/GetNbPlacesAvailableResponse")]
-        System.Threading.Tasks.Task<int> GetNbPlacesAvailableAsync(string login, string passwd, WebSiteAgenda.WcfServiceAgenda.PlanningElement pe);
+        System.Threading.Tasks.Task<int> GetNbPlacesAvailableAsync(string login, string passwd, System.Guid pe);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/AnnulationReservation", ReplyAction="http://tempuri.org/IServiceAgenda/AnnulationReservationResponse")]
-        bool AnnulationReservation(System.Guid guidResa);
+        bool AnnulationReservation(string login, string passwd, System.Guid guidResa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/AnnulationReservation", ReplyAction="http://tempuri.org/IServiceAgenda/AnnulationReservationResponse")]
-        System.Threading.Tasks.Task<bool> AnnulationReservationAsync(System.Guid guidResa);
+        System.Threading.Tasks.Task<bool> AnnulationReservationAsync(string login, string passwd, System.Guid guidResa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetReservation", ReplyAction="http://tempuri.org/IServiceAgenda/GetReservationResponse")]
-        WebSiteAgenda.WcfServiceAgenda.ReservationWS GetReservation(System.Guid guidResa);
+        WebSiteAgenda.WcfServiceAgenda.ReservationWS GetReservation(string login, string passwd, System.Guid guidResa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/GetReservation", ReplyAction="http://tempuri.org/IServiceAgenda/GetReservationResponse")]
-        System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.ReservationWS> GetReservationAsync(System.Guid guidResa);
+        System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.ReservationWS> GetReservationAsync(string login, string passwd, System.Guid guidResa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/ReserverPlaces", ReplyAction="http://tempuri.org/IServiceAgenda/ReserverPlacesResponse")]
-        bool ReserverPlaces(WebSiteAgenda.WcfServiceAgenda.PlanningElement planning, int nbPlaces);
+        WebSiteAgenda.WcfServiceAgenda.ReservationWS ReserverPlaces(string login, string passwd, System.Guid planning, int nbPlaces);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAgenda/ReserverPlaces", ReplyAction="http://tempuri.org/IServiceAgenda/ReserverPlacesResponse")]
-        System.Threading.Tasks.Task<bool> ReserverPlacesAsync(WebSiteAgenda.WcfServiceAgenda.PlanningElement planning, int nbPlaces);
+        System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.ReservationWS> ReserverPlacesAsync(string login, string passwd, System.Guid planning, int nbPlaces);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1235,36 +783,36 @@ namespace WebSiteAgenda.WcfServiceAgenda {
             return base.Channel.GetAllPlanningElementByLieuAndEventAsync(login, passwd, guidLieu, guidEv);
         }
         
-        public int GetNbPlacesAvailable(string login, string passwd, WebSiteAgenda.WcfServiceAgenda.PlanningElement pe) {
+        public int GetNbPlacesAvailable(string login, string passwd, System.Guid pe) {
             return base.Channel.GetNbPlacesAvailable(login, passwd, pe);
         }
         
-        public System.Threading.Tasks.Task<int> GetNbPlacesAvailableAsync(string login, string passwd, WebSiteAgenda.WcfServiceAgenda.PlanningElement pe) {
+        public System.Threading.Tasks.Task<int> GetNbPlacesAvailableAsync(string login, string passwd, System.Guid pe) {
             return base.Channel.GetNbPlacesAvailableAsync(login, passwd, pe);
         }
         
-        public bool AnnulationReservation(System.Guid guidResa) {
-            return base.Channel.AnnulationReservation(guidResa);
+        public bool AnnulationReservation(string login, string passwd, System.Guid guidResa) {
+            return base.Channel.AnnulationReservation(login, passwd, guidResa);
         }
         
-        public System.Threading.Tasks.Task<bool> AnnulationReservationAsync(System.Guid guidResa) {
-            return base.Channel.AnnulationReservationAsync(guidResa);
+        public System.Threading.Tasks.Task<bool> AnnulationReservationAsync(string login, string passwd, System.Guid guidResa) {
+            return base.Channel.AnnulationReservationAsync(login, passwd, guidResa);
         }
         
-        public WebSiteAgenda.WcfServiceAgenda.ReservationWS GetReservation(System.Guid guidResa) {
-            return base.Channel.GetReservation(guidResa);
+        public WebSiteAgenda.WcfServiceAgenda.ReservationWS GetReservation(string login, string passwd, System.Guid guidResa) {
+            return base.Channel.GetReservation(login, passwd, guidResa);
         }
         
-        public System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.ReservationWS> GetReservationAsync(System.Guid guidResa) {
-            return base.Channel.GetReservationAsync(guidResa);
+        public System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.ReservationWS> GetReservationAsync(string login, string passwd, System.Guid guidResa) {
+            return base.Channel.GetReservationAsync(login, passwd, guidResa);
         }
         
-        public bool ReserverPlaces(WebSiteAgenda.WcfServiceAgenda.PlanningElement planning, int nbPlaces) {
-            return base.Channel.ReserverPlaces(planning, nbPlaces);
+        public WebSiteAgenda.WcfServiceAgenda.ReservationWS ReserverPlaces(string login, string passwd, System.Guid planning, int nbPlaces) {
+            return base.Channel.ReserverPlaces(login, passwd, planning, nbPlaces);
         }
         
-        public System.Threading.Tasks.Task<bool> ReserverPlacesAsync(WebSiteAgenda.WcfServiceAgenda.PlanningElement planning, int nbPlaces) {
-            return base.Channel.ReserverPlacesAsync(planning, nbPlaces);
+        public System.Threading.Tasks.Task<WebSiteAgenda.WcfServiceAgenda.ReservationWS> ReserverPlacesAsync(string login, string passwd, System.Guid planning, int nbPlaces) {
+            return base.Channel.ReserverPlacesAsync(login, passwd, planning, nbPlaces);
         }
     }
 }

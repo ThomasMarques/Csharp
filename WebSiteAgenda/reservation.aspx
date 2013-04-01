@@ -13,8 +13,8 @@
         {
         
         
-            string identifiant = "toto";
-            string mdp = "12299170891009567410982971131211871132061153230";
+            string identifiant = Session["UserLogin"].ToString();
+            string mdp = Session["UserPass"].ToString();
 
             WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient service = new WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient();
 
@@ -26,7 +26,8 @@
             if(plannings.Count > 0)
             {
     %>
-    
+    <script type="text/javascript" src="Javascript/oXHR.js"></script>
+    <script type="text/javascript" src="Javascript/jquery-1.9.1.min.js" ></script>
     <script type="text/javascript">
         function incPlace()
         {
@@ -60,6 +61,26 @@
             if (parseInt(place.value) < parseInt(placeDispos.innerHTML)) {
                 place.value = parseInt(placeDispos.innerHTML);
             }
+        }
+
+        function request() {
+            var xhr = getXMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+                    majPlaces(xhr.responseText);
+                }
+            };
+
+            var planning = document.getElementById("selectDate").value;
+
+            xhr.open("GET", "gestionReservation.aspx?planning=" + planning, true);
+            xhr.send(null);
+
+        }
+
+        function majPlaces(data) {
+            document.getElementById("nbPlacesDispos").innerHTML = data;
         }
 
     </script>
@@ -110,30 +131,30 @@
     
         <div id="choixDate" >
             <h3>Quand voulez vous assistez au spectable ?</h3>
+            <form action="validation.aspx" method="get" id="formValidation" >
 
             Veuillez selectionner un date :  <br />
-            <select name="selectDate" id="selectDate" onchange="" >
+            <select name="selectDate" id="selectDate" onchange="request()" >
                 <option value="null" > </option>
 
                 <%
                 foreach (WebSiteAgenda.WcfServiceAgenda.PlanningElementWS p in plannings)
                 {
-                    Response.Write("<option>" + p.DateDebut.ToString("dddd, dd MMMM yyyy") + "</option>");
+                    Response.Write("<option value=\""+p.Guid.ToString()+"\">" + p.DateDebut.ToString("dddd, dd MMMM yyyy") + "</option>");
                 }    
                 %>
 
             </select>
             <br />
             <br />
-            <form action="validation.aspx" method="get" id="formValidation" >
 
-                Il ne reste plus que <span id="nbPlacesDispos">10</span> disponibles. 
+                Il ne reste plus que <span id="nbPlacesDispos">0</span> disponibles. 
 
                 Nombre de places à reserver : <br />
                 <table>
                     <tr>
                         <td>
-                            <input type="text" name="nbPlaces" id="nbPlaces" size="2" value="1" onchange="verif()" />
+                            <input type="text" name="nbPlaces" id="nbPlaces" size="2" value="0" onchange="verif()" onblur="verif()" />
                         </td>
                         <td>
                             <a href="#inc" onclick="incPlace()" ><img src="images/plus.png" alt="+" /></a><br />

@@ -194,7 +194,9 @@ namespace BusinessLayer
 
         public int GetNbPlacesAvailable(PlanningElement planning)
         {
-            return _dal.GetNbPlacesAvailable(planning);
+            return _dal.GetNbPlacesAvailable((from p in _dal.GetAllPlanningElement()
+                                                 where p.Guid.Equals(planning.Guid)
+                                                 select p).ToList().First());
         }
 
         public Boolean AnnulationReservation(System.Guid guidResa)
@@ -207,9 +209,11 @@ namespace BusinessLayer
             return _dal.GetReservation(guidResa);
         }
 
-        public bool ReserverPlaces(PlanningElement planning, int nbPlaces)
+        public Reservation ReserverPlaces(System.Guid planning, int nbPlaces)
         {
-            return _dal.ReserverPlaces(planning,nbPlaces);
+            return _dal.ReserverPlaces((from p in _dal.GetAllPlanningElement()
+                                                 where p.Guid.Equals(planning)
+                                                 select p).ToList().First(), nbPlaces);
         }
     }
 }

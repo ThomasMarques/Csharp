@@ -28,6 +28,7 @@
                 Session["UserLogin"] = login;
                 Session["UserName"] = users.Single().Nom;
                 Session["UserSurname"] = users.Single().Prenom;
+                Session["UserPass"] = pwd;
                 firstConnect = true;
             }
             
@@ -38,18 +39,20 @@
         
          %>
     <form method="post" action="connexion.aspx">
-        <table>
-            <tr><td>Login: </td><td><input name="login" type="text" onblur="verify(this.value,'text-login')"/></td><td id="text-login"></td></tr>
-            <tr><td>Password:</td><td><input name="pwd" type="password" onblur="verify(this.value,'text-pwd')" /></td><td id="text-pwd"></td></tr>
-            <tr><td colspan="3"><input type="submit" value="Connexion" /></td></tr>
-        </table>
+        <center>
+            <table id="table-rech">
+                <tr><td>Login </td><td><input style="text-align: center" name="login" type="text" onblur="verify(this.value,'text-login')"/></td><td id="text-login"></td></tr>
+                <tr><td>Password</td><td ><input style="text-align: center" name="pwd" type="password" onblur="verify(this.value,'text-pwd')" /></td><td id="text-pwd"></td></tr>
+                <tr><td></td><td style="text-align: center" ><input type="submit" value="     Connexion     " /></td></tr>
+            </table>
+        </center>
     </form>
     <% }
        else
        {
             if(firstConnect)
-                Response.Write("Vous êtes maintenant connecté.");    
-            else   
-                Response.Write("Vous êtes déjà connecté.");    
+                Response.Write("<center><h2>Vous êtes maintenant connecté.<h2></center>");    
+            else
+                Response.Write("<center><h2>Vous êtes déjà connecté.<h2></center>");    
         } %>
 </asp:Content>

@@ -63,6 +63,6 @@ namespace DataAccessLayer
 
         Reservation GetReservation(System.Guid guidResa);
 
-        bool ReserverPlaces(PlanningElement planning, int nbPlaces);
+        Reservation ReserverPlaces(PlanningElement planning, int nbPlaces);
     }
 }
