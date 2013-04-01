@@ -59,13 +59,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="annulerResa.aspx" />
     <Content Include="connexion.aspx" />
     <Content Include="deconnexion.aspx" />
     <Content Include="error.aspx" />
     <Content Include="gestionRecherche.aspx" />
+    <Content Include="gestionReservation.aspx" />
     <Content Include="index.aspx" />
     <Content Include="Javascript\jquery-1.9.1.min.js" />
     <Content Include="Javascript\oXHR.js" />
+    <Content Include="recapitulatif.aspx" />
     <Content Include="recherche.aspx" />
     <Content Include="reservation.aspx" />
     <None Include="Service References\WcfServiceAgenda\ServiceAgenda.disco" />
@@ -79,9 +82,6 @@
     <Content Include="validation.aspx" />
     <Content Include="Web.config" />
     <Content Include="Main.Master" />
-    <None Include="Service References\WcfServiceAgenda\ServiceAgenda2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\WcfServiceAgenda\ServiceAgenda3.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -103,6 +103,13 @@
     <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="annulerResa.aspx.cs">
+      <DependentUpon>annulerResa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="annulerResa.aspx.designer.cs">
+      <DependentUpon>annulerResa.aspx</DependentUpon>
+    </Compile>
     <Compile Include="connexion.aspx.cs">
       <DependentUpon>connexion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -131,6 +138,13 @@
     <Compile Include="gestionRecherche.aspx.designer.cs">
       <DependentUpon>gestionRecherche.aspx</DependentUpon>
     </Compile>
+    <Compile Include="gestionReservation.aspx.cs">
+      <DependentUpon>gestionReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gestionReservation.aspx.designer.cs">
+      <DependentUpon>gestionReservation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -146,6 +160,13 @@
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="recapitulatif.aspx.cs">
+      <DependentUpon>recapitulatif.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="recapitulatif.aspx.designer.cs">
+      <DependentUpon>recapitulatif.aspx</DependentUpon>
+    </Compile>
     <Compile Include="reservation.aspx.cs">
       <DependentUpon>reservation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

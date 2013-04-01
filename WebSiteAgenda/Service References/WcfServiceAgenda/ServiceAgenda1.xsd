@@ -2,7 +2,6 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:1318/ServiceAgenda.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" />
   <xs:import schemaLocation="http://localhost:1318/ServiceAgenda.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="http://localhost:1318/ServiceAgenda.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer" />
   <xs:element name="GetAllArtistes">
     <xs:complexType>
       <xs:sequence>
@@ -167,7 +166,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="pe" nillable="true" type="q15:PlanningElement" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="pe" type="q15:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -181,6 +180,8 @@
   <xs:element name="AnnulationReservation">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
         <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidResa" type="q16:guid" />
       </xs:sequence>
     </xs:complexType>
@@ -195,6 +196,8 @@
   <xs:element name="GetReservation">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
         <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="guidResa" type="q17:guid" />
       </xs:sequence>
     </xs:complexType>
@@ -209,7 +212,9 @@
   <xs:element name="ReserverPlaces">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="planning" nillable="true" type="q19:PlanningElement" />
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="planning" type="q19:guid" />
         <xs:element minOccurs="0" name="nbPlaces" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -217,7 +222,7 @@
   <xs:element name="ReserverPlacesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ReserverPlacesResult" type="xs:boolean" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WcfServiceAgenda.Business" minOccurs="0" name="ReserverPlacesResult" nillable="true" type="q20:ReservationWS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

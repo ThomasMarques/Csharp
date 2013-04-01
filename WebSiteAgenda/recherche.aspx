@@ -52,10 +52,11 @@
                     </td>
                     <td>
                         <select id="artiste" onchange="request(majEvent,0)">
+                            <option value="null" ></option>
                     <%
             
                     WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient service = new WebSiteAgenda.WcfServiceAgenda.ServiceAgendaClient();
-                    WebSiteAgenda.WcfServiceAgenda.ArtistWS[] artistes = service.GetAllArtistes("toto", "0b9c2625dc21ef05f6ad4ddf47c5f203837aa32c");
+                    WebSiteAgenda.WcfServiceAgenda.ArtistWS[] artistes = service.GetAllArtistes(Session["UserLogin"].ToString(), Session["UserPass"].ToString());
                     foreach (WebSiteAgenda.WcfServiceAgenda.ArtistWS art in artistes)
                     {
                         Response.Write("<option value="+art.Giud+">"+ art.Nom +"</option>");

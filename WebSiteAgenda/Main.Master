@@ -1,5 +1,13 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="WebSiteAgenda.Main" %>
 
+<%
+    if (Session["Username"] == null)
+    {
+        if (!Request.Url.AbsolutePath.Contains("index.aspx") && !Request.Url.AbsolutePath.Contains("connexion.aspx"))
+            Response.Redirect("connexion.aspx");
+    }
+%>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -31,9 +39,26 @@
             <div id="utilisateur">
                 <%
                     if (Session["Username"] != null)
-                        Response.Write("Bonjour " + Session["UserSurname"] + " " + Session["UserName"]+". <a href='deconnexion.aspx'>Déconnexion</a>");
+                    {
+                        Response.Write("Bonjour <span id=\"name\" >" + Session["UserLogin"] + "</span> - <a href='validation.aspx' >");
+                        if (Session["panier"] != null)
+                        {
+                            int count = (Session["panier"] as List<System.Guid>).Count;
+                            if (count == 0)
+                                Response.Write("Votre panier est vide");
+                            else if (count == 1)
+                                Response.Write("<span id=\"name\" style=\"font-size: 16px;\" >1</span> article dans votre panier");
+                            else
+                                Response.Write("<span id=\"name\" style=\"font-size: 16px;\" >" + count.ToString() + "</span> articles dans votre panier");
+                        }
+                        else
+                            Response.Write("Votre panier est vide");
+                        Response.Write("</a> - <a href='deconnexion.aspx'>Déconnexion</a>");
+                    }
                     else
+                    {
                         Response.Write("Vous n'êtes pas connecté.");
+                    }
                      %>
             </div>
             <div id="menu">

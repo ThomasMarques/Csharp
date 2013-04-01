@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
     <siteMapNode url="index.aspx" title="Accueil"  description="Page d'accueil">
-        <siteMapNode url="connexion.aspx" title="Se connecter" description="Page permettant de se connecter" />
-        <siteMapNode url="recherche.aspx" title="Recherche"  description="Page permettant de rechercher un artiste et ses préstations" />
-        <siteMapNode url="reservation.aspx" title="Réservation"  description="Page permettant de réserver des places." />
+      <siteMapNode url="connexion.aspx" title="Se connecter" description="Page permettant de se connecter" />
+      <siteMapNode url="recherche.aspx" title="Recherche"  description="Page permettant de rechercher un artiste et ses préstations" />
+      <siteMapNode url="reservation.aspx" title="Réservation"  description="Page permettant de réserver des places." />
+      <siteMapNode url="validation.aspx" title="Validation"  description="Page permettant de valider ses réservations." />
     </siteMapNode>
 </siteMap>

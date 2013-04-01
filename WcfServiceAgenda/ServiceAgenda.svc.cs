@@ -14,7 +14,6 @@ namespace WcfServiceAgenda
     public class ServiceAgenda : IServiceAgenda
     {
 
-
         public IList<Business.ArtistWS> GetAllArtistes(String login, String passwd)
         {
             IList<Business.ArtistWS> ret = null;
@@ -189,31 +188,40 @@ namespace WcfServiceAgenda
 
         public IList<Business.PlanningElementWS> GetAllPlanningElementByLieu(String login, String passwd, System.Guid guidLieu)
         {
-            IList<Business.PlanningElementWS> plannings = (from p in new BusinessManager().getPlanningElements()
+            IList<Business.PlanningElementWS> plannings = null;
+            if(CheckUser(login,passwd))
+                plannings = (from p in new BusinessManager().getPlanningElements()
                                                            where guidLieu.Equals(p.MonLieu.Guid)
                                                            select Business.PlanningElementWS.Convert(p)).ToList();
 
             return plannings;
         }
 
-        public int GetNbPlacesAvailable(String login, String passwd, EntitiesLayer.PlanningElement pe)
+        public int GetNbPlacesAvailable(String login, String passwd, System.Guid pe)
         {
-            return new BusinessManager().GetNbPlacesAvailable(pe);
+            PlanningElement plan = new PlanningElement();
+            plan.Guid = pe;
+            return new BusinessManager().GetNbPlacesAvailable(plan);
         }
 
-        public Boolean AnnulationReservation(System.Guid guidResa)
+        public Boolean AnnulationReservation(String login, String passwd, System.Guid guidResa)
         {
             return new BusinessManager().AnnulationReservation(guidResa);
         }
 
-        public WcfServiceAgenda.Business.ReservationWS GetReservation(System.Guid guidResa)
+        public WcfServiceAgenda.Business.ReservationWS GetReservation(String login, String passwd, System.Guid guidResa)
         {
             return ReservationWS.Convert(new BusinessManager().GetReservation(guidResa));
         }
 
-        public bool ReserverPlaces(EntitiesLayer.PlanningElement planning, int nbPlaces)
+        public ReservationWS ReserverPlaces(String login, String passwd, System.Guid planning, int nbPlaces)
         {
-            return new BusinessManager().ReserverPlaces(planning, nbPlaces);
+            ReservationWS ret = null;
+            if(CheckUser(login, passwd))
+            {
+                ret = ReservationWS.Convert(new BusinessManager().ReserverPlaces(planning, nbPlaces));
+            }
+            return ret;
         }
     }
 }

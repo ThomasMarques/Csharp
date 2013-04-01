@@ -46,15 +46,15 @@ namespace WcfServiceAgenda
         IList<Business.PlanningElementWS> GetAllPlanningElementByLieuAndEvent(String login, String passwd, System.Guid guidLieu, System.Guid guidEv);
 
         [OperationContract]
-        int GetNbPlacesAvailable(String login, String passwd, EntitiesLayer.PlanningElement pe);
+        int GetNbPlacesAvailable(String login, String passwd, System.Guid pe);
 
         [OperationContract]
-        Boolean AnnulationReservation(System.Guid guidResa);
+        Boolean AnnulationReservation(String login, String passwd, System.Guid guidResa);
         
         [OperationContract]
-        ReservationWS GetReservation(System.Guid guidResa);
+        ReservationWS GetReservation(String login, String passwd, System.Guid guidResa);
         
         [OperationContract]
-        bool ReserverPlaces(EntitiesLayer.PlanningElement planning, int nbPlaces);
+        ReservationWS ReserverPlaces(String login, String passwd, System.Guid planning, int nbPlaces);
     }
 }
